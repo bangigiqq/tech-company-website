@@ -1,53 +1,36 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="zh-HK">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>??蝭? | RR2資訊科技有限公司</title>
+    <title>服務範圍 | RR2資訊科技有限公司</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        :root {
-            --primary: #0066cc;
-            --secondary: #00a3cc;
-            --dark: #1a1a2e;
-            --light: #f8f9fa;
-            --text: #333;
-            --text-light: #666;
-        }
+        :root { --primary: #0066cc; --secondary: #00a3cc; --dark: #1a1a2e; --light: #f8f9fa; --text: #333; --text-light: #666; }
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Noto Sans TC', sans-serif; color: var(--text); line-height: 1.6; }
         a { text-decoration: none; color: inherit; }
         
         .navbar { background: #fff; box-shadow: 0 2px 20px rgba(0,0,0,0.08); padding: 15px 0; position: fixed; width: 100%; top: 0; z-index: 1000; }
         .navbar .container { display: flex; justify-content: space-between; align-items: center; }
-        .logo { font-size: 24px; font-weight: 700; color: var(--primary); }
+        .logo { font-size: 22px; font-weight: 700; color: var(--primary); }
         .logo span { color: var(--secondary); }
         .nav-menu { display: flex; gap: 30px; align-items: center; }
         .nav-menu a { font-weight: 500; color: var(--text); transition: color 0.3s; }
         .nav-menu a:hover, .nav-menu a.active { color: var(--primary); }
         .btn-contact { background: var(--primary); color: #fff !important; padding: 10px 25px; border-radius: 25px; }
-        .btn-contact:hover { background: var(--secondary); }
         
         .page-header { background: linear-gradient(135deg, var(--dark) 0%, #16213e 100%); color: #fff; padding: 150px 0 80px; text-align: center; }
         .page-header h1 { font-size: 48px; font-weight: 700; margin-bottom: 15px; }
         .page-header p { font-size: 18px; opacity: 0.8; }
         
         .section { padding: 80px 0; }
-        .section-header { text-align: center; margin-bottom: 60px; }
-        .section-header h2 { font-size: 36px; font-weight: 700; margin-bottom: 15px; }
-        .section-header p { color: var(--text-light); font-size: 18px; }
         
         .service-detail { background: var(--light); }
-        .service-card { 
-            background: #fff; border-radius: 15px; overflow: hidden; 
-            box-shadow: 0 5px 20px rgba(0,0,0,0.08); margin-bottom: 30px;
-        }
-        .service-icon-large { 
-            background: linear-gradient(135deg, var(--primary), var(--secondary)); 
-            padding: 60px; text-align: center; font-size: 72px; color: #fff; 
-        }
+        .service-card { background: #fff; border-radius: 15px; overflow: hidden; box-shadow: 0 5px 20px rgba(0,0,0,0.08); margin-bottom: 30px; }
+        .service-icon-large { background: linear-gradient(135deg, var(--primary), var(--secondary)); padding: 60px; text-align: center; font-size: 72px; color: #fff; }
         .service-body { padding: 40px; }
         .service-body h3 { font-size: 28px; margin-bottom: 15px; }
         .service-body > p { color: var(--text-light); margin-bottom: 25px; font-size: 16px; }
@@ -55,17 +38,13 @@
         .service-features li { padding: 12px 20px; background: var(--light); border-radius: 8px; }
         .service-features li i { color: var(--primary); margin-right: 10px; }
         .tech-stack { display: flex; flex-wrap: wrap; gap: 10px; }
-        .tech-tag { 
-            padding: 8px 18px; background: rgba(0,102,204,0.1); 
-            color: var(--primary); border-radius: 20px; font-size: 14px; 
-        }
+        .tech-tag { padding: 8px 18px; background: rgba(0,102,204,0.1); color: var(--primary); border-radius: 20px; font-size: 14px; }
         
         .cta { background: var(--dark); color: #fff; text-align: center; padding: 80px 0; }
         .cta h2 { font-size: 36px; margin-bottom: 20px; }
         .cta p { font-size: 18px; opacity: 0.8; margin-bottom: 30px; }
         .btn { padding: 15px 35px; border-radius: 30px; font-weight: 600; transition: all 0.3s; display: inline-block; }
         .btn-primary { background: var(--primary); color: #fff; }
-        .btn-primary:hover { background: var(--secondary); transform: translateY(-2px); }
         
         footer { background: var(--dark); color: #fff; padding: 60px 0 20px; }
         .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 40px; }
@@ -74,7 +53,6 @@
         .footer-links h4 { font-size: 18px; margin-bottom: 20px; }
         .footer-links ul li { margin-bottom: 12px; }
         .footer-links a { opacity: 0.7; transition: opacity 0.3s; }
-        .footer-links a:hover { opacity: 1; }
         .footer-bottom { text-align: center; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.1); opacity: 0.6; font-size: 14px; }
         
         @media (max-width: 768px) {
@@ -87,48 +65,44 @@
     </style>
 </head>
 <body>
-    <!-- Navbar -->
     <nav class="navbar">
         <div class="container">
-            <a href="index.html" class="logo">RR2資訊</a>
+            <a href="index.html" class="logo">RR2<span>資訊</span></a>
             <ul class="nav-menu">
-                <li><a href="index.html">擐?</a></li>
-                <li><a href="services.html" class="active">??</a></li>
-                <li><a href="about.html">?</a></li>
-                <li><a href="contact.html">?舐鼠</a></li>
-                <li><a href="contact.html" class="btn-contact">?祥?刻岷</a></li>
+                <li><a href="index.html">首頁</a></li>
+                <li><a href="services.html" class="active">服務</a></li>
+                <li><a href="about.html">關於</a></li>
+                <li><a href="contact.html">聯繫</a></li>
+                <li><a href="contact.html" class="btn-contact">免費咨詢</a></li>
             </ul>
         </div>
     </nav>
 
-    <!-- Page Header -->
     <section class="page-header">
         <div class="container">
-            <h1>??蝭?</h1>
-            <p>?冽雿? IT 閫?捱?寞?嚗遛頞單??蝔桅?瘙?/p>
+            <h1>服務範圍</h1>
+            <p>全方位的 IT 解決方案，滿足您的各種需求</p>
         </div>
     </section>
 
-    <!-- Services -->
     <section class="section service-detail">
         <div class="container">
-            <!-- Service 1 -->
-            <div class="service-card" id="web">
+            <div class="service-card">
                 <div class="row g-0">
                     <div class="col-lg-4">
                         <div class="service-icon-large"><i class="fas fa-globe"></i></div>
                     </div>
                     <div class="col-lg-8">
                         <div class="service-body">
-                            <h3>蝬脩??</h3>
-                            <p>??靘隞??????雯蝡??潭???撟怠?典?詨??誨?怎????隡平摰雯?圈?像?堆???賜?冽??鞈芰?蝺?敶Ｚ情??/p>
+                            <h3>網站開發</h3>
+                            <p>我們提供現代化、響應式的網站開發服務，幫助您在數字時代脫穎而出。</p>
                             <ul class="service-features">
-                                <li><i class="fas fa-check"></i> 隡平摰雯撱箄身</li>
-                                <li><i class="fas fa-check"></i> ?餃???撟喳</li>
-                                <li><i class="fas fa-check"></i> ?踵?撘雯?身閮?/li>
-                                <li><i class="fas fa-check"></i> SEO ?芸???</li>
-                                <li><i class="fas fa-check"></i> Web App ?</li>
-                                <li><i class="fas fa-check"></i> ?批捆蝞∠?蝟餌絞</li>
+                                <li><i class="fas fa-check"></i> 企業官網建設</li>
+                                <li><i class="fas fa-check"></i> 電子商務平台</li>
+                                <li><i class="fas fa-check"></i> 響應式網頁設計</li>
+                                <li><i class="fas fa-check"></i> SEO 優化服務</li>
+                                <li><i class="fas fa-check"></i> Web App 開發</li>
+                                <li><i class="fas fa-check"></i> 內容管理系統</li>
                             </ul>
                             <div class="tech-stack">
                                 <span class="tech-tag">React</span>
@@ -141,23 +115,22 @@
                 </div>
             </div>
 
-            <!-- Service 2 -->
-            <div class="service-card" id="app">
+            <div class="service-card">
                 <div class="row g-0">
                     <div class="col-lg-4">
                         <div class="service-icon-large"><i class="fas fa-mobile-alt"></i></div>
                     </div>
                     <div class="col-lg-8">
                         <div class="service-body">
-                            <h3>?? App ?</h3>
-                            <p>撠平?宏???券??澆????箸?萄遣?撘瑕之??撽??Ｙ? iOS ??Android ?蝔???/p>
+                            <h3>手機 App 開發</h3>
+                            <p>專業的移動應用開發團隊，為您創建功能強大、體驗流暢的 iOS 和 Android 應用程序。</p>
                             <ul class="service-features">
-                                <li><i class="fas fa-check"></i> iOS ???</li>
-                                <li><i class="fas fa-check"></i> Android ???</li>
-                                <li><i class="fas fa-check"></i> React Native ?</li>
-                                <li><i class="fas fa-check"></i> Flutter 頝典像??/li>
-                                <li><i class="fas fa-check"></i> UI/UX 閮剛?</li>
-                                <li><i class="fas fa-check"></i> App Store 銝</li>
+                                <li><i class="fas fa-check"></i> iOS 原生開發</li>
+                                <li><i class="fas fa-check"></i> Android 原生開發</li>
+                                <li><i class="fas fa-check"></i> React Native 開發</li>
+                                <li><i class="fas fa-check"></i> Flutter 跨平台</li>
+                                <li><i class="fas fa-check"></i> UI/UX 設計</li>
+                                <li><i class="fas fa-check"></i> App Store 上架</li>
                             </ul>
                             <div class="tech-stack">
                                 <span class="tech-tag">Swift</span>
@@ -170,23 +143,22 @@
                 </div>
             </div>
 
-            <!-- Service 3 -->
-            <div class="service-card" id="system">
+            <div class="service-card">
                 <div class="row g-0">
                     <div class="col-lg-4">
                         <div class="service-icon-large"><i class="fas fa-server"></i></div>
                     </div>
                     <div class="col-lg-8">
                         <div class="service-body">
-                            <h3>蝟餌絞??</h3>
-                            <p>隡平蝝頂蝯望?獢???迨撜塚?撖衣璆剖?瘚??芸???????????/p>
+                            <h3>系統集成</h3>
+                            <p>企業級系統整合方案，打通數據孤島，實現業務流程自動化，提升運營效率。</p>
                             <ul class="service-features">
-                                <li><i class="fas fa-check"></i> ERP 蝟餌絞??</li>
-                                <li><i class="fas fa-check"></i> CRM 蝟餌絞撠</li>
-                                <li><i class="fas fa-check"></i> API ????/li>
-                                <li><i class="fas fa-check"></i> ?豢?摨怨身閮?/li>
-                                <li><i class="fas fa-check"></i> ?豢??瑞宏??</li>
-                                <li><i class="fas fa-check"></i> 蝟餌絞蝬剛風?舀</li>
+                                <li><i class="fas fa-check"></i> ERP 系統集成</li>
+                                <li><i class="fas fa-check"></i> CRM 系統對接</li>
+                                <li><i class="fas fa-check"></i> API 開發與整合</li>
+                                <li><i class="fas fa-check"></i> 數據庫設計</li>
+                                <li><i class="fas fa-check"></i> 數據遷移服務</li>
+                                <li><i class="fas fa-check"></i> 系統維護支援</li>
                             </ul>
                             <div class="tech-stack">
                                 <span class="tech-tag">Node.js</span>
@@ -199,23 +171,22 @@
                 </div>
             </div>
 
-            <!-- Service 4 -->
-            <div class="service-card" id="cloud">
+            <div class="service-card">
                 <div class="row g-0">
                     <div class="col-lg-4">
                         <div class="service-icon-large"><i class="fas fa-cloud"></i></div>
                     </div>
                     <div class="col-lg-8">
                         <div class="service-body">
-                            <h3>?脩垢??</h3>
-                            <p>撠平?蝡舀瑽身閮??函蔡??嚗鼠?拇撖衣?脩垢頧?嚗澈???扳撅???芸??/p>
+                            <h3>雲端服務</h3>
+                            <p>專業的雲端架構設計和部署服務，幫助您實現雲端轉型，享受彈性擴展的成本優勢。</p>
                             <ul class="service-features">
-                                <li><i class="fas fa-check"></i> ?脩垢?嗆?閮剛?</li>
-                                <li><i class="fas fa-check"></i> AWS ?函蔡??</li>
-                                <li><i class="fas fa-check"></i> Azure ?函蔡??</li>
-                                <li><i class="fas fa-check"></i> DevOps ?刻岷</li>
-                                <li><i class="fas fa-check"></i> 摰孵?蝵?/li>
-                                <li><i class="fas fa-check"></i> ???雁</li>
+                                <li><i class="fas fa-check"></i> 雲端架構設計</li>
+                                <li><i class="fas fa-check"></i> AWS 部署服務</li>
+                                <li><i class="fas fa-check"></i> Azure 部署服務</li>
+                                <li><i class="fas fa-check"></i> DevOps 咨詢</li>
+                                <li><i class="fas fa-check"></i> 容器化部署</li>
+                                <li><i class="fas fa-check"></i> 監控運維</li>
                             </ul>
                             <div class="tech-stack">
                                 <span class="tech-tag">Docker</span>
@@ -230,52 +201,50 @@
         </div>
     </section>
 
-    <!-- CTA -->
     <section class="cta">
         <div class="container">
-            <h2>撠?????嚗?/h2>
-            <p>蝡?刻岷嚗??璆剖遣霅啣??勗</p>
-            <a href="contact.html" class="btn btn-primary">?舐鼠??/a>
+            <h2>對服務有疑問？</h2>
+            <p>立即咨詢，獲取專業建議和報價</p>
+            <a href="contact.html" class="btn btn-primary">聯繫我們</a>
         </div>
     </section>
 
-    <!-- Footer -->
     <footer>
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-brand">
                     <h3>RR2資訊科技有限公司</h3>
-                    <p>瞉喲?????IT 閫?捱?寞?靘????游??潛摰Ｘ???菜????璆剔??銵???/p>
+                    <p>澳門領先的 IT 解決方案供應商，致力於為客戶提供創新、高效、專業的技術服務。</p>
                 </div>
                 <div class="footer-links">
-                    <h4>敹恍??</h4>
+                    <h4>快速連結</h4>
                     <ul>
-                        <li><a href="index.html">擐?</a></li>
-                        <li><a href="services.html">??蝭?</a></li>
-                        <li><a href="about.html">???/a></li>
-                        <li><a href="contact.html">?舐鼠??/a></li>
+                        <li><a href="index.html">首頁</a></li>
+                        <li><a href="services.html">服務範圍</a></li>
+                        <li><a href="about.html">關於我們</a></li>
+                        <li><a href="contact.html">聯繫我們</a></li>
                     </ul>
                 </div>
                 <div class="footer-links">
-                    <h4>??蝭?</h4>
+                    <h4>服務範圍</h4>
                     <ul>
-                        <li><a href="services.html">蝬脩??</a></li>
-                        <li><a href="services.html">App ?</a></li>
-                        <li><a href="services.html">蝟餌絞??</a></li>
-                        <li><a href="services.html">?脩垢??</a></li>
+                        <li><a href="services.html">網站開發</a></li>
+                        <li><a href="services.html">App 開發</a></li>
+                        <li><a href="services.html">系統集成</a></li>
+                        <li><a href="services.html">雲端服務</a></li>
                     </ul>
                 </div>
                 <div class="footer-links">
-                    <h4>?舐鼠??/h4>
+                    <h4>聯繫我們</h4>
                     <ul>
-                        <li><i class="fas fa-map-marker-alt"></i> 瞉喲??孵銵?</li>
+                        <li><i class="fas fa-map-marker-alt"></i> 澳門特別行政區</li>
                         <li><i class="fas fa-phone"></i> +853 2828 2828</li>
-                        <li><i class="fas fa-envelope"></i> info@nexustech.com</li>
+                        <li><i class="fas fa-envelope"></i> info@RR2info.com</li>
                     </ul>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2026 RR2資訊科技有限公司. ?????/p>
+                <p>&copy; 2026 RR2資訊科技有限公司. 版權所有。</p>
             </div>
         </div>
     </footer>
