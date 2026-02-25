@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RR2資訊科技有限公司</title>
+    <title>RR2資訊科技有限公司 | 專業 IT 解決方案</title>
+    <meta name="description" content="RR2資訊科技有限公司 - 澳門領先的 IT 解決方案供應商，提供網站開發、App開發、系統集成、雲端服務等全方位服務。">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -68,6 +69,35 @@
         .testimonial-author h4 { font-size: 16px; margin-bottom: 5px; }
         .testimonial-author span { font-size: 14px; color: var(--text-light); }
         
+        /* Portfolio Section */
+        .portfolio { background: #fff; }
+        .portfolio-item { position: relative; border-radius: 15px; overflow: hidden; margin-bottom: 30px; }
+        .portfolio-image { height: 250px; background: linear-gradient(135deg, var(--primary), var(--secondary)); display: flex; align-items: center; justify-content: center; }
+        .portfolio-image i { font-size: 64px; color: rgba(255,255,255,0.5); }
+        .portfolio-overlay { position: absolute; inset: 0; background: rgba(0,102,204,0.9); color: #fff; display: flex; flex-direction: column; align-items: center; justify-content: center; opacity: 0; transition: all 0.3s; }
+        .portfolio-item:hover .portfolio-overlay { opacity: 1; }
+        .portfolio-overlay h4 { font-size: 20px; margin-bottom: 10px; }
+        .portfolio-overlay p { font-size: 14px; }
+        
+        /* Process Section */
+        .process { background: var(--light); }
+        .process-step { text-align: center; padding: 30px; }
+        .process-number { width: 60px; height: 60px; background: var(--primary); color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; font-size: 24px; font-weight: 700; }
+        .process-step h4 { font-size: 20px; margin-bottom: 10px; }
+        .process-step p { color: var(--text-light); font-size: 14px; }
+        
+        /* Partners Section */
+        .partners { background: #fff; padding: 60px 0; }
+        .partner-logo { height: 80px; background: var(--light); border-radius: 10px; display: flex; align-items: center; justify-content: center; margin: 10px; }
+        .partner-logo i { font-size: 40px; color: var(--text-light); }
+        
+        /* FAQ Section */
+        .faq { background: var(--light); }
+        .accordion-item { border: none; margin-bottom: 15px; border-radius: 10px; overflow: hidden; }
+        .accordion-button { background: #fff; padding: 20px; font-weight: 600; box-shadow: none; }
+        .accordion-button:not(.collapsed) { background: var(--primary); color: #fff; }
+        .accordion-body { background: #fff; padding: 20px; color: var(--text-light); }
+        
         .cta { background: var(--dark); color: #fff; text-align: center; padding: 80px 0; }
         .cta h2 { font-size: 36px; margin-bottom: 20px; }
         .cta p { font-size: 18px; opacity: 0.8; margin-bottom: 30px; }
@@ -110,7 +140,7 @@
     <section class="hero">
         <div class="container">
             <h1>創新科技 · <span>賦能未來</span></h1>
-            <p>專業 IT 解決方案供應商，為您提供網站開發、App 開發、系統集成等全方位服務</p>
+            <p>專業 IT 解決方案供應商，為您提供網站開發、App 開發、系統集成、雲端服務等全方位服務</p>
             <div class="hero-buttons">
                 <a href="contact.html" class="btn btn-primary">立即咨詢</a>
                 <a href="services.html" class="btn btn-outline">了解更多</a>
@@ -129,28 +159,28 @@
                     <div class="feature-card">
                         <div class="feature-icon"><i class="fas fa-rocket"></i></div>
                         <h3>快速交付</h3>
-                        <p>敏捷開發流程，確保項目按時交付</p>
+                        <p>敏捷開發流程，確保項目按時交付，搶佔市場先機</p>
                     </div>
                 </div>
                 <div class="col-md-3">
                     <div class="feature-card">
                         <div class="feature-icon"><i class="fas fa-shield-alt"></i></div>
                         <h3>品質保證</h3>
-                        <p>嚴格質量控制，確保每個項目完美</p>
+                        <p>嚴格質量控制體系，確保每個項目完美交付</p>
                     </div>
                 </div>
                 <div class="col-md-3">
                     <div class="feature-card">
                         <div class="feature-icon"><i class="fas fa-headset"></i></div>
                         <h3>7×24 支援</h3>
-                        <p>全天候技術支援，隨時響應您的需求</p>
+                        <p>全天候技術支援，專屬客戶經理，隨時響應您的需求</p>
                     </div>
                 </div>
                 <div class="col-md-3">
                     <div class="feature-card">
                         <div class="feature-icon"><i class="fas fa-lightbulb"></i></div>
                         <h3>創新技術</h3>
-                        <p>緊跟技術前沿，提供最佳解決方案</p>
+                        <p>緊跟技術前沿，AI、雲端、大數據，賦能業務增長</p>
                     </div>
                 </div>
             </div>
@@ -169,7 +199,7 @@
                         <div class="service-icon"><i class="fas fa-globe"></i></div>
                         <div class="service-content">
                             <h3>網站開發</h3>
-                            <p>現代化網站設計，響應式布局</p>
+                            <p>現代化網站設計，響應式布局，SEO 優化</p>
                             <ul>
                                 <li><i class="fas fa-check"></i> 企業官網</li>
                                 <li><i class="fas fa-check"></i> 電商平台</li>
@@ -183,7 +213,7 @@
                         <div class="service-icon"><i class="fas fa-mobile-alt"></i></div>
                         <div class="service-content">
                             <h3>App 開發</h3>
-                            <p>iOS、Android 跨平台開發</p>
+                            <p>iOS、Android 跨平台開發，優質用戶體驗</p>
                             <ul>
                                 <li><i class="fas fa-check"></i> iOS 開發</li>
                                 <li><i class="fas fa-check"></i> Android 開發</li>
@@ -197,7 +227,7 @@
                         <div class="service-icon"><i class="fas fa-server"></i></div>
                         <div class="service-content">
                             <h3>系統集成</h3>
-                            <p>企業級系統整合，數據互通</p>
+                            <p>企業級系統整合，API 開發，數據互通</p>
                             <ul>
                                 <li><i class="fas fa-check"></i> ERP 集成</li>
                                 <li><i class="fas fa-check"></i> API 開發</li>
@@ -211,7 +241,7 @@
                         <div class="service-icon"><i class="fas fa-cloud"></i></div>
                         <div class="service-content">
                             <h3>雲端服務</h3>
-                            <p>雲端架構設計，彈性擴展</p>
+                            <p>雲端架構設計，AWS/Azure 部署，彈性擴展</p>
                             <ul>
                                 <li><i class="fas fa-check"></i> 雲端部署</li>
                                 <li><i class="fas fa-check"></i> DevOps</li>
@@ -243,6 +273,149 @@
                     <div class="stat-item">
                         <div class="stat-number">5+</div>
                         <div class="stat-label">年行業經驗</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section class="section portfolio">
+        <div class="container">
+            <div class="section-header">
+                <h2>精選案例</h2>
+                <p>成功案例展示</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="portfolio-item">
+                        <div class="portfolio-image"><i class="fas fa-store"></i></div>
+                        <div class="portfolio-overlay">
+                            <h4>電子商務平台</h4>
+                            <p>為零售企業開發的全功能電商系統</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="portfolio-item">
+                        <div class="portfolio-image"><i class="fas fa-hospital"></i></div>
+                        <div class="portfolio-overlay">
+                            <h4>醫療管理系統</h4>
+                            <p>醫院預約及患者管理系統</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="portfolio-item">
+                        <div class="portfolio-image"><i class="fas fa-utensils"></i></div>
+                        <div class="portfolio-overlay">
+                            <h4>餐飲POS系統</h4>
+                            <p>連鎖餐廳點餐及庫存管理系統</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="section process">
+        <div class="container">
+            <div class="section-header">
+                <h2>我們的流程</h2>
+                <p>從需求到交付的完整服務流程</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-3">
+                    <div class="process-step">
+                        <div class="process-number">1</div>
+                        <h4>需求分析</h4>
+                        <p>深入了解您的業務需求，制定專屬方案</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="process-step">
+                        <div class="process-number">2</div>
+                        <h4>方案設計</h4>
+                        <p>提供詳細的技術方案和報價</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="process-step">
+                        <div class="process-number">3</div>
+                        <h4>開發實施</h4>
+                        <p>專業團隊進行開發，定期匯報進度</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="process-step">
+                        <div class="process-number">4</div>
+                        <h4>交付維護</h4>
+                        <p>交付項目並提供持續技術支援</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="section faq">
+        <div class="container">
+            <div class="section-header">
+                <h2>常見問題</h2>
+                <p>解答您的疑問</p>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="accordion" id="faqAccordion">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+                                    項目一般需要多長時間完成？
+                                </button>
+                            </h2>
+                            <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    項目時間取決於複雜程度。一般來說，簡單網站 2-4 週，複雜系統 2-6 個月。我們會在需求分析後提供詳細的時間表。
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+                                    項目費用如何計算？
+                                </button>
+                            </h2>
+                            <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    我們根據項目範圍、開發難度、所需時間等因素綜合定價。提供固定價格和按需收費兩種模式，詳情可在咨詢時了解。
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
+                                    項目完成後有售後服務嗎？
+                                </button>
+                            </h2>
+                            <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    是的！我們提供為期一年的免費售後服務，包括 Bug 修復、技術支援等。期後可選擇續約維護服務。
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq4">
+                                    可以異地合作嗎？
+                                </button>
+                            </h2>
+                            <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    可以！我們支持遠程合作，通過線上會議、項目管理工具等方式保持溝通順暢。已有眾多港澳及內地客戶成功合作案例。
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
