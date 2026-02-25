@@ -3,255 +3,249 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="專業 IT 服務 | 網站開發 | App 開發 | 系統集成 | 雲端服務 - NEXUS Tech">
     <title>服務範圍 | NEXUS Tech</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #0066cc;
+            --secondary: #00a3cc;
+            --dark: #1a1a2e;
+            --light: #f8f9fa;
+            --text: #333;
+            --text-light: #666;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Noto Sans TC', sans-serif; color: var(--text); line-height: 1.6; }
+        a { text-decoration: none; color: inherit; }
+        
+        .navbar { background: #fff; box-shadow: 0 2px 20px rgba(0,0,0,0.08); padding: 15px 0; position: fixed; width: 100%; top: 0; z-index: 1000; }
+        .navbar .container { display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 24px; font-weight: 700; color: var(--primary); }
+        .logo span { color: var(--secondary); }
+        .nav-menu { display: flex; gap: 30px; align-items: center; }
+        .nav-menu a { font-weight: 500; color: var(--text); transition: color 0.3s; }
+        .nav-menu a:hover, .nav-menu a.active { color: var(--primary); }
+        .btn-contact { background: var(--primary); color: #fff !important; padding: 10px 25px; border-radius: 25px; }
+        .btn-contact:hover { background: var(--secondary); }
+        
+        .page-header { background: linear-gradient(135deg, var(--dark) 0%, #16213e 100%); color: #fff; padding: 150px 0 80px; text-align: center; }
+        .page-header h1 { font-size: 48px; font-weight: 700; margin-bottom: 15px; }
+        .page-header p { font-size: 18px; opacity: 0.8; }
+        
+        .section { padding: 80px 0; }
+        .section-header { text-align: center; margin-bottom: 60px; }
+        .section-header h2 { font-size: 36px; font-weight: 700; margin-bottom: 15px; }
+        .section-header p { color: var(--text-light); font-size: 18px; }
+        
+        .service-detail { background: var(--light); }
+        .service-card { 
+            background: #fff; border-radius: 15px; overflow: hidden; 
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08); margin-bottom: 30px;
+        }
+        .service-icon-large { 
+            background: linear-gradient(135deg, var(--primary), var(--secondary)); 
+            padding: 60px; text-align: center; font-size: 72px; color: #fff; 
+        }
+        .service-body { padding: 40px; }
+        .service-body h3 { font-size: 28px; margin-bottom: 15px; }
+        .service-body > p { color: var(--text-light); margin-bottom: 25px; font-size: 16px; }
+        .service-features { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; margin-bottom: 25px; }
+        .service-features li { padding: 12px 20px; background: var(--light); border-radius: 8px; }
+        .service-features li i { color: var(--primary); margin-right: 10px; }
+        .tech-stack { display: flex; flex-wrap: wrap; gap: 10px; }
+        .tech-tag { 
+            padding: 8px 18px; background: rgba(0,102,204,0.1); 
+            color: var(--primary); border-radius: 20px; font-size: 14px; 
+        }
+        
+        .cta { background: var(--dark); color: #fff; text-align: center; padding: 80px 0; }
+        .cta h2 { font-size: 36px; margin-bottom: 20px; }
+        .cta p { font-size: 18px; opacity: 0.8; margin-bottom: 30px; }
+        .btn { padding: 15px 35px; border-radius: 30px; font-weight: 600; transition: all 0.3s; display: inline-block; }
+        .btn-primary { background: var(--primary); color: #fff; }
+        .btn-primary:hover { background: var(--secondary); transform: translateY(-2px); }
+        
+        footer { background: var(--dark); color: #fff; padding: 60px 0 20px; }
+        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 40px; }
+        .footer-brand h3 { font-size: 28px; margin-bottom: 15px; }
+        .footer-brand p { opacity: 0.7; font-size: 14px; line-height: 1.8; }
+        .footer-links h4 { font-size: 18px; margin-bottom: 20px; }
+        .footer-links ul li { margin-bottom: 12px; }
+        .footer-links a { opacity: 0.7; transition: opacity 0.3s; }
+        .footer-links a:hover { opacity: 1; }
+        .footer-bottom { text-align: center; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.1); opacity: 0.6; font-size: 14px; }
+        
+        @media (max-width: 768px) {
+            .nav-menu { display: none; }
+            .page-header { padding: 120px 0 60px; }
+            .page-header h1 { font-size: 32px; }
+            .service-features { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: 1fr; text-align: center; }
+        }
+    </style>
 </head>
 <body>
-    <!-- 導航欄 -->
-    <nav class="navbar" id="navbar">
+    <!-- Navbar -->
+    <nav class="navbar">
         <div class="container">
-            <div class="nav-wrapper">
-                <a href="index.html" class="logo">
-                    <span class="logo-icon"><i class="fa-solid fa-cube"></i></span>
-                    <span class="logo-text">NEXUS<span class="logo-accent">Tech</span></span>
-                </a>
-                <ul class="nav-menu" id="navMenu">
-                    <li><a href="index.html" class="nav-link">首頁</a></li>
-                    <li><a href="services.html" class="nav-link active">服務</a></li>
-                    <li><a href="about.html" class="nav-link">關於</a></li>
-                    <li><a href="contact.html" class="nav-link">聯繫</a></li>
-                </ul>
-                <div class="nav-actions">
-                    <a href="contact.html" class="btn-nav">免費咨詢</a>
-                </div>
-                <div class="hamburger" id="hamburger">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
-            </div>
+            <a href="index.html" class="logo">NEXUS<span>Tech</span></a>
+            <ul class="nav-menu">
+                <li><a href="index.html">首頁</a></li>
+                <li><a href="services.html" class="active">服務</a></li>
+                <li><a href="about.html">關於</a></li>
+                <li><a href="contact.html">聯繫</a></li>
+                <li><a href="contact.html" class="btn-contact">免費咨詢</a></li>
+            </ul>
         </div>
     </nav>
 
-    <!-- 頁面標題 -->
+    <!-- Page Header -->
     <section class="page-header">
-        <div class="page-header-bg"></div>
         <div class="container">
-            <h1>我們的服務</h1>
-            <p>全方位的 IT 解決方案，助您的業務騰飛</p>
+            <h1>服務範圍</h1>
+            <p>全方位的 IT 解決方案，滿足您的各種需求</p>
         </div>
     </section>
 
-    <!-- 服務內容 -->
-    <section class="services-detail">
+    <!-- Services -->
+    <section class="section service-detail">
         <div class="container">
-            <!-- 服務 1 -->
-            <div class="service-detail-card">
-                <div class="service-detail-icon">
-                    <i class="fa-solid fa-globe"></i>
-                </div>
-                <div class="service-detail-content">
-                    <span class="service-number">01</span>
-                    <h2>網站開發</h2>
-                    <p>我們提供現代化、響應式的網站開發服務，幫助您在數字時代脫穎而出。從企業官網到電商平台，我們都能為您打造優質的線上形象。</p>
-                    <ul class="service-features">
-                        <li><i class="fa-solid fa-check"></i> 企業官網建設</li>
-                        <li><i class="fa-solid fa-check"></i> 電子商務平台</li>
-                        <li><i class="fa-solid fa-check"></i> 響應式網頁設計</li>
-                        <li><i class="fa-solid fa-check"></i> SEO 優化服務</li>
-                        <li><i class="fa-solid fa-check"></i> Web App 開發</li>
-                        <li><i class="fa-solid fa-check"></i> PWA  Progressive Web App</li>
-                    </ul>
-                    <div class="service-tech">
-                        <span>技術栈：</span>
-                        <span class="tech-tag">React</span>
-                        <span class="tech-tag">Vue.js</span>
-                        <span class="tech-tag">Next.js</span>
-                        <span class="tech-tag">WordPress</span>
+            <!-- Service 1 -->
+            <div class="service-card" id="web">
+                <div class="row g-0">
+                    <div class="col-lg-4">
+                        <div class="service-icon-large"><i class="fas fa-globe"></i></div>
+                    </div>
+                    <div class="col-lg-8">
+                        <div class="service-body">
+                            <h3>網站開發</h3>
+                            <p>我們提供現代化、響應式的網站開發服務，幫助您在數字時代脫穎而出。從企業官網到電商平台，我們都能為您打造優質的線上形象。</p>
+                            <ul class="service-features">
+                                <li><i class="fas fa-check"></i> 企業官網建設</li>
+                                <li><i class="fas fa-check"></i> 電子商務平台</li>
+                                <li><i class="fas fa-check"></i> 響應式網頁設計</li>
+                                <li><i class="fas fa-check"></i> SEO 優化服務</li>
+                                <li><i class="fas fa-check"></i> Web App 開發</li>
+                                <li><i class="fas fa-check"></i> 內容管理系統</li>
+                            </ul>
+                            <div class="tech-stack">
+                                <span class="tech-tag">React</span>
+                                <span class="tech-tag">Vue.js</span>
+                                <span class="tech-tag">Next.js</span>
+                                <span class="tech-tag">WordPress</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <!-- 服務 2 -->
-            <div class="service-detail-card">
-                <div class="service-detail-icon">
-                    <i class="fa-solid fa-mobile-screen"></i>
-                </div>
-                <div class="service-detail-content">
-                    <span class="service-number">02</span>
-                    <h2>手機 App 開發</h2>
-                    <p>專業的移動應用開發團隊，為您創建功能強大、體驗流暢的 iOS 和 Android 應用程序。</p>
-                    <ul class="service-features">
-                        <li><i class="fa-solid fa-check"></i> iOS 原生開發</li>
-                        <li><i class="fa-solid fa-check"></i> Android 原生開發</li>
-                        <li><i class="fa-solid fa-check"></i> React Native 開發</li>
-                        <li><i class="fa-solid fa-check"></i> Flutter 跨平台開發</li>
-                        <li><i class="fa-solid fa-check"></i> UI/UX 設計</li>
-                        <li><i class="fa-solid fa-check"></i> App Store 上架</li>
-                    </ul>
-                    <div class="service-tech">
-                        <span>技術栈：</span>
-                        <span class="tech-tag">Swift</span>
-                        <span class="tech-tag">Kotlin</span>
-                        <span class="tech-tag">React Native</span>
-                        <span class="tech-tag">Flutter</span>
+            <!-- Service 2 -->
+            <div class="service-card" id="app">
+                <div class="row g-0">
+                    <div class="col-lg-4">
+                        <div class="service-icon-large"><i class="fas fa-mobile-alt"></i></div>
+                    </div>
+                    <div class="col-lg-8">
+                        <div class="service-body">
+                            <h3>手機 App 開發</h3>
+                            <p>專業的移動應用開發團隊，為您創建功能強大、體驗流暢的 iOS 和 Android 應用程序。</p>
+                            <ul class="service-features">
+                                <li><i class="fas fa-check"></i> iOS 原生開發</li>
+                                <li><i class="fas fa-check"></i> Android 原生開發</li>
+                                <li><i class="fas fa-check"></i> React Native 開發</li>
+                                <li><i class="fas fa-check"></i> Flutter 跨平台</li>
+                                <li><i class="fas fa-check"></i> UI/UX 設計</li>
+                                <li><i class="fas fa-check"></i> App Store 上架</li>
+                            </ul>
+                            <div class="tech-stack">
+                                <span class="tech-tag">Swift</span>
+                                <span class="tech-tag">Kotlin</span>
+                                <span class="tech-tag">React Native</span>
+                                <span class="tech-tag">Flutter</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <!-- 服務 3 -->
-            <div class="service-detail-card">
-                <div class="service-detail-icon">
-                    <i class="fa-solid fa-server"></i>
-                </div>
-                <div class="service-detail-content">
-                    <span class="service-number">03</span>
-                    <h2>系統集成</h2>
-                    <p>企業級系統整合方案，打通數據孤島，實現業務流程自動化，提升運營效率。</p>
-                    <ul class="service-features">
-                        <li><i class="fa-solid fa-check"></i> ERP 系統集成</li>
-                        <li><i class="fa-solid fa-check"></i> CRM 系統對接</li>
-                        <li><i class="fa-solid fa-check"></i> API 開發與整合</li>
-                        <li><i class="fa-solid fa-check"></i> 數據庫設計與優化</li>
-                        <li><i class="fa-solid fa-check"></i> 數據遷移服務</li>
-                        <li><i class="fa-solid fa-check"></i> 系統維護支援</li>
-                    </ul>
-                    <div class="service-tech">
-                        <span>技術栈：</span>
-                        <span class="tech-tag">Node.js</span>
-                        <span class="tech-tag">Python</span>
-                        <span class="tech-tag">Java</span>
-                        <span class="tech-tag">PostgreSQL</span>
+            <!-- Service 3 -->
+            <div class="service-card" id="system">
+                <div class="row g-0">
+                    <div class="col-lg-4">
+                        <div class="service-icon-large"><i class="fas fa-server"></i></div>
+                    </div>
+                    <div class="col-lg-8">
+                        <div class="service-body">
+                            <h3>系統集成</h3>
+                            <p>企業級系統整合方案，打通數據孤島，實現業務流程自動化，提升運營效率。</p>
+                            <ul class="service-features">
+                                <li><i class="fas fa-check"></i> ERP 系統集成</li>
+                                <li><i class="fas fa-check"></i> CRM 系統對接</li>
+                                <li><i class="fas fa-check"></i> API 開發與整合</li>
+                                <li><i class="fas fa-check"></i> 數據庫設計</li>
+                                <li><i class="fas fa-check"></i> 數據遷移服務</li>
+                                <li><i class="fas fa-check"></i> 系統維護支援</li>
+                            </ul>
+                            <div class="tech-stack">
+                                <span class="tech-tag">Node.js</span>
+                                <span class="tech-tag">Python</span>
+                                <span class="tech-tag">Java</span>
+                                <span class="tech-tag">PostgreSQL</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <!-- 服務 4 -->
-            <div class="service-detail-card">
-                <div class="service-detail-icon">
-                    <i class="fa-solid fa-cloud"></i>
-                </div>
-                <div class="service-detail-content">
-                    <span class="service-number">04</span>
-                    <h2>雲端服務</h2>
-                    <p>專業的雲端架構設計和部署服務，幫助您實現雲端轉型，享受彈性擴展的成本優勢。</p>
-                    <ul class="service-features">
-                        <li><i class="fa-solid fa-check"></i> 雲端架構設計</li>
-                        <li><i class="fa-solid fa-check"></i> AWS 部署服務</li>
-                        <li><i class="fa-solid fa-check"></i> Azure 部署服務</li>
-                        <li><i class="fa-solid fa-check"></i> 阿里雲部署服務</li>
-                        <li><i class="fa-solid fa-check"></i> DevOps 咨询服务</li>
-                        <li><i class="fa-solid fa-check"></i> 容器化與編排</li>
-                    </ul>
-                    <div class="service-tech">
-                        <span>技術栈：</span>
-                        <span class="tech-tag">Docker</span>
-                        <span class="tech-tag">Kubernetes</span>
-                        <span class="tech-tag">Terraform</span>
-                        <span class="tech-tag">Jenkins</span>
+            <!-- Service 4 -->
+            <div class="service-card" id="cloud">
+                <div class="row g-0">
+                    <div class="col-lg-4">
+                        <div class="service-icon-large"><i class="fas fa-cloud"></i></div>
                     </div>
-                </div>
-            </div>
-
-            <!-- 服務 5 -->
-            <div class="service-detail-card">
-                <div class="service-detail-icon">
-                    <i class="fa-solid fa-shield-halved"></i>
-                </div>
-                <div class="service-detail-content">
-                    <span class="service-number">05</span>
-                    <h2>網絡安全</h2>
-                    <p>全面的網絡安全解決方案，保護您的業務和客戶數據免受威脅。</p>
-                    <ul class="service-features">
-                        <li><i class="fa-solid fa-check"></i> 安全評估與審計</li>
-                        <li><i class="fa-solid fa-check"></i> 滲透測試</li>
-                        <li><i class="fa-solid fa-check"></i> 防火牆配置</li>
-                        <li><i class="fa-solid fa-check"></i> 數據加密服務</li>
-                        <li><i class="fa-solid fa-check"></i> 合規咨詢</li>
-                        <li><i class="fa-solid fa-check"></i> 24/7 安全監控</li>
-                    </ul>
-                    <div class="service-tech">
-                        <span>技術栈：</span>
-                        <span class="tech-tag">SSL/TLS</span>
-                        <span class="tech-tag">WAF</span>
-                        <span class="tech-tag">SOC</span>
-                        <span class="tech-tag">ISO 27001</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 服務 6 -->
-            <div class="service-detail-card">
-                <div class="service-detail-icon">
-                    <i class="fa-solid fa-robot"></i>
-                </div>
-                <div class="service-detail-content">
-                    <span class="service-number">06</span>
-                    <h2>AI 與大數據</h2>
-                    <p>運用人工智能和大數據技術，為您的業務提供智能化的解決方案和數據驅動的決策支持。</p>
-                    <ul class="service-features">
-                        <li><i class="fa-solid fa-check"></i> AI 應用開發</li>
-                        <li><i class="fa-solid fa-check"></i> 機器學習模型</li>
-                        <li><i class="fa-solid fa-check"></i> 數據分析平台</li>
-                        <li><i class="fa-solid fa-check"></i> 商業智能</li>
-                        <li><i class="fa-solid fa-check"></i> 自然語言處理</li>
-                        <li><i class="fa-solid fa-check"></i> 電腦視覺</li>
-                    </ul>
-                    <div class="service-tech">
-                        <span>技術栈：</span>
-                        <span class="tech-tag">Python</span>
-                        <span class="tech-tag">TensorFlow</span>
-                        <span class="tech-tag">PyTorch</span>
-                        <span class="tech-tag">Spark</span>
+                    <div class="col-lg-8">
+                        <div class="service-body">
+                            <h3>雲端服務</h3>
+                            <p>專業的雲端架構設計和部署服務，幫助您實現雲端轉型，享受彈性擴展的成本優勢。</p>
+                            <ul class="service-features">
+                                <li><i class="fas fa-check"></i> 雲端架構設計</li>
+                                <li><i class="fas fa-check"></i> AWS 部署服務</li>
+                                <li><i class="fas fa-check"></i> Azure 部署服務</li>
+                                <li><i class="fas fa-check"></i> DevOps 咨詢</li>
+                                <li><i class="fas fa-check"></i> 容器化部署</li>
+                                <li><i class="fas fa-check"></i> 監控運維</li>
+                            </ul>
+                            <div class="tech-stack">
+                                <span class="tech-tag">Docker</span>
+                                <span class="tech-tag">Kubernetes</span>
+                                <span class="tech-tag">Terraform</span>
+                                <span class="tech-tag">Jenkins</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 行動呼籲 -->
+    <!-- CTA -->
     <section class="cta">
-        <div class="cta-bg"></div>
         <div class="container">
-            <div class="cta-content">
-                <span class="section-tag">聯繫我們</span>
-                <h2>準備好開始您的項目？</h2>
-                <p>立即咨詢，獲取免費項目評估和報價方案</p>
-                <div class="cta-buttons">
-                    <a href="contact.html" class="btn btn-light">
-                        <i class="fa-solid fa-comments"></i>
-                        <span>免費咨詢</span>
-                    </a>
-                    <a href="tel:+85328282828" class="btn btn-outline-light">
-                        <i class="fa-solid fa-phone"></i>
-                        <span>+853 2828 2828</span>
-                    </a>
-                </div>
-            </div>
+            <h2>對服務有疑問？</h2>
+            <p>立即咨詢，獲取專業建議和報價</p>
+            <a href="contact.html" class="btn btn-primary">聯繫我們</a>
         </div>
     </section>
 
-    <!-- 頁腳 -->
-    <footer class="footer">
+    <!-- Footer -->
+    <footer>
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-brand">
-                    <a href="index.html" class="logo">
-                        <span class="logo-icon"><i class="fa-solid fa-cube"></i></span>
-                        <span class="logo-text">NEXUS<span class="logo-accent">Tech</span></span>
-                    </a>
+                    <h3>NEXUS Tech</h3>
                     <p>澳門領先的 IT 解決方案供應商，致力於為客戶提供創新、高效、專業的技術服務。</p>
-                    <div class="footer-social">
-                        <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
-                        <a href="#"><i class="fa-brands fa-instagram"></i></a>
-                        <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
-                        <a href="#"><i class="fa-brands fa-github"></i></a>
-                    </div>
                 </div>
                 <div class="footer-links">
                     <h4>快速連結</h4>
@@ -271,27 +265,21 @@
                         <li><a href="services.html">雲端服務</a></li>
                     </ul>
                 </div>
-                <div class="footer-contact">
+                <div class="footer-links">
                     <h4>聯繫我們</h4>
                     <ul>
-                        <li><i class="fa-solid fa-location-dot"></i> 澳門特別行政區</li>
-                        <li><i class="fa-solid fa-phone"></i> +853 2828 2828</li>
-                        <li><i class="fa-solid fa-envelope"></i> info@nexustech.com</li>
-                        <li><i class="fa-solid fa-clock"></i> 週一至週五 9:00-18:00</li>
+                        <li><i class="fas fa-map-marker-alt"></i> 澳門特別行政區</li>
+                        <li><i class="fas fa-phone"></i> +853 2828 2828</li>
+                        <li><i class="fas fa-envelope"></i> info@nexustech.com</li>
                     </ul>
                 </div>
             </div>
             <div class="footer-bottom">
                 <p>&copy; 2026 NEXUS Tech. 版權所有。</p>
-                <div class="footer-legal">
-                    <a href="#">隱私政策</a>
-                    <a href="#">服務條款</a>
-                </div>
             </div>
         </div>
     </footer>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/js/all.min.js"></script>
-    <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

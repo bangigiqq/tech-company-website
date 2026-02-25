@@ -3,352 +3,236 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>關於我們 | 創科科技</title>
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <title>關於我們 | NEXUS Tech</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        .page-header {
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-            color: white;
-            padding: 8rem 0 4rem;
-            text-align: center;
-            margin-top: 60px;
+        :root {
+            --primary: #0066cc;
+            --secondary: #00a3cc;
+            --dark: #1a1a2e;
+            --light: #f8f9fa;
+            --text: #333;
+            --text-light: #666;
         }
+        * { margin: 0;; box-sizing: padding: 0 border-box; }
+        body { font-family: 'Noto Sans TC', sans-serif; color: var(--text); line-height: 1.6; }
+        a { text-decoration: none; color: inherit; }
         
-        .page-header h1 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
+        .navbar { background: #fff; box-shadow: 0 2px 20px rgba(0,0,0,0.08); padding: 15px 0; position: fixed; width: 100%; top: 0; z-index: 1000; }
+        .navbar .container { display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 24px; font-weight: 700; color: var(--primary); }
+        .logo span { color: var(--secondary); }
+        .nav-menu { display: flex; gap: 30px; align-items: center; }
+        .nav-menu a { font-weight: 500; color: var(--text); transition: color 0.3s; }
+        .nav-menu a:hover, .nav-menu a.active { color: var(--primary); }
+        .btn-contact { background: var(--primary); color: #fff !important; padding: 10px 25px; border-radius: 25px; }
+        .btn-contact:hover { background: var(--secondary); }
+        
+        .page-header { background: linear-gradient(135deg, var(--dark) 0%, #16213e 100%); color: #fff; padding: 150px 0 80px; text-align: center; }
+        .page-header h1 { font-size: 48px; font-weight: 700; margin-bottom: 15px; }
+        .page-header p { font-size: 18px; opacity: 0.8; }
+        
+        .section { padding: 80px 0; }
+        
+        .about-intro { background: var(--light); }
+        .about-content { max-width: 800px; margin: 0 auto; text-align: center; }
+        .about-content h2 { font-size: 36px; margin-bottom: 25px; }
+        .about-content p { font-size: 17px; color: var(--text-light); margin-bottom: 20px; line-height: 1.9; }
+        
+        .about-stats { background: linear-gradient(135deg, var(--primary), var(--secondary)); color: #fff; padding: 60px 0; }
+        .stat-item { text-align: center; }
+        .stat-number { font-size: 56px; font-weight: 700; }
+        .stat-label { font-size: 16px; opacity: 0.9; }
+        
+        .values { background: #fff; }
+        .value-card { 
+            text-align: center; padding: 40px 30px; border-radius: 15px; 
+            background: var(--light); transition: all 0.3s; 
         }
-        
-        .about-section {
-            padding: 4rem 0;
+        .value-card:hover { transform: translateY(-5px); box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+        .value-icon { 
+            width: 80px; height: 80px; background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 50%; display: flex; align-items: center; justify-content: center; 
+            margin: 0 auto 25px; font-size: 32px; color: #fff; 
         }
+        .value-card h3 { font-size: 22px; margin-bottom: 15px; }
+        .value-card p { color: var(--text-light); }
         
-        .about-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 3rem;
-            align-items: center;
-            margin-top: 2rem;
+        .team { background: var(--light); }
+        .team-card { 
+            background: #fff; border-radius: 15px; overflow: hidden; 
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08); text-align: center; 
         }
-        
-        .about-text h2 {
-            color: var(--dark-color);
-            font-size: 2rem;
-            margin-bottom: 1rem;
+        .team-image { 
+            height: 250px; background: linear-gradient(135deg, var(--primary), var(--secondary));
+            display: flex; align-items: center; justify-content: center; font-size: 80px; color: #fff;
         }
+        .team-info { padding: 30px; }
+        .team-info h4 { font-size: 20px; margin-bottom: 8px; }
+        .team-info p { color: var(--primary); font-size: 14px; margin-bottom: 15px; }
+        .team-info span { color: var(--text-light); font-size: 14px; }
         
-        .about-text p {
-            color: #64748b;
-            line-height: 1.8;
-            margin-bottom: 1rem;
-        }
+        .cta { background: var(--dark); color: #fff; text-align: center; padding: 80px 0; }
+        .cta h2 { font-size: 36px; margin-bottom: 20px; }
+        .cta p { font-size: 18px; opacity: 0.8; margin-bottom: 30px; }
+        .btn { padding: 15px 35px; border-radius: 30px; font-weight: 600; transition: all 0.3s; display: inline-block; }
+        .btn-primary { background: var(--primary); color: #fff; }
+        .btn-primary:hover { background: var(--secondary); transform: translateY(-2px); }
         
-        .about-image {
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-            border-radius: 10px;
-            min-height: 400px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 5rem;
-        }
+        footer { background: var(--dark); color: #fff; padding: 60px 0 20px; }
+        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 40px; }
+        .footer-brand h3 { font-size: 28px; margin-bottom: 15px; }
+        .footer-brand p { opacity: 0.7; font-size: 14px; line-height: 1.8; }
+        .footer-links h4 { font-size: 18px; margin-bottom: 20px; }
+        .footer-links ul li { margin-bottom: 12px; }
+        .footer-links a { opacity: 0.7; transition: opacity 0.3s; }
+        .footer-links a:hover { opacity: 1; }
+        .footer-bottom { text-align: center; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.1); opacity: 0.6; font-size: 14px; }
         
-        .stats-section {
-            background: var(--light-color);
-            padding: 4rem 0;
-        }
-        
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-        
-        .stat-card {
-            background: white;
-            padding: 2rem;
-            border-radius: 10px;
-            text-align: center;
-            box-shadow: var(--shadow);
-        }
-        
-        .stat-number {
-            font-size: 3rem;
-            font-weight: 700;
-            color: var(--primary-color);
-            margin-bottom: 0.5rem;
-        }
-        
-        .stat-label {
-            color: #64748b;
-            font-size: 1rem;
-        }
-        
-        .values-section {
-            padding: 4rem 0;
-        }
-        
-        .values-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-        
-        .value-card {
-            text-align: center;
-            padding: 2rem;
-        }
-        
-        .value-card .icon {
-            font-size: 4rem;
-            margin-bottom: 1rem;
-        }
-        
-        .value-card h3 {
-            color: var(--dark-color);
-            margin-bottom: 0.5rem;
-        }
-        
-        .value-card p {
-            color: #64748b;
-        }
-        
-        .team-section {
-            background: var(--light-color);
-            padding: 4rem 0;
-        }
-        
-        .team-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-        
-        .team-card {
-            background: white;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: var(--shadow);
-            text-align: center;
-            transition: all 0.3s ease;
-        }
-        
-        .team-card:hover {
-            transform: translateY(-10px);
-            box-shadow: var(--shadow-lg);
-        }
-        
-        .team-avatar {
-            height: 200px;
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 5rem;
-        }
-        
-        .team-info {
-            padding: 1.5rem;
-        }
-        
-        .team-info h3 {
-            color: var(--dark-color);
-            margin-bottom: 0.5rem;
-        }
-        
-        .team-info p {
-            color: var(--primary-color);
-            font-weight: 500;
-            margin-bottom: 1rem;
-        }
-        
-        .team-social {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-        }
-        
-        .team-social a {
-            color: #64748b;
-            font-size: 1.5rem;
-            transition: color 0.3s ease;
-        }
-        
-        .team-social a:hover {
-            color: var(--primary-color);
+        @media (max-width: 768px) {
+            .nav-menu { display: none; }
+            .page-header { padding: 120px 0 60px; }
+            .page-header h1 { font-size: 32px; }
+            .footer-grid { grid-template-columns: 1fr; text-align: center; }
+            .stat-number { font-size: 40px; }
         }
     </style>
 </head>
 <body>
-    <!-- 導航欄 -->
+    <!-- Navbar -->
     <nav class="navbar">
         <div class="container">
-            <div class="nav-wrapper">
-                <div class="logo">
-                    <h1>✨ 創科科技</h1>
-                </div>
-                <ul class="nav-menu" id="navMenu">
-                    <li><a href="index.html">首頁</a></li>
-                    <li><a href="services.html">服務範圍</a></li>
-                    <li><a href="about.html" class="active">關於我們</a></li>
-                    <li><a href="contact.html">聯繫我們</a></li>
-                </ul>
-                <div class="hamburger" id="hamburger">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
-            </div>
+            <a href="index.html" class="logo">NEXUS<span>Tech</span></a>
+            <ul class="nav-menu">
+                <li><a href="index.html">首頁</a></li>
+                <li><a href="services.html">服務</a></li>
+                <li><a href="about.html" class="active">關於</a></li>
+                <li><a href="contact.html">聯繫</a></li>
+                <li><a href="contact.html" class="btn-contact">免費咨詢</a></li>
+            </ul>
         </div>
     </nav>
 
-    <!-- 頁面標題 -->
-    <header class="page-header">
+    <!-- Page Header -->
+    <section class="page-header">
         <div class="container">
             <h1>關於我們</h1>
-            <p>了解創科科技的故事和團隊</p>
+            <p>澳門領先的 IT 解決方案供應商</p>
         </div>
-    </header>
+    </section>
 
-    <!-- 公司介紹 -->
-    <section class="about-section">
+    <!-- About Intro -->
+    <section class="section about-intro">
         <div class="container">
             <div class="about-content">
-                <div class="about-text">
-                    <h2>我們的使命</h2>
-                    <p>創科科技成立於 2026 年，總部位於澳門特別行政區。我們致力於為企業提供創新、高效的 IT 解決方案，助力客戶在數字化時代保持競爭力。</p>
-                    <p>我們的團隊由經驗豐富的工程師、設計師和顧問組成，擁有多年行業經驗。從網站開發到手機 App，從系統集成到技術諮詢，我們都能提供專業服務。</p>
-                    <p><strong>核心價值：</strong>創新、專業、誠信、共贏</p>
+                <h2>我們的理念</h2>
+                <p>NEXUS Tech 成立於 2021 年，致力於為澳門及粵港澳大灣區的企業提供專業、創新的 IT 解決方案。</p>
+                <p>我們相信科技的力量可以改變商業運作方式，幫助企業提升效率、降低成本、創造更大的價值。</p>
+                <p>團隊由經驗豐富的技術專家組成，擁有多年行業經驗，曾為超過 150 家企業提供 IT 服務，涵蓋金融、零售、餐飲、醫療等多個領域。</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats -->
+    <section class="about-stats">
+        <div class="container">
+            <div class="row">
+                <div class="col-3">
+                    <div class="stat-item">
+                        <div class="stat-number">150+</div>
+                        <div class="stat-label">項目交付</div>
+                    </div>
                 </div>
-                <div class="about-image">
-                    🏢
+                <div class="col-3">
+                    <div class="stat-item">
+                        <div class="stat-number">98%</div>
+                        <div class="stat-label">客戶滿意</div>
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="stat-item">
+                        <div class="stat-number">5+</div>
+                        <div class="stat-label">年行業經驗</div>
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="stat-item">
+                        <div class="stat-number">20+</div>
+                        <div class="stat-label">專業團隊</div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 統計數據 -->
-    <section class="stats-section">
+    <!-- Values -->
+    <section class="section values">
         <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">我們的成績</h2>
-                <p class="section-subtitle">用數字說話</p>
+            <div class="section-header" style="text-align: center; margin-bottom: 50px;">
+                <h2 style="font-size: 36px; font-weight: 700;">我們的價值觀</h2>
             </div>
-            <div class="stats-grid">
-                <div class="stat-card">
-                    <div class="stat-number">50+</div>
-                    <div class="stat-label">完成項目</div>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="value-card">
+                        <div class="value-icon"><i class="fas fa-star"></i></div>
+                        <h3>專業卓越</h3>
+                        <p>我們追求技術卓越，不斷學習最新技術，為客戶提供最專業的解決方案。</p>
+                    </div>
                 </div>
-                <div class="stat-card">
-                    <div class="stat-number">30+</div>
-                    <div class="stat-label">滿意客戶</div>
+                <div class="col-md-4">
+                    <div class="value-card">
+                        <div class="value-icon"><i class="fas fa-heart"></i></div>
+                        <h3>客戶至上</h3>
+                        <p>客戶的成功就是我們的成功，我們用心聆聽需求，提供最適合的方案。</p>
+                    </div>
                 </div>
-                <div class="stat-card">
-                    <div class="stat-number">5+</div>
-                    <div class="stat-label">年經驗</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number">100%</div>
-                    <div class="stat-label">客戶滿意度</div>
+                <div class="col-md-4">
+                    <div class="value-card">
+                        <div class="value-icon"><i class="fas fa-lightbulb"></i></div>
+                        <h3>創新精神</h3>
+                        <p>勇於創新，善於發現問題的最佳解決方案，不斷突破技術邊界。</p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 核心價值 -->
-    <section class="values-section">
+    <!-- Team -->
+    <section class="section team">
         <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">核心價值</h2>
-                <p class="section-subtitle">指引我們前進的理念</p>
+            <div class="section-header" style="text-align: center; margin-bottom: 50px;">
+                <h2 style="font-size: 36px; font-weight: 700;">核心團隊</h2>
             </div>
-            <div class="values-grid">
-                <div class="value-card">
-                    <div class="icon">💡</div>
-                    <h3>創新</h3>
-                    <p>擁抱新技術，不斷突破</p>
-                </div>
-                <div class="value-card">
-                    <div class="icon">🎯</div>
-                    <h3>專業</h3>
-                    <p>精益求精，追求卓越</p>
-                </div>
-                <div class="value-card">
-                    <div class="icon">🤝</div>
-                    <h3>誠信</h3>
-                    <p>誠實守信，值得信賴</p>
-                </div>
-                <div class="value-card">
-                    <div class="icon">🏆</div>
-                    <h3>共贏</h3>
-                    <p>與客戶共同成長</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 團隊成員 -->
-    <section class="team-section">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">專業團隊</h2>
-                <p class="section-subtitle">遇見我們的專家</p>
-            </div>
-            <div class="team-grid">
-                <div class="team-card">
-                    <div class="team-avatar">👨‍💼</div>
-                    <div class="team-info">
-                        <h3>陳大文</h3>
-                        <p>創辦人 & CEO</p>
-                        <p style="color: #64748b; font-size: 0.9rem; margin-bottom: 1rem;">10 年+ IT 行業經驗，曾服務多家跨國企業</p>
-                        <div class="team-social">
-                            <a href="#">💼</a>
-                            <a href="#">🐦</a>
+            <div class="row g-4 justify-content-center">
+                <div class="col-md-4">
+                    <div class="team-card">
+                        <div class="team-image"><i class="fas fa-user"></i></div>
+                        <div class="team-info">
+                            <h4>陳偉明</h4>
+                            <p>創辦人兼行政總裁</p>
+                            <span>20 年 IT 行業經驗，曾任多家跨國企業技術總監</span>
                         </div>
                     </div>
                 </div>
-                
-                <div class="team-card">
-                    <div class="team-avatar">👩‍💻</div>
-                    <div class="team-info">
-                        <h3>黃小姐</h3>
-                        <p>技術總監</p>
-                        <p style="color: #64748b; font-size: 0.9rem; margin-bottom: 1rem;">全棧開發專家，精通多種技術棧</p>
-                        <div class="team-social">
-                            <a href="#">💼</a>
-                            <a href="#">🐙</a>
+                <div class="col-md-4">
+                    <div class="team-card">
+                        <div class="team-image"><i class="fas fa-user"></i></div>
+                        <div class="team-info">
+                            <h4>李嘉欣</h4>
+                            <p>技術總監</p>
+                            <span>15 年軟件開發經驗，專精雲端架構和系統設計</span>
                         </div>
                     </div>
                 </div>
-                
-                <div class="team-card">
-                    <div class="team-avatar">👨‍🎨</div>
-                    <div class="team-info">
-                        <h3>李先生</h3>
-                        <p>設計總監</p>
-                        <p style="color: #64748b; font-size: 0.9rem; margin-bottom: 1rem;">UI/UX 設計專家，注重用戶體驗</p>
-                        <div class="team-social">
-                            <a href="#">💼</a>
-                            <a href="#">📸</a>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="team-card">
-                    <div class="team-avatar">👩‍💼</div>
-                    <div class="team-info">
-                        <h3>張經理</h3>
-                        <p>客戶總監</p>
-                        <p style="color: #64748b; font-size: 0.9rem; margin-bottom: 1rem;">專注客戶服務，確保項目成功</p>
-                        <div class="team-social">
-                            <a href="#">💼</a>
-                            <a href="#">💬</a>
+                <div class="col-md-4">
+                    <div class="team-card">
+                        <div class="team-image"><i class="fas fa-user"></i></div>
+                        <div class="team-info">
+                            <h4>黃志強</h4>
+                            <p>項目總監</p>
+                            <span>12 年項目管理經驗，擅長敏捷開發和團隊協作</span>
                         </div>
                     </div>
                 </div>
@@ -356,42 +240,25 @@
         </div>
     </section>
 
-    <!-- 合作夥伴 -->
-    <section class="about-section">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">合作夥伴</h2>
-                <p class="section-subtitle">值得信賴的技術夥伴</p>
-            </div>
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 2rem; align-items: center; justify-items: center; margin-top: 2rem; opacity: 0.6;">
-                <div style="font-size: 3rem;">🌐</div>
-                <div style="font-size: 3rem;">☁️</div>
-                <div style="font-size: 3rem;">📱</div>
-                <div style="font-size: 3rem;">⚙️</div>
-                <div style="font-size: 3rem;">🔒</div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 行動呼籲 -->
+    <!-- CTA -->
     <section class="cta">
         <div class="container">
-            <h2>想與我們合作？</h2>
-            <p>立即聯繫我們，開始您的項目</p>
-            <a href="contact.html" class="btn btn-light">立即聯繫</a>
+            <h2>想了解我們更多？</h2>
+            <p>歡迎聯繫我們，了解如何幫助您的業務</p>
+            <a href="contact.html" class="btn btn-primary">聯繫我們</a>
         </div>
     </section>
 
-    <!-- 頁腳 -->
-    <footer class="footer">
+    <!-- Footer -->
+    <footer>
         <div class="container">
             <div class="footer-grid">
-                <div class="footer-section">
-                    <h3>✨ 創科科技</h3>
-                    <p>專業 IT 解決方案供應商，致力於為客戶提供創新、高效的技術服務。</p>
+                <div class="footer-brand">
+                    <h3>NEXUS Tech</h3>
+                    <p>澳門領先的 IT 解決方案供應商，致力於為客戶提供創新、高效、專業的技術服務。</p>
                 </div>
-                <div class="footer-section">
-                    <h3>快速連結</h3>
+                <div class="footer-links">
+                    <h4>快速連結</h4>
                     <ul>
                         <li><a href="index.html">首頁</a></li>
                         <li><a href="services.html">服務範圍</a></li>
@@ -399,25 +266,30 @@
                         <li><a href="contact.html">聯繫我們</a></li>
                     </ul>
                 </div>
-                <div class="footer-section">
-                    <h3>服務時間</h3>
-                    <p>週一至週五：9:00 - 18:00</p>
-                    <p>週六：9:00 - 13:00</p>
-                    <p>週日及公眾假期休息</p>
+                <div class="footer-links">
+                    <h4>服務範圍</h4>
+                    <ul>
+                        <li><a href="services.html">網站開發</a></li>
+                        <li><a href="services.html">App 開發</a></li>
+                        <li><a href="services.html">系統集成</a></li>
+                        <li><a href="services.html">雲端服務</a></li>
+                    </ul>
                 </div>
-                <div class="footer-section">
-                    <h3>聯繫方式</h3>
-                    <p>📍 澳門特別行政區</p>
-                    <p>📞 +853 2828 2828</p>
-                    <p>✉️ info@techcorp.com</p>
+                <div class="footer-links">
+                    <h4>聯繫我們</h4>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> 澳門特別行政區</li>
+                        <li><i class="fas fa-phone"></i> +853 2828 2828</li>
+                        <li><i class="fas fa-envelope"></i> info@nexustech.com</li>
+                    </ul>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2026 創科科技有限公司。版權所有。</p>
+                <p>&copy; 2026 NEXUS Tech. 版權所有。</p>
             </div>
         </div>
     </footer>
 
-    <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
