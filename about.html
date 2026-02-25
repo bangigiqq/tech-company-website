@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="zh-HK">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>關於我們 | 創科科技</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        .page-header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 8rem 0 4rem;
+            text-align: center;
+            margin-top: 60px;
+        }
+        
+        .page-header h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .about-section {
+            padding: 4rem 0;
+        }
+        
+        .about-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            align-items: center;
+            margin-top: 2rem;
+        }
+        
+        .about-text h2 {
+            color: var(--dark-color);
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+        
+        .about-text p {
+            color: #64748b;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+        
+        .about-image {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            border-radius: 10px;
+            min-height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 5rem;
+        }
+        
+        .stats-section {
+            background: var(--light-color);
+            padding: 4rem 0;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .stat-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: var(--shadow);
+        }
+        
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+        
+        .stat-label {
+            color: #64748b;
+            font-size: 1rem;
+        }
+        
+        .values-section {
+            padding: 4rem 0;
+        }
+        
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .value-card {
+            text-align: center;
+            padding: 2rem;
+        }
+        
+        .value-card .icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+        }
+        
+        .value-card h3 {
+            color: var(--dark-color);
+            margin-bottom: 0.5rem;
+        }
+        
+        .value-card p {
+            color: #64748b;
+        }
+        
+        .team-section {
+            background: var(--light-color);
+            padding: 4rem 0;
+        }
+        
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .team-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        
+        .team-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .team-avatar {
+            height: 200px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 5rem;
+        }
+        
+        .team-info {
+            padding: 1.5rem;
+        }
+        
+        .team-info h3 {
+            color: var(--dark-color);
+            margin-bottom: 0.5rem;
+        }
+        
+        .team-info p {
+            color: var(--primary-color);
+            font-weight: 500;
+            margin-bottom: 1rem;
+        }
+        
+        .team-social {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+        }
+        
+        .team-social a {
+            color: #64748b;
+            font-size: 1.5rem;
+            transition: color 0.3s ease;
+        }
+        
+        .team-social a:hover {
+            color: var(--primary-color);
+        }
+    </style>
+</head>
+<body>
+    <!-- 導航欄 -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-wrapper">
+                <div class="logo">
+                    <h1>✨ 創科科技</h1>
+                </div>
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="index.html">首頁</a></li>
+                    <li><a href="services.html">服務範圍</a></li>
+                    <li><a href="about.html" class="active">關於我們</a></li>
+                    <li><a href="contact.html">聯繫我們</a></li>
+                </ul>
+                <div class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 頁面標題 -->
+    <header class="page-header">
+        <div class="container">
+            <h1>關於我們</h1>
+            <p>了解創科科技的故事和團隊</p>
+        </div>
+    </header>
+
+    <!-- 公司介紹 -->
+    <section class="about-section">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>我們的使命</h2>
+                    <p>創科科技成立於 2026 年，總部位於澳門特別行政區。我們致力於為企業提供創新、高效的 IT 解決方案，助力客戶在數字化時代保持競爭力。</p>
+                    <p>我們的團隊由經驗豐富的工程師、設計師和顧問組成，擁有多年行業經驗。從網站開發到手機 App，從系統集成到技術諮詢，我們都能提供專業服務。</p>
+                    <p><strong>核心價值：</strong>創新、專業、誠信、共贏</p>
+                </div>
+                <div class="about-image">
+                    🏢
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 統計數據 -->
+    <section class="stats-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">我們的成績</h2>
+                <p class="section-subtitle">用數字說話</p>
+            </div>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">50+</div>
+                    <div class="stat-label">完成項目</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">30+</div>
+                    <div class="stat-label">滿意客戶</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">5+</div>
+                    <div class="stat-label">年經驗</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">100%</div>
+                    <div class="stat-label">客戶滿意度</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 核心價值 -->
+    <section class="values-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">核心價值</h2>
+                <p class="section-subtitle">指引我們前進的理念</p>
+            </div>
+            <div class="values-grid">
+                <div class="value-card">
+                    <div class="icon">💡</div>
+                    <h3>創新</h3>
+                    <p>擁抱新技術，不斷突破</p>
+                </div>
+                <div class="value-card">
+                    <div class="icon">🎯</div>
+                    <h3>專業</h3>
+                    <p>精益求精，追求卓越</p>
+                </div>
+                <div class="value-card">
+                    <div class="icon">🤝</div>
+                    <h3>誠信</h3>
+                    <p>誠實守信，值得信賴</p>
+                </div>
+                <div class="value-card">
+                    <div class="icon">🏆</div>
+                    <h3>共贏</h3>
+                    <p>與客戶共同成長</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 團隊成員 -->
+    <section class="team-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">專業團隊</h2>
+                <p class="section-subtitle">遇見我們的專家</p>
+            </div>
+            <div class="team-grid">
+                <div class="team-card">
+                    <div class="team-avatar">👨‍💼</div>
+                    <div class="team-info">
+                        <h3>陳大文</h3>
+                        <p>創辦人 & CEO</p>
+                        <p style="color: #64748b; font-size: 0.9rem; margin-bottom: 1rem;">10 年+ IT 行業經驗，曾服務多家跨國企業</p>
+                        <div class="team-social">
+                            <a href="#">💼</a>
+                            <a href="#">🐦</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="team-card">
+                    <div class="team-avatar">👩‍💻</div>
+                    <div class="team-info">
+                        <h3>黃小姐</h3>
+                        <p>技術總監</p>
+                        <p style="color: #64748b; font-size: 0.9rem; margin-bottom: 1rem;">全棧開發專家，精通多種技術棧</p>
+                        <div class="team-social">
+                            <a href="#">💼</a>
+                            <a href="#">🐙</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="team-card">
+                    <div class="team-avatar">👨‍🎨</div>
+                    <div class="team-info">
+                        <h3>李先生</h3>
+                        <p>設計總監</p>
+                        <p style="color: #64748b; font-size: 0.9rem; margin-bottom: 1rem;">UI/UX 設計專家，注重用戶體驗</p>
+                        <div class="team-social">
+                            <a href="#">💼</a>
+                            <a href="#">📸</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="team-card">
+                    <div class="team-avatar">👩‍💼</div>
+                    <div class="team-info">
+                        <h3>張經理</h3>
+                        <p>客戶總監</p>
+                        <p style="color: #64748b; font-size: 0.9rem; margin-bottom: 1rem;">專注客戶服務，確保項目成功</p>
+                        <div class="team-social">
+                            <a href="#">💼</a>
+                            <a href="#">💬</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 合作夥伴 -->
+    <section class="about-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">合作夥伴</h2>
+                <p class="section-subtitle">值得信賴的技術夥伴</p>
+            </div>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 2rem; align-items: center; justify-items: center; margin-top: 2rem; opacity: 0.6;">
+                <div style="font-size: 3rem;">🌐</div>
+                <div style="font-size: 3rem;">☁️</div>
+                <div style="font-size: 3rem;">📱</div>
+                <div style="font-size: 3rem;">⚙️</div>
+                <div style="font-size: 3rem;">🔒</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 行動呼籲 -->
+    <section class="cta">
+        <div class="container">
+            <h2>想與我們合作？</h2>
+            <p>立即聯繫我們，開始您的項目</p>
+            <a href="contact.html" class="btn btn-light">立即聯繫</a>
+        </div>
+    </section>
+
+    <!-- 頁腳 -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <h3>✨ 創科科技</h3>
+                    <p>專業 IT 解決方案供應商，致力於為客戶提供創新、高效的技術服務。</p>
+                </div>
+                <div class="footer-section">
+                    <h3>快速連結</h3>
+                    <ul>
+                        <li><a href="index.html">首頁</a></li>
+                        <li><a href="services.html">服務範圍</a></li>
+                        <li><a href="about.html">關於我們</a></li>
+                        <li><a href="contact.html">聯繫我們</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>服務時間</h3>
+                    <p>週一至週五：9:00 - 18:00</p>
+                    <p>週六：9:00 - 13:00</p>
+                    <p>週日及公眾假期休息</p>
+                </div>
+                <div class="footer-section">
+                    <h3>聯繫方式</h3>
+                    <p>📍 澳門特別行政區</p>
+                    <p>📞 +853 2828 2828</p>
+                    <p>✉️ info@techcorp.com</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 創科科技有限公司。版權所有。</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

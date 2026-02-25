@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="zh-HK">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>服務範圍 | 創科科技</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        .page-header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 8rem 0 4rem;
+            text-align: center;
+            margin-top: 60px;
+        }
+        
+        .page-header h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .page-header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        
+        .service-detail {
+            padding: 4rem 0;
+        }
+        
+        .service-detail-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            margin-bottom: 4rem;
+        }
+        
+        .service-detail-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+        }
+        
+        .service-detail-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .service-detail-header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 2rem;
+            text-align: center;
+        }
+        
+        .service-detail-header .icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+        }
+        
+        .service-detail-body {
+            padding: 2rem;
+        }
+        
+        .service-detail-body h3 {
+            color: var(--dark-color);
+            margin-bottom: 1rem;
+        }
+        
+        .service-detail-body ul {
+            list-style: none;
+            margin: 1rem 0;
+        }
+        
+        .service-detail-body ul li {
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+        
+        .service-detail-body ul li:before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--success-color);
+            font-weight: bold;
+        }
+        
+        .pricing-note {
+            background: var(--light-color);
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            margin-top: 2rem;
+        }
+        
+        .process-section {
+            background: var(--light-color);
+            padding: 4rem 0;
+        }
+        
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .process-step {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            position: relative;
+        }
+        
+        .process-step .step-number {
+            width: 60px;
+            height: 60px;
+            background: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin: 0 auto 1rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- 導航欄 -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-wrapper">
+                <div class="logo">
+                    <h1>✨ 創科科技</h1>
+                </div>
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="index.html">首頁</a></li>
+                    <li><a href="services.html" class="active">服務範圍</a></li>
+                    <li><a href="about.html">關於我們</a></li>
+                    <li><a href="contact.html">聯繫我們</a></li>
+                </ul>
+                <div class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 頁面標題 -->
+    <header class="page-header">
+        <div class="container">
+            <h1>服務範圍</h1>
+            <p>全方位的 IT 解決方案，滿足您的各種需求</p>
+        </div>
+    </header>
+
+    <!-- 服務詳情 -->
+    <section class="service-detail">
+        <div class="container">
+            <div class="service-detail-grid">
+                <!-- 網站開發 -->
+                <div class="service-detail-card">
+                    <div class="service-detail-header">
+                        <div class="icon">🌐</div>
+                        <h2>網站開發</h2>
+                    </div>
+                    <div class="service-detail-body">
+                        <h3>服務內容</h3>
+                        <p>專業的網站開發服務，從企業官網到複雜的電商平台，我們都能為您打造完美的線上形象。</p>
+                        
+                        <h3>包含項目</h3>
+                        <ul>
+                            <li>企業形象網站設計</li>
+                            <li>響應式網頁設計 (RWD)</li>
+                            <li>電子商務平台開發</li>
+                            <li>內容管理系統 (CMS)</li>
+                            <li>SEO 搜尋引擎優化</li>
+                            <li>網站維護與更新</li>
+                        </ul>
+                        
+                        <h3>技術棧</h3>
+                        <p>HTML5, CSS3, JavaScript, React, Vue.js, Node.js, PHP, WordPress</p>
+                    </div>
+                </div>
+
+                <!-- 手機 App 開發 -->
+                <div class="service-detail-card">
+                    <div class="service-detail-header">
+                        <div class="icon">📱</div>
+                        <h2>手機 App 開發</h2>
+                    </div>
+                    <div class="service-detail-body">
+                        <h3>服務內容</h3>
+                        <p>為您的業務打造專屬的手機應用程式，涵蓋 iOS 和 Android 平台，提供優秀的用戶體驗。</p>
+                        
+                        <h3>包含項目</h3>
+                        <ul>
+                            <li>iOS 應用開發 (Swift)</li>
+                            <li>Android 應用開發 (Kotlin)</li>
+                            <li>跨平台開發 (React Native / Flutter)</li>
+                            <li>UI/UX 設計</li>
+                            <li>API 整合</li>
+                            <li>App Store 上架協助</li>
+                        </ul>
+                        
+                        <h3>技術棧</h3>
+                        <p>Swift, Kotlin, React Native, Flutter, Firebase</p>
+                    </div>
+                </div>
+
+                <!-- 系統集成 -->
+                <div class="service-detail-card">
+                    <div class="service-detail-header">
+                        <div class="icon">⚙️</div>
+                        <h2>系統集成</h2>
+                    </div>
+                    <div class="service-detail-body">
+                        <h3>服務內容</h3>
+                        <p>整合您的現有系統，實現數據互通，提升業務效率和協作能力。</p>
+                        
+                        <h3>包含項目</h3>
+                        <ul>
+                            <li>ERP 系統集成</li>
+                            <li>CRM 系統對接</li>
+                            <li>API 開發與整合</li>
+                            <li>數據庫設計與優化</li>
+                            <li>雲端服務整合</li>
+                            <li>第三方系統對接</li>
+                        </ul>
+                        
+                        <h3>技術棧</h3>
+                        <p>RESTful API, GraphQL, MySQL, PostgreSQL, MongoDB, AWS, Azure</p>
+                    </div>
+                </div>
+
+                <!-- 技術諮詢 -->
+                <div class="service-detail-card">
+                    <div class="service-detail-header">
+                        <div class="icon">💼</div>
+                        <h2>技術諮詢</h2>
+                    </div>
+                    <div class="service-detail-body">
+                        <h3>服務內容</h3>
+                        <p>專業的 IT 戰略規劃和技術顧問服務，幫助您做出最明智的技術決策。</p>
+                        
+                        <h3>包含項目</h3>
+                        <ul>
+                            <li>IT 戰略規劃</li>
+                            <li>技術架構顧問</li>
+                            <li>系統性能優化</li>
+                            <li>信息安全評估</li>
+                            <li>技術培訓</li>
+                            <li>專案管理顧問</li>
+                        </ul>
+                        
+                        <h3>服務模式</h3>
+                        <p>按小時諮詢、長期顧問、專案制合作</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 定價說明 -->
+            <div class="pricing-note">
+                <h3>💰 定價說明</h3>
+                <p>每個項目都是獨一無二的，我們會根據您的具體需求提供個性化報價。</p>
+                <p><strong>免費諮詢</strong> - 聯絡我們獲取詳細報價方案</p>
+                <a href="contact.html" class="btn btn-primary" style="margin-top: 1rem; display: inline-block;">立即查詢</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 工作流程 -->
+    <section class="process-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">工作流程</h2>
+                <p class="section-subtitle">專業的流程，確保項目成功交付</p>
+            </div>
+            <div class="process-steps">
+                <div class="process-step">
+                    <div class="step-number">1</div>
+                    <h3>需求分析</h3>
+                    <p>深入了解您的業務需求和目標</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">2</div>
+                    <h3>方案設計</h3>
+                    <p>提供專業的技術方案和設計</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">3</div>
+                    <h3>項目開發</h3>
+                    <p>敏捷開發，定期溝通進度</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">4</div>
+                    <h3>測試驗收</h3>
+                    <p>嚴格測試，確保品質</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">5</div>
+                    <h3>上線部署</h3>
+                    <p>專業部署，平穩上線</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">6</div>
+                    <h3>售後支持</h3>
+                    <p>持續維護和技術支持</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 行動呼籲 -->
+    <section class="cta">
+        <div class="container">
+            <h2>準備開始您的項目？</h2>
+            <p>立即聯繫我們，獲取免費諮詢和報價</p>
+            <a href="contact.html" class="btn btn-light">立即聯繫</a>
+        </div>
+    </section>
+
+    <!-- 頁腳 -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <h3>✨ 創科科技</h3>
+                    <p>專業 IT 解決方案供應商，致力於為客戶提供創新、高效的技術服務。</p>
+                </div>
+                <div class="footer-section">
+                    <h3>快速連結</h3>
+                    <ul>
+                        <li><a href="index.html">首頁</a></li>
+                        <li><a href="services.html">服務範圍</a></li>
+                        <li><a href="about.html">關於我們</a></li>
+                        <li><a href="contact.html">聯繫我們</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>服務時間</h3>
+                    <p>週一至週五：9:00 - 18:00</p>
+                    <p>週六：9:00 - 13:00</p>
+                    <p>週日及公眾假期休息</p>
+                </div>
+                <div class="footer-section">
+                    <h3>聯繫方式</h3>
+                    <p>📍 澳門特別行政區</p>
+                    <p>📞 +853 2828 2828</p>
+                    <p>✉️ info@techcorp.com</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 創科科技有限公司。版權所有。</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
