@@ -3,28 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="專業 IT 解決方案供應商 - 網站開發、手機 App、系統集成、技術諮詢">
-    <meta name="keywords" content="IT 公司，網站開發，App 開發，系統集成，澳門 IT">
-    <title>創科科技 | 專業 IT 解決方案</title>
-    <link rel="stylesheet" href="styles.css">
+    <meta name="description" content="NEXUS Tech - 專業 IT 解決方案供應商 | 網站開發 | App 開發 | 系統集成 | 雲端服務">
+    <meta name="keywords" content="IT 公司，網站開發，App 開發，系統集成，雲端服務，澳門 IT">
+    <title>NEXUS Tech | 專業 IT 解決方案專家</title>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <!-- 導航欄 -->
-    <nav class="navbar">
+    <nav class="navbar" id="navbar">
         <div class="container">
             <div class="nav-wrapper">
-                <div class="logo">
-                    <h1>✨ 創科科技</h1>
-                </div>
+                <a href="index.html" class="logo">
+                    <span class="logo-icon"><i class="fa-solid fa-cube"></i></span>
+                    <span class="logo-text">NEXUS<span class="logo-accent">Tech</span></span>
+                </a>
+                
                 <ul class="nav-menu" id="navMenu">
-                    <li><a href="index.html" class="active">首頁</a></li>
-                    <li><a href="services.html">服務範圍</a></li>
-                    <li><a href="about.html">關於我們</a></li>
-                    <li><a href="contact.html">聯繫我們</a></li>
+                    <li><a href="index.html" class="nav-link active">首頁</a></li>
+                    <li><a href="services.html" class="nav-link">服務</a></li>
+                    <li><a href="about.html" class="nav-link">關於</a></li>
+                    <li><a href="contact.html" class="nav-link">聯繫</a></li>
                 </ul>
+                
+                <div class="nav-actions">
+                    <a href="contact.html" class="btn-nav">免費咨詢</a>
+                </div>
+                
                 <div class="hamburger" id="hamburger">
                     <span></span>
                     <span></span>
@@ -35,145 +48,341 @@
     </nav>
 
     <!-- 主視覺區域 -->
-    <header class="hero">
-        <div class="hero-overlay"></div>
+    <header class="hero" id="hero">
+        <div class="hero-bg">
+            <div class="hero-particles" id="particles"></div>
+            <div class="hero-gradient"></div>
+            <div class="hero-grid"></div>
+        </div>
+        
         <div class="container hero-content">
-            <h2 class="hero-title">創新科技 · 驅動未來</h2>
-            <p class="hero-subtitle">專業 IT 解決方案，助力您的業務增長</p>
+            <div class="hero-badge">
+                <span class="badge-dot"></span>
+                <span>澳門領先 IT 解決方案供應商</span>
+            </div>
+            
+            <h1 class="hero-title">
+                <span class="title-line">創新科技</span>
+                <span class="title-line gradient-text">賦能未來</span>
+            </h1>
+            
+            <p class="hero-subtitle">
+                專注於企業數字化轉型，提供全方位 IT 解決方案
+            </p>
+            
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <span class="stat-number" data-count="150">0</span>
+                    <span class="stat-label">+ 項目交付</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" data-count="98">0</span>
+                    <span class="stat-label">% 客戶滿意</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" data-count="5">0</span>
+                    <span class="stat-label">年行業經驗</span>
+                </div>
+            </div>
+            
             <div class="hero-buttons">
-                <a href="contact.html" class="btn btn-primary">免費諮詢</a>
-                <a href="services.html" class="btn btn-secondary">了解服務</a>
+                <a href="contact.html" class="btn btn-primary">
+                    <span>開始項目</span>
+                    <i class="fa-solid fa-arrow-right"></i>
+                </a>
+                <a href="services.html" class="btn btn-outline">
+                    <span>探索服務</span>
+                </a>
+            </div>
+            
+            <div class="hero-scroll">
+                <div class="scroll-indicator">
+                    <span>向下滾動</span>
+                    <i class="fa-solid fa-chevron-down"></i>
+                </div>
             </div>
         </div>
+        
+        <div class="hero-glow hero-glow-1"></div>
+        <div class="hero-glow hero-glow-2"></div>
     </header>
 
     <!-- 服務亮點 -->
-    <section class="features">
+    <section class="features" id="features">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">為什麼選擇我們</h2>
-                <p class="section-subtitle">專業團隊 · 優質服務 · 創新技術</p>
+                <span class="section-tag">為什麼選擇我們</span>
+                <h2 class="section-title">引領數字化轉型</h2>
+                <p class="section-subtitle">專業團隊 · 先進技術 · 卓越品質</p>
             </div>
+            
             <div class="features-grid">
-                <div class="feature-card">
-                    <div class="feature-icon">🚀</div>
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="feature-icon">
+                        <i class="fa-solid fa-rocket"></i>
+                    </div>
                     <h3>快速交付</h3>
-                    <p>敏捷開發流程，按時交付高質量產品</p>
+                    <p>敏捷開發流程，確保項目按時交付，搶佔市場先機</p>
+                    <div class="feature-hover">
+                        <span>了解更多</span>
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </div>
                 </div>
-                <div class="feature-card">
-                    <div class="feature-icon">💎</div>
+                
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="feature-icon">
+                        <i class="fa-solid fa-shield-halved"></i>
+                    </div>
                     <h3>品質保證</h3>
-                    <p>嚴格質量控制，確保每個項目完美交付</p>
+                    <p>嚴格質量控制體系，ISO 認證，確保每個項目完美交付</p>
+                    <div class="feature-hover">
+                        <span>了解更多</span>
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </div>
                 </div>
-                <div class="feature-card">
-                    <div class="feature-icon">🤝</div>
-                    <h3>貼心服務</h3>
-                    <p>全程一對一服務，隨時響應您的需求</p>
+                
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="feature-icon">
+                        <i class="fa-solid fa-headset"></i>
+                    </div>
+                    <h3>7×24 支援</h3>
+                    <p>全天候技術支援，專屬客戶經理，隨時響應您的需求</p>
+                    <div class="feature-hover">
+                        <span>了解更多</span>
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </div>
                 </div>
-                <div class="feature-card">
-                    <div class="feature-icon">💡</div>
+                
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="feature-icon">
+                        <i class="fa-solid fa-lightbulb"></i>
+                    </div>
                     <h3>創新技術</h3>
-                    <p>運用最新技術，提供最具競爭力的解決方案</p>
+                    <p>緊跟技術前沿，AI、雲端、大數據，賦能業務增長</p>
+                    <div class="feature-hover">
+                        <span>了解更多</span>
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- 核心服務 -->
-    <section class="services">
+    <section class="services" id="services">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">核心服務</h2>
-                <p class="section-subtitle">全方位的 IT 解決方案</p>
+                <span class="section-tag">我們的服務</span>
+                <h2 class="section-title">全方位 IT 解決方案</h2>
+                <p class="section-subtitle">一站式服務，滿足您的所有技術需求</p>
             </div>
+            
             <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon">🌐</div>
+                <div class="service-card" data-tilt>
+                    <div class="service-header">
+                        <div class="service-icon">
+                            <i class="fa-solid fa-globe"></i>
+                        </div>
+                        <span class="service-number">01</span>
+                    </div>
                     <h3>網站開發</h3>
-                    <p>企業官網、電商平台、響應式網站設計</p>
+                    <p>現代化網站設計，響應式布局，SEO 優化，提升品牌價值</p>
                     <ul class="service-list">
-                        <li>✓ 企業形象網站</li>
-                        <li>✓ 電子商務平台</li>
-                        <li>✓ 響應式設計</li>
-                        <li>✓ SEO 優化</li>
+                        <li><i class="fa-solid fa-check"></i> 企業官網</li>
+                        <li><i class="fa-solid fa-check"></i> 電商平台</li>
+                        <li><i class="fa-solid fa-check"></i> Web App</li>
+                        <li><i class="fa-solid fa-check"></i> PWA 開發</li>
                     </ul>
+                    <a href="services.html" class="service-link">
+                        <span>了解更多</span>
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
                 </div>
-                <div class="service-card">
-                    <div class="service-icon">📱</div>
-                    <h3>手機 App 開發</h3>
-                    <p>iOS、Android、跨平台應用開發</p>
+                
+                <div class="service-card" data-tilt>
+                    <div class="service-header">
+                        <div class="service-icon">
+                            <i class="fa-solid fa-mobile-screen"></i>
+                        </div>
+                        <span class="service-number">02</span>
+                    </div>
+                    <h3>App 開發</h3>
+                    <p>iOS、Android 原生開發，跨平台解決方案，優質用戶體驗</p>
                     <ul class="service-list">
-                        <li>✓ iOS 應用開發</li>
-                        <li>✓ Android 應用開發</li>
-                        <li>✓ React Native / Flutter</li>
-                        <li>✓ UI/UX 設計</li>
+                        <li><i class="fa-solid fa-check"></i> iOS 開發</li>
+                        <li><i class="fa-solid fa-check"></i> Android 開發</li>
+                        <li><i class="fa-solid fa-check"></i> React Native</li>
+                        <li><i class="fa-solid fa-check"></i> Flutter</li>
                     </ul>
+                    <a href="services.html" class="service-link">
+                        <span>了解更多</span>
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
                 </div>
-                <div class="service-card">
-                    <div class="service-icon">⚙️</div>
+                
+                <div class="service-card" data-tilt>
+                    <div class="service-header">
+                        <div class="service-icon">
+                            <i class="fa-solid fa-server"></i>
+                        </div>
+                        <span class="service-number">03</span>
+                    </div>
                     <h3>系統集成</h3>
-                    <p>企業系統整合、API 對接、數據互通</p>
+                    <p>企業級系統整合，API 開發，數據互通，提升效率</p>
                     <ul class="service-list">
-                        <li>✓ ERP 系統集成</li>
-                        <li>✓ CRM 系統對接</li>
-                        <li>✓ API 開發與整合</li>
-                        <li>✓ 數據庫設計</li>
+                        <li><i class="fa-solid fa-check"></i> ERP 集成</li>
+                        <li><i class="fa-solid fa-check"></i> CRM 對接</li>
+                        <li><i class="fa-solid fa-check"></i> API 開發</li>
+                        <li><i class="fa-solid fa-check"></i> 數據遷移</li>
                     </ul>
+                    <a href="services.html" class="service-link">
+                        <span>了解更多</span>
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
                 </div>
-                <div class="service-card">
-                    <div class="service-icon">💼</div>
-                    <h3>技術諮詢</h3>
-                    <p>IT 戰略規劃、技術顧問、系統優化</p>
+                
+                <div class="service-card" data-tilt>
+                    <div class="service-header">
+                        <div class="service-icon">
+                            <i class="fa-solid fa-cloud"></i>
+                        </div>
+                        <span class="service-number">04</span>
+                    </div>
+                    <h3>雲端服務</h3>
+                    <p>雲端架構設計，AWS/Azure/阿里雲部署，彈性擴展</p>
                     <ul class="service-list">
-                        <li>✓ IT 戰略規劃</li>
-                        <li>✓ 技術架構顧問</li>
-                        <li>✓ 系統性能優化</li>
-                        <li>✓ 安全評估</li>
+                        <li><i class="fa-solid fa-check"></i> 雲端部署</li>
+                        <li><i class="fa-solid fa-check"></i> DevOps</li>
+                        <li><i class="fa-solid fa-check"></i> 容器化</li>
+                        <li><i class="fa-solid fa-check"></i> 監控運維</li>
                     </ul>
+                    <a href="services.html" class="service-link">
+                        <span>了解更多</span>
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 技術堆疊 -->
+    <section class="tech-stack">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">技術實力</span>
+                <h2 class="section-title">領先技術堆疊</h2>
+            </div>
+            
+            <div class="tech-grid">
+                <div class="tech-item">
+                    <i class="fa-brands fa-react"></i>
+                    <span>React</span>
+                </div>
+                <div class="tech-item">
+                    <i class="fa-brands fa-vuejs"></i>
+                    <span>Vue.js</span>
+                </div>
+                <div class="tech-item">
+                    <i class="fa-brands fa-node-js"></i>
+                    <span>Node.js</span>
+                </div>
+                <div class="tech-item">
+                    <i class="fa-brands fa-python"></i>
+                    <span>Python</span>
+                </div>
+                <div class="tech-item">
+                    <i class="fa-brands fa-aws"></i>
+                    <span>AWS</span>
+                </div>
+                <div class="tech-item">
+                    <i class="fa-brands fa-docker"></i>
+                    <span>Docker</span>
+                </div>
+                <div class="tech-item">
+                    <i class="fa-brands fa-kubernetes"></i>
+                    <span>Kubernetes</span>
+                </div>
+                <div class="tech-item">
+                    <i class="fa-brands fa-github"></i>
+                    <span>GitHub</span>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- 客戶評價 -->
-    <section class="testimonials">
+    <section class="testimonials" id="testimonials">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">客戶評價</h2>
-                <p class="section-subtitle">聽聽客戶怎麼說</p>
+                <span class="section-tag">客戶評價</span>
+                <h2 class="section-title">值得信賴的選擇</h2>
+                <p class="section-subtitle">來自客户的真實反饋</p>
             </div>
+            
             <div class="testimonials-grid">
                 <div class="testimonial-card">
-                    <div class="testimonial-content">
-                        <p>"創科科技的專業團隊幫助我們完成了整個數字化轉型，系統運行穩定，服務貼心！"</p>
-                    </div>
-                    <div class="testimonial-author">
-                        <div class="author-info">
+                    <div class="testimonial-header">
+                        <div class="testimonial-avatar">
+                            <span>陳</span>
+                        </div>
+                        <div class="testimonial-info">
                             <h4>陳先生</h4>
-                            <p>ABC 科技有限公司 CEO</p>
+                            <span>CEO, ABC 科技有限公司</span>
+                        </div>
+                        <div class="testimonial-rating">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
                         </div>
                     </div>
-                </div>
-                <div class="testimonial-card">
                     <div class="testimonial-content">
-                        <p>"網站設計精美，功能強大，客戶體驗大幅提升。強烈推薦！"</p>
+                        <p>"NEXUS Tech 團隊非常專業，幫助我們完成了數字化轉型。系統運行穩定，服務貼心周到，強烈推薦！"</p>
                     </div>
-                    <div class="testimonial-author">
-                        <div class="author-info">
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <div class="testimonial-avatar">
+                            <span>李</span>
+                        </div>
+                        <div class="testimonial-info">
                             <h4>李小姐</h4>
-                            <p>XYZ 貿易公司 市場總監</p>
+                            <span>市場總監, XYZ 貿易公司</span>
                         </div>
+                        <div class="testimonial-rating">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+                    </div>
+                    <div class="testimonial-content">
+                        <p>"網站設計精美，功能強大，客戶體驗大幅提升。團隊響應迅速，溝通順暢，超出預期！"</p>
                     </div>
                 </div>
+                
                 <div class="testimonial-card">
-                    <div class="testimonial-content">
-                        <p>"App 開發過程順利，團隊專業度高，按時交付，超出預期！"</p>
-                    </div>
-                    <div class="testimonial-author">
-                        <div class="author-info">
-                            <h4>黃經理</h4>
-                            <p>123 餐飲集團 營運總監</p>
+                    <div class="testimonial-header">
+                        <div class="testimonial-avatar">
+                            <span>黃</span>
                         </div>
+                        <div class="testimonial-info">
+                            <h4>黃經理</h4>
+                            <span>營運總監, 123 餐飲集團</span>
+                        </div>
+                        <div class="testimonial-rating">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+                    </div>
+                    <div class="testimonial-content">
+                        <p>"App 開發過程順利，團隊專業度高，按時交付。之後的維護服務也非常及時！"</p>
                     </div>
                 </div>
             </div>
@@ -181,11 +390,26 @@
     </section>
 
     <!-- 行動呼籲 -->
-    <section class="cta">
+    <section class="cta" id="cta">
+        <div class="cta-bg">
+            <div class="cta-particles"></div>
+        </div>
         <div class="container">
-            <h2>準備開始您的項目？</h2>
-            <p>立即聯繫我們，獲取免費諮詢和報價</p>
-            <a href="contact.html" class="btn btn-light">立即聯繫</a>
+            <div class="cta-content">
+                <span class="section-tag">聯繫我們</span>
+                <h2>準備好開始您的數字化轉型？</h2>
+                <p>立即咨詢，獲取免費項目評估和報價方案</p>
+                <div class="cta-buttons">
+                    <a href="contact.html" class="btn btn-light">
+                        <i class="fa-solid fa-comments"></i>
+                        <span>免費咨詢</span>
+                    </a>
+                    <a href="tel:+85328282828" class="btn btn-outline-light">
+                        <i class="fa-solid fa-phone"></i>
+                        <span>+853 2828 2828</span>
+                    </a>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -193,12 +417,22 @@
     <footer class="footer">
         <div class="container">
             <div class="footer-grid">
-                <div class="footer-section">
-                    <h3>✨ 創科科技</h3>
-                    <p>專業 IT 解決方案供應商，致力於為客戶提供創新、高效的技術服務。</p>
+                <div class="footer-brand">
+                    <a href="index.html" class="logo">
+                        <span class="logo-icon"><i class="fa-solid fa-cube"></i></span>
+                        <span class="logo-text">NEXUS<span class="logo-accent">Tech</span></span>
+                    </a>
+                    <p>澳門領先的 IT 解決方案供應商，致力於為客戶提供創新、高效、專業的技術服務。</p>
+                    <div class="footer-social">
+                        <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fa-brands fa-github"></i></a>
+                    </div>
                 </div>
-                <div class="footer-section">
-                    <h3>快速連結</h3>
+                
+                <div class="footer-links">
+                    <h4>快速連結</h4>
                     <ul>
                         <li><a href="index.html">首頁</a></li>
                         <li><a href="services.html">服務範圍</a></li>
@@ -206,25 +440,39 @@
                         <li><a href="contact.html">聯繫我們</a></li>
                     </ul>
                 </div>
-                <div class="footer-section">
-                    <h3>服務時間</h3>
-                    <p>週一至週五：9:00 - 18:00</p>
-                    <p>週六：9:00 - 13:00</p>
-                    <p>週日及公眾假期休息</p>
+                
+                <div class="footer-links">
+                    <h4>服務範圍</h4>
+                    <ul>
+                        <li><a href="services.html">網站開發</a></li>
+                        <li><a href="services.html">App 開發</a></li>
+                        <li><a href="services.html">系統集成</a></li>
+                        <li><a href="services.html">雲端服務</a></li>
+                    </ul>
                 </div>
-                <div class="footer-section">
-                    <h3>聯繫方式</h3>
-                    <p>📍 澳門特別行政區</p>
-                    <p>📞 +853 2828 2828</p>
-                    <p>✉️ info@techcorp.com</p>
+                
+                <div class="footer-contact">
+                    <h4>聯繫我們</h4>
+                    <ul>
+                        <li><i class="fa-solid fa-location-dot"></i> 澳門特別行政區</li>
+                        <li><i class="fa-solid fa-phone"></i> +853 2828 2828</li>
+                        <li><i class="fa-solid fa-envelope"></i> info@nexustech.com</li>
+                        <li><i class="fa-solid fa-clock"></i> 週一至週五 9:00-18:00</li>
+                    </ul>
                 </div>
             </div>
+            
             <div class="footer-bottom">
-                <p>&copy; 2026 創科科技有限公司。版權所有。</p>
+                <p>&copy; 2026 NEXUS Tech. 版權所有。</p>
+                <div class="footer-legal">
+                    <a href="#">隱私政策</a>
+                    <a href="#">服務條款</a>
+                </div>
             </div>
         </div>
     </footer>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/js/all.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
