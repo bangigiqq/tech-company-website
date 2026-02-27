@@ -21,10 +21,14 @@
             --light: #f8f9fa;
             --text: #2d3748;
             --text-light: #718096;
+            --rr2-blue: #0066cc;
+            --rr2-red: #e53935;
             --gradient: linear-gradient(135deg, #0066cc 0%, #1a88e0 50%, #e53935 100%);
+            --gradient-blue: linear-gradient(135deg, #0066cc 0%, #1a88e0 100%);
+            --gradient-red: linear-gradient(135deg, #e53935 0%, #ff6b6b 100%);
         }
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Noto Sans TC', sans-serif; color: var(--text); line-height: 1.6; }
+        body { font-family: 'Noto Sans TC', sans-serif; color: var(--text); line-height: 1.6; overflow-x: hidden; }
         a { text-decoration: none; color: inherit; }
         ul { list-style: none; }
         
@@ -37,201 +41,341 @@
             position: fixed;
             width: 100%;
             z-index: 1000;
+            transition: all 0.3s;
+        }
+        .navbar.scrolled {
+            padding: 10px 0;
+            box-shadow: 0 5px 30px rgba(0,0,0,0.15);
         }
         .nav-wrapper {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 40px;
         }
-        .logo h1 {
-            font-size: 24px;
+        .logo {
+            font-size: 28px;
             font-weight: 700;
-            background: var(--gradient);
+            background: linear-gradient(135deg, #0066cc, #e53935);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
         .nav-menu {
             display: flex;
-            gap: 30px;
+            gap: 40px;
         }
         .nav-menu a {
             font-weight: 500;
             color: var(--text);
-            transition: color 0.3s;
+            transition: all 0.3s;
+            position: relative;
+        }
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background: var(--gradient);
+            transition: width 0.3s;
         }
         .nav-menu a:hover, .nav-menu a.active {
             color: var(--primary);
+        }
+        .nav-menu a:hover::after, .nav-menu a.active::after {
+            width: 100%;
         }
         
         /* Hero */
         .hero {
             min-height: 100vh;
-            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            background: linear-gradient(135deg, rgba(0,102,204,0.9) 0%, rgba(26,26,46,0.95) 100%),
+                        url('https://images.unsplash.com/photo-1497366216548-37526070297c?w=1920') center/cover;
             display: flex;
             align-items: center;
             justify-content: center;
             position: relative;
             padding-top: 80px;
         }
-        .hero-overlay {
+        .hero::before {
+            content: '';
             position: absolute;
             top: 0;
             left: 0;
             right: 0;
             bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+            background: linear-gradient(135deg, rgba(0,102,204,0.3) 0%, rgba(229,57,53,0.2) 100%);
         }
         .hero-content {
             text-align: center;
             color: white;
             z-index: 1;
-            padding: 40px 20px;
+            padding: 40px;
+            max-width: 900px;
+        }
+        .hero-badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(10px);
+            padding: 10px 25px;
+            border-radius: 50px;
+            margin-bottom: 30px;
+            font-size: 14px;
+            border: 1px solid rgba(255,255,255,0.2);
+            animation: fadeInDown 0.8s ease-out;
         }
         .hero-title {
-            font-size: 48px;
+            font-size: 56px;
             font-weight: 700;
-            margin-bottom: 20px;
-            animation: fadeInUp 1s ease-out;
+            margin-bottom: 25px;
+            line-height: 1.2;
+            animation: fadeInUp 1s ease-out 0.2s both;
+        }
+        .hero-title span {
+            background: linear-gradient(135deg, #0066cc, #e53935);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
         .hero-subtitle {
-            font-size: 20px;
-            opacity: 0.9;
-            margin-bottom: 40px;
-            animation: fadeInUp 1s ease-out 0.2s both;
+            font-size: 22px;
+            opacity: 0.95;
+            margin-bottom: 45px;
+            animation: fadeInUp 1s ease-out 0.4s both;
         }
         .hero-buttons {
             display: flex;
             gap: 20px;
             justify-content: center;
-            animation: fadeInUp 1s ease-out 0.4s both;
+            animation: fadeInUp 1s ease-out 0.6s both;
         }
         .btn {
-            padding: 15px 40px;
+            padding: 18px 45px;
             border-radius: 50px;
             font-weight: 600;
             transition: all 0.3s;
             display: inline-block;
+            font-size: 16px;
         }
         .btn-primary {
             background: var(--gradient);
             color: white;
+            border: none;
         }
         .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(0,102,204,0.4);
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,102,204,0.4);
         }
         .btn-secondary {
-            background: transparent;
+            background: rgba(255,255,255,0.1);
             border: 2px solid white;
             color: white;
+            backdrop-filter: blur(10px);
         }
         .btn-secondary:hover {
             background: white;
-            color: var(--dark);
+            color: var(--primary);
+        }
+        
+        /* Stats Bar */
+        .stats-bar {
+            background: var(--gradient);
+            padding: 40px 0;
+            color: white;
+        }
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .stat-item h3 {
+            font-size: 42px;
+            font-weight: 700;
+        }
+        .stat-item p {
+            font-size: 16px;
+            opacity: 0.9;
         }
         
         /* Features */
         .features {
-            padding: 100px 0;
+            padding: 120px 0;
             background: var(--light);
         }
         .section-header {
             text-align: center;
-            margin-bottom: 60px;
+            margin-bottom: 70px;
         }
         .section-title {
-            font-size: 36px;
+            font-size: 42px;
             font-weight: 700;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
             color: var(--dark);
+            position: relative;
+            display: inline-block;
+        }
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background: var(--gradient);
+            border-radius: 2px;
         }
         .section-subtitle {
             font-size: 18px;
             color: var(--text-light);
+            margin-top: 20px;
         }
         .features-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 30px;
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 40px;
         }
         .feature-card {
             background: white;
-            padding: 40px 30px;
-            border-radius: 20px;
+            padding: 50px 35px;
+            border-radius: 24px;
             text-align: center;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
-            transition: transform 0.3s;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+        }
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--gradient);
         }
         .feature-card:hover {
-            transform: translateY(-10px);
+            transform: translateY(-15px);
+            box-shadow: 0 25px 60px rgba(0,0,0,0.15);
         }
         .feature-icon {
-            font-size: 48px;
-            margin-bottom: 20px;
+            width: 80px;
+            height: 80px;
+            background: var(--gradient);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            margin: 0 auto 25px;
+            color: white;
         }
         .feature-card h3 {
-            font-size: 20px;
+            font-size: 22px;
             margin-bottom: 15px;
             color: var(--dark);
         }
         .feature-card p {
             color: var(--text-light);
+            line-height: 1.8;
         }
         
-        /* Services */
+        /* Services with Images */
         .services {
-            padding: 100px 0;
+            padding: 120px 0;
             background: white;
         }
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-            max-width: 1200px;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 35px;
+            max-width: 1400px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 40px;
         }
         .service-card {
-            background: var(--light);
-            padding: 40px 30px;
-            border-radius: 20px;
-            transition: all 0.3s;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 15px 50px rgba(0,0,0,0.1);
+            transition: all 0.4s;
+            background: white;
         }
         .service-card:hover {
-            background: white;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+            transform: translateY(-10px);
+            box-shadow: 0 25px 70px rgba(0,0,0,0.2);
+        }
+        .service-image {
+            height: 220px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+        .service-image::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 50%;
+            background: linear-gradient(to top, rgba(0,0,0,0.5), transparent);
+        }
+        .service-content {
+            padding: 30px;
         }
         .service-icon {
-            font-size: 48px;
-            margin-bottom: 20px;
+            font-size: 28px;
             color: var(--primary);
+            margin-bottom: 15px;
         }
         .service-card h3 {
-            font-size: 22px;
-            margin-bottom: 15px;
+            font-size: 24px;
+            margin-bottom: 12px;
             color: var(--dark);
         }
         .service-card p {
             color: var(--text-light);
             margin-bottom: 20px;
+            line-height: 1.7;
+        }
+        .service-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
         }
         .service-list li {
-            padding: 8px 0;
+            background: var(--light);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 14px;
             color: var(--text);
         }
         
         /* Testimonials */
         .testimonials {
-            padding: 100px 0;
-            background: var(--dark);
+            padding: 120px 0;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
             color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        .testimonials::before {
+            content: '"';
+            position: absolute;
+            top: 50px;
+            left: 10%;
+            font-size: 300px;
+            opacity: 0.05;
+            font-family: serif;
         }
         .testimonials .section-title,
         .testimonials .section-subtitle {
@@ -239,57 +383,112 @@
         }
         .testimonials-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
             gap: 30px;
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 40px;
         }
         .testimonial-card {
-            background: rgba(255,255,255,0.1);
-            padding: 30px;
-            border-radius: 20px;
+            background: rgba(255,255,255,0.08);
+            backdrop-filter: blur(10px);
+            padding: 40px;
+            border-radius: 24px;
+            border: 1px solid rgba(255,255,255,0.1);
+            transition: all 0.3s;
+        }
+        .testimonial-card:hover {
+            background: rgba(255,255,255,0.12);
+            transform: translateY(-5px);
+        }
+        .testimonial-content {
+            position: relative;
+        }
+        .testimonial-content::before {
+            content: '"';
+            font-size: 60px;
+            color: var(--rr2-red);
+            opacity: 0.5;
+            position: absolute;
+            top: -20px;
+            left: -10px;
+            font-family: serif;
         }
         .testimonial-content p {
-            font-size: 16px;
-            font-style: italic;
-            margin-bottom: 20px;
+            font-size: 17px;
+            line-height: 1.8;
+            margin-bottom: 25px;
+            padding-left: 30px;
+        }
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        .author-avatar {
+            width: 55px;
+            height: 55px;
+            background: var(--gradient);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            color: white;
+            font-weight: 600;
         }
         .testimonial-author h4 {
-            font-size: 18px;
-            margin-bottom: 5px;
+            font-size: 17px;
+            margin-bottom: 3px;
         }
         .testimonial-author p {
             font-size: 14px;
-            opacity: 0.8;
+            opacity: 0.7;
+            padding-left: 0;
+            margin: 0;
         }
         
         /* CTA */
         .cta {
-            padding: 100px 0;
+            padding: 120px 0;
             background: var(--gradient);
             text-align: center;
             color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        .cta::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 60%);
+            animation: pulse 4s ease-in-out infinite;
         }
         .cta h2 {
-            font-size: 36px;
+            font-size: 42px;
             margin-bottom: 20px;
+            position: relative;
         }
         .cta p {
             font-size: 20px;
-            margin-bottom: 40px;
-            opacity: 0.9;
+            margin-bottom: 45px;
+            opacity: 0.95;
+            position: relative;
         }
         .btn-light {
             background: white;
             color: var(--primary);
-            padding: 15px 50px;
+            padding: 18px 55px;
             border-radius: 50px;
             font-weight: 600;
+            font-size: 17px;
         }
         .btn-light:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
         }
         
         /* Footer */
@@ -300,19 +499,24 @@
         }
         .footer-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 40px;
-            max-width: 1200px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 50px;
+            max-width: 1400px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 40px;
         }
         .footer-section h3 {
-            font-size: 20px;
-            margin-bottom: 20px;
+            font-size: 22px;
+            margin-bottom: 25px;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
         .footer-section p, .footer-section li {
             color: rgba(255,255,255,0.7);
-            margin-bottom: 10px;
+            margin-bottom: 12px;
+            transition: color 0.3s;
         }
         .footer-section a:hover {
             color: var(--primary);
@@ -324,30 +528,58 @@
             border-top: 1px solid rgba(255,255,255,0.1);
         }
         
+        /* Animations */
         @keyframes fadeInUp {
             from {
                 opacity: 0;
-                transform: translateY(30px);
+                transform: translateY(40px);
             }
             to {
                 opacity: 1;
                 transform: translateY(0);
             }
         }
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+        
+        .reveal {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease-out;
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
         
         /* Mobile */
         @media (max-width: 768px) {
-            .hero-title { font-size: 32px; }
-            .hero-subtitle { font-size: 16px; }
+            .hero-title { font-size: 36px; }
+            .hero-subtitle { font-size: 17px; }
             .nav-menu { display: none; }
             .hero-buttons { flex-direction: column; }
+            .stats-grid { grid-template-columns: repeat(2, 1fr); }
+            .section-title { font-size: 32px; }
         }
     </style>
 </head>
 <body>
     <!-- 導航欄 -->
-    <nav class="navbar">
+    <nav class="navbar" id="navbar">
         <div class="nav-wrapper">
+            <div class="logo">RR2</div>
             <ul class="nav-menu" id="navMenu">
                 <li><a href="index.html" class="active">首頁</a></li>
                 <li><a href="services.html">服務範圍</a></li>
@@ -359,10 +591,10 @@
 
     <!-- 主視覺區域 -->
     <header class="hero">
-        <div class="hero-overlay"></div>
-        <div class="container hero-content">
-            <h2 class="hero-title">專業 IT 系統整合 助您業務起飛</h2>
-            <p class="hero-subtitle">澳門領先 IT 解決方案供應商 - PMS、POS、網絡架構一站式服務</p>
+        <div class="hero-content">
+            <div class="hero-badge">🏆 澳門領先 IT 系統整合專家</div>
+            <h1 class="hero-title">專業 IT 系統整合<br><span>助您業務起飛</span></h1>
+            <p class="hero-subtitle">一站式解決方案：PMS 酒店管理系統、POS 餐飲系統、網絡架構<br>50+ 企業客戶見證 · 98% 客戶滿意度</p>
             <div class="hero-buttons">
                 <a href="contact.html" class="btn btn-primary">免費諮詢</a>
                 <a href="services.html" class="btn btn-secondary">了解服務</a>
@@ -370,33 +602,55 @@
         </div>
     </header>
 
+    <!-- Stats Bar -->
+    <section class="stats-bar">
+        <div class="stats-grid">
+            <div class="stat-item reveal">
+                <h3>50+</h3>
+                <p>企業客戶</p>
+            </div>
+            <div class="stat-item reveal">
+                <h3>200+</h3>
+                <p>完成項目</p>
+            </div>
+            <div class="stat-item reveal">
+                <h3>98%</h3>
+                <p>客戶滿意度</p>
+            </div>
+            <div class="stat-item reveal">
+                <h3>5+</h3>
+                <p>年行業經驗</p>
+            </div>
+        </div>
+    </section>
+
     <!-- 服務亮點 -->
     <section class="features">
         <div class="container">
-            <div class="section-header">
+            <div class="section-header reveal">
                 <h2 class="section-title">為什麼選擇我們</h2>
                 <p class="section-subtitle">專業團隊 · 優質服務 · 豐富經驗</p>
             </div>
             <div class="features-grid">
-                <div class="feature-card">
+                <div class="feature-card reveal">
                     <div class="feature-icon">🚀</div>
                     <h3>快速交付</h3>
-                    <p>敏捷開發流程，按時交付高質量產品</p>
+                    <p>敏捷開發流程，按時交付高質量產品，確保項目如期完成</p>
                 </div>
-                <div class="feature-card">
+                <div class="feature-card reveal">
                     <div class="feature-icon">💎</div>
                     <h3>品質保證</h3>
-                    <p>嚴格質量控制，確保每個項目完美交付</p>
+                    <p>嚴格質量控制，確保每個項目完美交付，品質有保障</p>
                 </div>
-                <div class="feature-card">
+                <div class="feature-card reveal">
                     <div class="feature-icon">🤝</div>
                     <h3>貼心服務</h3>
-                    <p>全程一對一服務，隨時響應您的需求</p>
+                    <p>全程一對一服務，隨時響應您的需求，貼心周到</p>
                 </div>
-                <div class="feature-card">
-                    <div class="feature-icon">💡</div>
-                    <h3>豐富經驗</h3>
-                    <p>50+ 企業客戶，200+ 項目經驗</p>
+                <div class="feature-card reveal">
+                    <div class="feature-icon">🛡️</div>
+                    <h3>安全可靠</h3>
+                    <p>企業級安全保障，數據加密 Protection，安心使用</p>
                 </div>
             </div>
         </div>
@@ -405,54 +659,66 @@
     <!-- 核心服務 -->
     <section class="services">
         <div class="container">
-            <div class="section-header">
+            <div class="section-header reveal">
                 <h2 class="section-title">核心服務</h2>
                 <p class="section-subtitle">全方位的 IT 系統整合解決方案</p>
             </div>
             <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon">🏨</div>
-                    <h3>PMS 酒店管理系統</h3>
-                    <p>專業酒店管理系統，涵蓋預訂、入住、客房管理、財務結算</p>
-                    <ul class="service-list">
-                        <li>✓ 預訂管理</li>
-                        <li>✓ 入住/退房</li>
-                        <li>✓ 客房管理</li>
-                        <li>✓ 財務系統</li>
-                    </ul>
+                <div class="service-card reveal">
+                    <div class="service-image" style="background-image: url('https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800');"></div>
+                    <div class="service-content">
+                        <div class="service-icon">🏨</div>
+                        <h3>PMS 酒店管理系統</h3>
+                        <p>專業酒店管理系統，涵蓋預訂、入住、客房管理、財務結算全方位功能</p>
+                        <ul class="service-list">
+                            <li>預訂管理</li>
+                            <li>入住/退房</li>
+                            <li>客房管理</li>
+                            <li>財務系統</li>
+                        </ul>
+                    </div>
                 </div>
-                <div class="service-card">
-                    <div class="service-icon">💳</div>
-                    <h3>POS 餐飲系統</h3>
-                    <p>餐飲零售POS系統，支援多種支付方式庫存管理</p>
-                    <ul class="service-list">
-                        <li>✓ 收銀系統</li>
-                        <li>✓ 庫存管理</li>
-                        <li>✓ 會員系統</li>
-                        <li>✓ 數據分析</li>
-                    </ul>
+                <div class="service-card reveal">
+                    <div class="service-image" style="background-image: url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800');"></div>
+                    <div class="service-content">
+                        <div class="service-icon">💳</div>
+                        <h3>POS 餐飲系統</h3>
+                        <p>餐飲零售POS系統，支援多種支付方式與庫存管理</p>
+                        <ul class="service-list">
+                            <li>收銀系統</li>
+                            <li>庫存管理</li>
+                            <li>會員系統</li>
+                            <li>數據分析</li>
+                        </ul>
+                    </div>
                 </div>
-                <div class="service-card">
-                    <div class="service-icon">🌐</div>
-                    <h3>網絡架構</h3>
-                    <p>企業網絡規劃、WiFi 覆蓋、安防監控系統</p>
-                    <ul class="service-list">
-                        <li>✓ WiFi 覆蓋</li>
-                        <li>✓ 網絡設備</li>
-                        <li>✓ 安防監控</li>
-                        <li>✓ 系統維護</li>
-                    </ul>
+                <div class="service-card reveal">
+                    <div class="service-image" style="background-image: url('https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800');"></div>
+                    <div class="service-content">
+                        <div class="service-icon">🌐</div>
+                        <h3>網絡架構</h3>
+                        <p>企業級網絡規劃與建設，提供穩定安全的網絡環境</p>
+                        <ul class="service-list">
+                            <li>WiFi 覆蓋</li>
+                            <li>網絡設備</li>
+                            <li>安防監控</li>
+                            <li>系統維護</li>
+                        </ul>
+                    </div>
                 </div>
-                <div class="service-card">
-                    <div class="service-icon">💼</div>
-                    <h3>技術諮詢</h3>
-                    <p>IT 戰略規劃、技術顧問、系統優化</p>
-                    <ul class="service-list">
-                        <li>✓ IT 戰略規劃</li>
-                        <li>✓ 技術架構顧問</li>
-                        <li>✓ 系統性能優化</li>
-                        <li>✓ 安全評估</li>
-                    </ul>
+                <div class="service-card reveal">
+                    <div class="service-image" style="background-image: url('https://images.unsplash.com/photo-1551434678-e076c223a692?w=800');"></div>
+                    <div class="service-content">
+                        <div class="service-icon">💼</div>
+                        <h3>技術諮詢</h3>
+                        <p>專業 IT 顧問服務，幫助企業制定技術發展策略</p>
+                        <ul class="service-list">
+                            <li>IT 規劃</li>
+                            <li>技術顧問</li>
+                            <li>系統優化</li>
+                            <li>安全評估</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
@@ -461,39 +727,42 @@
     <!-- 客戶評價 -->
     <section class="testimonials">
         <div class="container">
-            <div class="section-header">
+            <div class="section-header reveal">
                 <h2 class="section-title">客戶評價</h2>
                 <p class="section-subtitle">聽聽客戶怎麼說</p>
             </div>
             <div class="testimonials-grid">
-                <div class="testimonial-card">
+                <div class="testimonial-card reveal">
                     <div class="testimonial-content">
-                        <p>"RR2 專業團隊幫助我們完成數字化轉型，系統運行穩定，服務貼心！"</p>
+                        <p>"RR2 專業團隊幫助我們完成數字化轉型，系統運行穩定，服務貼心！從部署到培訓都非常專業。"</p>
                     </div>
                     <div class="testimonial-author">
-                        <div class="author-info">
+                        <div class="author-avatar">陳</div>
+                        <div>
                             <h4>陳先生</h4>
                             <p>某酒店集團 營運總監</p>
                         </div>
                     </div>
                 </div>
-                <div class="testimonial-card">
+                <div class="testimonial-card reveal">
                     <div class="testimonial-content">
-                        <p>"POS 系統功能強大，大幅提升營運效率。強烈推薦！"</p>
+                        <p>"POS 系統功能強大，大幅提升營運效率。強烈推薦！庫存管理功能特別好用。"</p>
                     </div>
                     <div class="testimonial-author">
-                        <div class="author-info">
+                        <div class="author-avatar">李</div>
+                        <div>
                             <h4>李小姐</h4>
                             <p>某餐飲集團 市場總監</p>
                         </div>
                     </div>
                 </div>
-                <div class="testimonial-card">
+                <div class="testimonial-card reveal">
                     <div class="testimonial-content">
-                        <p>"網絡架構專業，WiFi 覆蓋穩定，售後服務周到！"</p>
+                        <p>"網絡架構專業，WiFi 覆蓋穩定，售後服務周到！IT 團隊反應迅速，值得信賴。"</p>
                     </div>
                     <div class="testimonial-author">
-                        <div class="author-info">
+                        <div class="author-avatar">黃</div>
+                        <div>
                             <h4>黃經理</h4>
                             <p>某商場 設備總監</p>
                         </div>
@@ -550,5 +819,36 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="script.js"></script>
+    <script>
+        // Scroll reveal animation
+        window.addEventListener('scroll', reveal);
+        
+        function reveal() {
+            var reveals = document.querySelectorAll('.reveal');
+            
+            for(var i = 0; i < reveals.length; i++) {
+                var windowheight = window.innerHeight;
+                var revealtop = reveals[i].getBoundingClientRect().top;
+                var revealpoint = 150;
+                
+                if(revealtop < windowheight - revealpoint) {
+                    reveals[i].classList.add('active');
+                }
+            }
+        }
+        
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            var navbar = document.getElementById('navbar');
+            if(window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+        
+        // Initial call
+        reveal();
+    </script>
 </body>
 </html>
