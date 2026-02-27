@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="zh-HK">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>產品中心 | RR2資訊科技有限公司</title>
+    <meta name="description" content="RR2資訊科技產品中心 - 自助入住機、政府對接系統、維護服務方案">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="animations.css">
+    <link rel="stylesheet" href="animations-advanced.css">
+    <style>
+        :root { 
+            --primary: #1a365d; 
+            --secondary: #c9a227; 
+            --accent: #2c5282; 
+            --dark: #1a1a2e; 
+            --light: #f8f9fa;
+            --text: #2d3748;
+            --text-light: #718096;
+            --gradient: linear-gradient(135deg, #1a365d 0%, #2c5282 50%, #c9a227 100%);
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Noto Sans TC', sans-serif; color: var(--text); line-height: 1.6; }
+        a { text-decoration: none; color: inherit; }
+        
+        .navbar { 
+            background: rgba(255,255,255,0.98); 
+            box-shadow: 0 2px 20px rgba(0,0,0,0.08); 
+            padding: 12px 0; 
+            position: fixed; 
+            width: 100%; 
+            top: 0; 
+            z-index: 1000;
+        }
+        .navbar .container { display: flex; justify-content: space-between; align-items: center; }
+        .logo { display: flex; align-items: center; gap: 10px; font-size: 24px; font-weight: 700; color: var(--primary); }
+        .logo-icon { width: 45px; height: 45px; background: var(--gradient); border-radius: 10px; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 20px; }
+        .logo span { color: var(--secondary); }
+        .nav-menu { display: flex; gap: 30px; align-items: center; }
+        .nav-menu a { font-weight: 500; color: var(--text); transition: color 0.3s; position: relative; }
+        .nav-menu a::after { content: ''; position: absolute; bottom: -5px; left: 0; width: 0; height: 2px; background: var(--secondary); transition: width 0.3s; }
+        .nav-menu a:hover, .nav-menu a.active { color: var(--primary); }
+        .nav-menu a:hover::after, .nav-menu a.active::after { width: 100%; }
+        .btn-contact { background: var(--gradient); color: #fff !important; padding: 10px 25px; border-radius: 25px; font-weight: 600; }
+        
+        .page-header { 
+            background: linear-gradient(135deg, rgba(26,54,93,0.95) 0%, rgba(44,82,130,0.9) 100%), 
+                        url('https://images.unsplash.com/photo-1557821552-17105176677c?w=1920') center/cover; 
+            color: #fff; 
+            padding: 150px 0 80px; 
+            text-align: center;
+        }
+        .page-header h1 { font-size: 42px; font-weight: 700; margin-bottom: 15px; }
+        .page-header p { font-size: 18px; opacity: 0.9; }
+        
+        .section { padding: 80px 0; }
+        .section-header { text-align: center; margin-bottom: 60px; }
+        .section-header h2 { font-size: 36px; font-weight: 700; margin-bottom: 15px; color: var(--primary); }
+        .section-header h2::after { content: ''; display: block; width: 60px; height: 3px; background: var(--secondary); margin: 15px auto 0; }
+        .section-header p { color: var(--text-light); font-size: 18px; }
+        
+        .products { background: var(--light); }
+        .product-card { 
+            background: #fff; 
+            border-radius: 20px; 
+            overflow: hidden; 
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08); 
+            margin-bottom: 30px;
+            transition: all 0.3s;
+        }
+        .product-card:hover { transform: translateY(-10px); box-shadow: 0 20px 60px rgba(0,0,0,0.15); }
+        .product-image { 
+            height: 250px; 
+            background: var(--gradient); 
+            display: flex; 
+            align-items: center; 
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .product-image img { width: 100%; height: 100%; object-fit: cover; }
+        .product-image .icon {
+            font-size: 80px;
+            color: #fff;
+            z-index: 1;
+        }
+        .product-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: var(--secondary);
+            color: #fff;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+        .product-badge.hot { background: #e53e3e; }
+        .product-badge.new { background: #38a169; }
+        .product-badge.gov { background: #1a365d; }
+        .product-content { padding: 30px; }
+        .product-content h3 { color: var(--primary); margin-bottom: 15px; font-size: 24px; }
+        .product-content p { color: var(--text-light); margin-bottom: 20px; }
+        .product-features { 
+            display: grid; 
+            grid-template-columns: repeat(2, 1fr); 
+            gap: 10px; 
+            margin-bottom: 20px; 
+        }
+        .product-features li { 
+            display: flex; 
+            align-items: center; 
+            gap: 8px; 
+            color: var(--text);
+            font-size: 14px;
+        }
+        .product-features li i { color: var(--secondary); }
+        .product-price { 
+            font-size: 28px; 
+            color: var(--primary); 
+            font-weight: 700; 
+            margin-bottom: 20px; 
+        }
+        .product-price span { font-size: 14px; color: var(--text-light); font-weight: 400; }
+        .btn-quote { 
+            background: var(--gradient); 
+            color: #fff; 
+            border: none; 
+            padding: 12px 30px; 
+            border-radius: 25px; 
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: inline-block;
+        }
+        .btn-quote:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(201,162,39,0.4); }
+        
+        .pricing { background: #fff; }
+        .pricing-card { 
+            background: #fff; 
+            border-radius: 20px; 
+            padding: 40px; 
+            text-align: center;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+            transition: all 0.3s;
+            height: 100%;
+        }
+        .pricing-card:hover { transform: translateY(-10px); box-shadow: 0 20px 60px rgba(0,0,0,0.15); }
+        .pricing-card.featured { 
+            border: 3px solid var(--secondary); 
+            position: relative;
+        }
+        .pricing-card.featured::before {
+            content: '最受歡迎';
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--secondary);
+            color: #fff;
+            padding: 5px 20px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+        .pricing-icon { 
+            width: 80px; 
+            height: 80px; 
+            background: var(--gradient); 
+            border-radius: 50%; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            margin: 0 auto 20px;
+            font-size: 32px;
+            color: #fff;
+        }
+        .pricing-card h3 { color: var(--primary); margin-bottom: 10px; font-size: 24px; }
+        .pricing-price { 
+            font-size: 36px; 
+            color: var(--secondary); 
+            font-weight: 700; 
+            margin-bottom: 5px; 
+        }
+        .pricing-price span { font-size: 14px; color: var(--text-light); }
+        .pricing-desc { color: var(--text-light); margin-bottom: 20px; }
+        .pricing-features { text-align: left; margin-bottom: 30px; }
+        .pricing-features li { 
+            padding: 10px 0; 
+            border-bottom: 1px solid #eee; 
+            color: var(--text);
+        }
+        .pricing-features li:last-child { border-bottom: none; }
+        .pricing-features li i { color: var(--secondary); margin-right: 10px; }
+        
+        .gov-section { background: var(--light); }
+        .gov-card {
+            background: #fff;
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            transition: all 0.3s;
+        }
+        .gov-card:hover { transform: translateY(-5px); }
+        .gov-icon {
+            width: 70px;
+            height: 70px;
+            background: #1a365d;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 28px;
+            color: #fff;
+        }
+        .gov-card h4 { color: var(--primary); margin-bottom: 10px; }
+        .gov-card p { color: var(--text-light); font-size: 14px; }
+        
+        footer { background: var(--dark); color: #fff; padding: 60px 0 20px; }
+        .footer-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px; margin-bottom: 40px; }
+        .footer-logo { display: flex; align-items: center; gap: 10px; font-size: 22px; font-weight: 700; color: #fff; margin-bottom: 20px; }
+        .footer-logo .logo-icon { width: 40px; height: 40px; font-size: 18px; }
+        .footer-logo span { color: var(--secondary); }
+        .footer-about p { color: rgba(255,255,255,0.7); font-size: 14px; }
+        .footer h4 { color: var(--secondary); margin-bottom: 20px; font-size: 18px; }
+        .footer ul li { margin-bottom: 10px; }
+        .footer ul li a { color: rgba(255,255,255,0.7); transition: color 0.3s; }
+        .footer ul li a:hover { color: var(--secondary); }
+        .footer-bottom { text-align: center; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.1); color: rgba(255,255,255,0.5); font-size: 14px; }
+        
+        @media (max-width: 768px) {
+            .product-features { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: 1fr 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Page Loader -->
+    <div class="page-loader" id="pageLoader">
+        <div class="loader-content">
+            <div class="loader-logo">
+                <i class="fas fa-hotel"></i>
+            </div>
+            <div class="loader-text">載入中...</div>
+        </div>
+    </div>
+
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <div class="logo-icon"><i class="fas fa-hotel"></i></div>
+                RR2<span>資訊科技</span>
+            </a>
+            <ul class="nav-menu">
+                <li><a href="index.html">首頁</a></li>
+                <li><a href="services.html">服務</a></li>
+                <li><a href="products.html" class="active">產品</a></li>
+                <li><a href="about.html">關於我們</a></li>
+                <li><a href="contact.html">聯繫我們</a></li>
+                <li><a href="contact.html" class="btn-contact">立即咨詢</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="page-header">
+        <div class="container">
+            <h1>產品中心</h1>
+            <p>創新科技 · 卓越品質 · 貼心服務</p>
+        </div>
+    </section>
+
+    <!-- Self-Check-in Kiosk -->
+    <section class="section products">
+        <div class="container">
+            <div class="section-header">
+                <h2>智能硬件</h2>
+                <p>先進設備，提升客戶體驗</p>
+            </div>
+            
+            <div class="row g-4">
+                <!-- 自助入住機 -->
+                <div class="col-lg-6">
+                    <div class="product-card">
+                        <div class="product-image">
+                            <span class="product-badge hot">熱賣</span>
+                            <i class="fas fa-user-check icon"></i>
+                        </div>
+                        <div class="product-content">
+                            <h3>自助入住機 Kiosk</h3>
+                            <p>24小時自助入住/退房服務，支援身份證、護照、港澳通行證識別，大幅減少排隊時間，提升客人體驗。</p>
+                            <ul class="product-features">
+                                <li><i class="fas fa-check"></i> 身份證/護照/通行證識別</li>
+                                <li><i class="fas fa-check"></i> 人臉識別技術</li>
+                                <li><i class="fas fa-check"></i> 房卡製作一體化</li>
+                                <li><i class="fas fa-check"></i> 支援多種支付方式</li>
+                                <li><i class="fas fa-check"></i> 24小時無間斷服務</li>
+                                <li><i class="fas fa-check"></i> 語音/文字雙語支援</li>
+                            </ul>
+                            <div class="product-price">MOP 28,800 <span>/ 起</span></div>
+                            <a href="contact.html" class="btn-quote">立即詢價</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 智能門鎖 -->
+                <div class="col-lg-6">
+                    <div class="product-card">
+                        <div class="product-image">
+                            <span class="product-badge new">新品</span>
+                            <i class="fas fa-key icon"></i>
+                        </div>
+                        <div class="product-content">
+                            <h3>智能門鎖系統</h3>
+                            <p>採用最新物聯網技術，支援手機開門、密碼開門、卡片開門等多種方式，安全管理更放心。</p>
+                            <ul class="product-features">
+                                <li><i class="fas fa-check"></i> 手機 APP 開門</li>
+                                <li><i class="fas fa-check"></i> 指紋識別</li>
+                                <li><i class="fas fa-check"></i> 卡片/密碼開門</li>
+                                <li><i class="fas fa-check"></i> 遠程授權管理</li>
+                                <li><i class="fas fa-check"></i> 開門記錄查詢</li>
+                                <li><i class="fas fa-check"></i> 低電量提醒</li>
+                            </ul>
+                            <div class="product-price">MOP 1,200 <span>/ 把</span></div>
+                            <a href="contact.html" class="btn-quote">立即詢價</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Government Integration -->
+    <section class="section gov-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>政府對接系統</h2>
+                <p>符合澳門政府法規要求，數據對接無縫暢通</p>
+            </div>
+            
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="gov-card">
+                        <div class="gov-icon"><i class="fas fa-file-contract"></i></div>
+                        <h4>旅客入境系統</h4>
+                        <p>對接澳門入境事務局，自動上傳旅客資料，減少人工輸入錯誤</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="gov-card">
+                        <div class="gov-icon"><i class="fas fa-receipt"></i></div>
+                        <h4>電子發票對接</h4>
+                        <p>對接財政局電子發票系統，自動開具符合法規的電子發票</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="gov-card">
+                        <div class="gov-icon"><i class="fas fa-users"></i></div>
+                        <h4>勞工局系統</h4>
+                        <p>對接勞工局外僱申請系統，簡化外僱住宿登記流程</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Maintenance Plans -->
+    <section class="section pricing">
+        <div class="container">
+            <div class="section-header">
+                <h2>維護服務方案</h2>
+                <p>專業團隊，為您提供全方位技術支援</p>
+            </div>
+            
+            <div class="row g-4 justify-content-center">
+                <div class="col-md-4">
+                    <div class="pricing-card">
+                        <div class="pricing-icon"><i class="fas fa-tools"></i></div>
+                        <h3>基礎維護</h3>
+                        <div class="pricing-price">MOP 800 <span>/ 月</span></div>
+                        <p class="pricing-desc">適合中小型酒店</p>
+                        <ul class="pricing-features">
+                            <li><i class="fas fa-check"></i> 電話技術支援 (9-6)</li>
+                            <li><i class="fas fa-check"></i> 遠程故障排查</li>
+                            <li><i class="fas fa-check"></i> 每月系統檢查</li>
+                            <li><i class="fas fa-check"></i> 軟件更新升級</li>
+                            <li><i class="fas fa-times" style="color:#ccc"></i> 現場支援</li>
+                            <li><i class="fas fa-times" style="color:#ccc"></i> 7×24 熱線</li>
+                        </ul>
+                        <a href="contact.html" class="btn-quote">立即詢價</a>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="pricing-card featured">
+                        <div class="pricing-icon"><i class="fas fa-headset"></i></div>
+                        <h3>專業維護</h3>
+                        <div class="pricing-price">MOP 1,500 <span>/ 月</span></div>
+                        <p class="pricing-desc">適合中大型酒店 ★</p>
+                        <ul class="pricing-features">
+                            <li><i class="fas fa-check"></i> 7×24 電話支援</li>
+                            <li><i class="fas fa-check"></i> 遠程故障排查</li>
+                            <li><i class="fas fa-check"></i> 每週系統檢查</li>
+                            <li><i class="fas fa-check"></i> 軟件更新升級</li>
+                            <li><i class="fas fa-check"></i> 每月現場巡檢</li>
+                            <li><i class="fas fa-check"></i> 優先上門服務</li>
+                        </ul>
+                        <a href="contact.html" class="btn-quote">立即詢價</a>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="pricing-card">
+                        <div class="pricing-icon"><i class="fas fa-shield-alt"></i></div>
+                        <h3>全方位托管</h3>
+                        <div class="pricing-price">MOP 3,000 <span>/ 月</span></div>
+                        <p class="pricing-desc">適合大型酒店/集團</p>
+                        <ul class="pricing-features">
+                            <li><i class="fas fa-check"></i> 7×24 專人熱線</li>
+                            <li><i class="fas fa-check"></i> 專屬技術客戶經理</li>
+                            <li><i class="fas fa-check"></i> 每日系統監控</li>
+                            <li><i class="fas fa-check"></i> 定期上門維護</li>
+                            <li><i class="fas fa-check"></i> 數據備份保護</li>
+                            <li><i class="fas fa-check"></i> 緊急2小時上門</li>
+                        </ul>
+                        <a href="contact.html" class="btn-quote">立即詢價</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- One-time Services -->
+    <section class="section" style="background: var(--light);">
+        <div class="container">
+            <div class="section-header">
+                <h2>一次性服務</h2>
+                <p>按項目收費，靈活選擇</p>
+            </div>
+            
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-3">
+                    <div class="pricing-card">
+                        <div class="pricing-icon"><i class="fas fa-wrench"></i></div>
+                        <h3>系統安裝</h3>
+                        <div class="pricing-price" style="font-size: 24px;">MOP 3,000 <span>起</span></div>
+                        <p class="pricing-desc">專業團隊上門安裝調試</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="pricing-card">
+                        <div class="pricing-icon"><i class="fas fa-graduation-cap"></i></div>
+                        <h3>員工培訓</h3>
+                        <div class="pricing-price" style="font-size: 24px;">MOP 1,500 <span>起</span></div>
+                        <p class="pricing-desc">系統操作培訓課程</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="pricing-card">
+                        <div class="pricing-icon"><i class="fas fa-database"></i></div>
+                        <h3>數據遷移</h3>
+                        <div class="pricing-price" style="font-size: 24px;">MOP 2,000 <span>起</span></div>
+                        <p class="pricing-desc">舊系統數據無縫遷移</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="pricing-card">
+                        <div class="pricing-icon"><i class="fas fa-cogs"></i></div>
+                        <h3>系統定制</h3>
+                        <div class="pricing-price" style="font-size: 24px;">MOP 5,000 <span>起</span></div>
+                        <p class="pricing-desc">根據需求定制開發</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <div class="footer-logo">
+                        <div class="logo-icon"><i class="fas fa-hotel"></i></div>
+                        RR2<span>資訊科技</span>
+                    </div>
+                    <p>澳門領先的酒店 IT 解決方案供應商。</p>
+                </div>
+                <div class="footer">
+                    <h4>服務項目</h4>
+                    <ul>
+                        <li><a href="services.html">酒店管理系統</a></li>
+                        <li><a href="services.html">智能客房控制</a></li>
+                        <li><a href="services.html">餐飲 POS 系統</a></li>
+                        <li><a href="products.html">產品中心</a></li>
+                    </ul>
+                </div>
+                <div class="footer">
+                    <h4>關於我們</h4>
+                    <ul>
+                        <li><a href="about.html">公司簡介</a></li>
+                        <li><a href="contact.html">聯繫我們</a></li>
+                    </ul>
+                </div>
+                <div class="footer">
+                    <h4>聯繫方式</h4>
+                    <ul>
+                        <li><i class="fas fa-phone"></i> +853 2828 2828</li>
+                        <li><i class="fas fa-envelope"></i> info@rr2tech.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 RR2資訊科技有限公司. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Page Loader
+        window.addEventListener('load', function() {
+            setTimeout(function() {
+                document.getElementById('pageLoader').classList.add('hidden');
+            }, 1500);
+        });
+
+        // Navbar scroll
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+    </script>
+</body>
+</html>
