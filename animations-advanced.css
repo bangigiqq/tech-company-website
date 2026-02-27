@@ -1,0 +1,499 @@
+/* ========================================
+   Advanced CSS Animations for RR2 Hotel Website
+   高級 CSS 動畫效果
+   ======================================== */
+
+/* ========================================
+   1. Loading Animation - 頁面加載動畫
+   ======================================== */
+.page-loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #1a365d;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.5s, visibility 0.5s;
+}
+
+.page-loader.hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.loader-content {
+    text-align: center;
+}
+
+.loader-logo {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, #1a365d, #c9a227);
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+    animation: pulse 1.5s ease-in-out infinite;
+}
+
+.loader-logo i {
+    color: #fff;
+    font-size: 36px;
+}
+
+.loader-text {
+    color: #c9a227;
+    font-size: 18px;
+    letter-spacing: 3px;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+/* ========================================
+   2. Button Animations - 按鈕動畫
+   ======================================== */
+.btn-glow {
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.btn-glow::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+    transition: left 0.5s;
+    z-index: -1;
+}
+
+.btn-glow:hover::before {
+    left: 100%;
+}
+
+.btn-bounce {
+    transition: transform 0.3s;
+}
+
+.btn-bounce:hover {
+    animation: bounce 0.5s ease;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    40% { transform: translateY(-10px); }
+    60% { transform: translateY(-5px); }
+}
+
+/* ========================================
+   3. Navbar Animations - 導航欄動畫
+   ======================================== */
+.navbar {
+    transition: all 0.3s ease;
+}
+
+.navbar.scrolled {
+    background: rgba(255,255,255,0.98) !important;
+    box-shadow: 0 4px 30px rgba(0,0,0,0.1);
+    padding: 8px 0 !important;
+}
+
+.navbar.scrolled .logo-icon {
+    transform: scale(0.9);
+}
+
+/* Nav link hover underline animation */
+.nav-link {
+    position: relative;
+}
+
+.nav-link::before {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: #c9a227;
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+.nav-link:hover::before,
+.nav-link.active::before {
+    width: 100%;
+}
+
+/* ========================================
+   4. Card Hover Effects - 卡片懸停效果
+   ======================================== */
+.card-lift {
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.card-lift:hover {
+    transform: translateY(-15px) scale(1.02);
+    box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+}
+
+.card-glow {
+    position: relative;
+}
+
+.card-glow::before {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    background: linear-gradient(135deg, #c9a227, #1a365d, #c9a227);
+    border-radius: inherit;
+    opacity: 0;
+    transition: opacity 0.3s;
+    z-index: -1;
+    filter: blur(10px);
+}
+
+.card-glow:hover::before {
+    opacity: 0.5;
+}
+
+/* ========================================
+   5. Image Hover Effects - 圖片懸停效果
+   ======================================== */
+.img-zoom {
+    overflow: hidden;
+}
+
+.img-zoom img {
+    transition: transform 0.6s ease;
+}
+
+.img-zoom:hover img {
+    transform: scale(1.1);
+}
+
+.img-tilt {
+    transition: transform 0.3s ease;
+    transform-style: preserve-3d;
+}
+
+.img-tilt:hover {
+    transform: perspective(1000px) rotateY(5deg);
+}
+
+/* ========================================
+   6. Text Animations - 文字動畫
+   ======================================== */
+.text-gradient {
+    background: linear-gradient(120deg, #1a365d, #c9a227, #1a365d);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: gradientMove 3s linear infinite;
+}
+
+@keyframes gradientMove {
+    to { background-position: 200% center; }
+}
+
+.text-blur-in {
+    filter: blur(10px);
+    opacity: 0;
+    animation: blurIn 0.8s ease forwards;
+}
+
+@keyframes blurIn {
+    to {
+        filter: blur(0);
+        opacity: 1;
+    }
+}
+
+/* Typewriter effect */
+.typewriter {
+    overflow: hidden;
+    white-space: nowrap;
+    animation: typing 3s steps(40, end), blink-caret 0.75s step-end infinite;
+}
+
+@keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+}
+
+@keyframes blink-caret {
+    from, to { border-color: transparent; }
+    50% { border-color: #c9a227; }
+}
+
+/* ========================================
+   7. Section Reveal Animations - 區塊 reveal 動畫
+   ======================================== */
+.reveal {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.8s ease;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.reveal-left {
+    opacity: 0;
+    transform: translateX(-50px);
+    transition: all 0.8s ease;
+}
+
+.reveal-left.active {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.reveal-right {
+    opacity: 0;
+    transform: translateX(50px);
+    transition: all 0.8s ease;
+}
+
+.reveal-right.active {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.reveal-scale {
+    opacity: 0;
+    transform: scale(0.8);
+    transition: all 0.8s ease;
+}
+
+.reveal-scale.active {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* ========================================
+   8. Icon Animations - 圖標動畫
+   ======================================== */
+.icon-pulse {
+    animation: iconPulse 2s ease-in-out infinite;
+}
+
+@keyframes iconPulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+.icon-rotate:hover {
+    animation: rotate 0.5s ease;
+}
+
+@keyframes rotate {
+    to { transform: rotate(360deg); }
+}
+
+/* ========================================
+   9. Background Effects - 背景效果
+   ======================================== */
+.bg-moving {
+    position: relative;
+    overflow: hidden;
+}
+
+.bg-moving::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(201,162,39,0.1) 0%, transparent 50%);
+    animation: bgMove 20s linear infinite;
+}
+
+@keyframes bgMove {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* Grid pattern background */
+.bg-grid {
+    background-image: 
+        linear-gradient(rgba(201,162,39,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(201,162,39,0.03) 1px, transparent 1px);
+    background-size: 50px 50px;
+}
+
+/* ========================================
+   10. Stats Counter Animation - 數字滾動動畫
+   ======================================== */
+.stat-counter {
+    display: inline-block;
+}
+
+.stat-counter[data-target] {
+    counter-reset: num var(--target, 0);
+}
+
+.stat-counter[data-target]::after {
+    content: counter(num);
+    animation: countUp 2s ease-out forwards;
+}
+
+@keyframes countUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* ========================================
+   11. Parallax Effect - 視差效果
+   ======================================== */
+.parallax {
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+/* ========================================
+   12. Cursor Effects - 鼠標效果
+   ======================================== */
+.cursor-dot,
+.cursor-outline {
+    position: fixed;
+    top: 0;
+    left: 0;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    z-index: 9999;
+    pointer-events: none;
+}
+
+.cursor-dot {
+    width: 8px;
+    height: 8px;
+    background-color: #c9a227;
+}
+
+.cursor-outline {
+    width: 40px;
+    height: 40px;
+    border: 2px solid #c9a227;
+    transition: transform 0.15s ease, width 0.3s, height 0.3s;
+}
+
+body:hover .cursor-outline.hover {
+    width: 60px;
+    height: 60px;
+    background-color: rgba(201,162,39,0.1);
+}
+
+/* ========================================
+   13. Modal/Popup Animations - 彈窗動畫
+   ======================================== */
+.modal-fade .modal-content {
+    animation: modalFadeIn 0.3s ease;
+}
+
+@keyframes modalFadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9) translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+.modal-slide .modal-content {
+    animation: modalSlideIn 0.3s ease;
+}
+
+@keyframes modalSlideIn {
+    from {
+        transform: translateX(100%);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+
+/* ========================================
+   14. Menu Animation - 菜單動畫
+   ======================================== */
+.mobile-menu-btn span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background: #1a365d;
+    margin: 5px 0;
+    transition: all 0.3s;
+}
+
+.mobile-menu-btn.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.mobile-menu-btn.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.mobile-menu-btn.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -6px);
+}
+
+/* ========================================
+   15. Testimonial Slider - 評價輪播
+   ======================================== */
+.testimonial-slider {
+    position: relative;
+    overflow: hidden;
+}
+
+.testimonial-slide {
+    display: none;
+    animation: fade 0.5s ease;
+}
+
+.testimonial-slide.active {
+    display: block;
+}
+
+@keyframes fade {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.testimonial-dots {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.dot {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #ccc;
+    margin: 0 5px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.dot.active {
+    background: #c9a227;
+    transform: scale(1.2);
+}
