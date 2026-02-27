@@ -4,76 +4,164 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>服務範圍 | RR2資訊科技有限公司</title>
+    <meta name="description" content="RR2資訊科技提供全方位酒店 IT 解決方案，包括 PMS 系統、智能客房、餐飲 POS、網絡安防等服務。">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        :root { --primary: #0066cc; --secondary: #00a3cc; --dark: #1a1a2e; --light: #f8f9fa; --text: #333; --text-light: #666; }
+        :root { 
+            --primary: #1a365d; 
+            --secondary: #c9a227; 
+            --accent: #2c5282; 
+            --dark: #1a1a2e; 
+            --light: #f8f9fa;
+            --text: #2d3748;
+            --text-light: #718096;
+            --gradient: linear-gradient(135deg, #1a365d 0%, #2c5282 50%, #c9a227 100%);
+        }
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Noto Sans TC', sans-serif; color: var(--text); line-height: 1.6; }
         a { text-decoration: none; color: inherit; }
         
-        .navbar { background: #fff; box-shadow: 0 2px 20px rgba(0,0,0,0.08); padding: 15px 0; position: fixed; width: 100%; top: 0; z-index: 1000; }
+        .navbar { 
+            background: rgba(255,255,255,0.98); 
+            box-shadow: 0 2px 20px rgba(0,0,0,0.08); 
+            padding: 12px 0; 
+            position: fixed; 
+            width: 100%; 
+            top: 0; 
+            z-index: 1000;
+        }
         .navbar .container { display: flex; justify-content: space-between; align-items: center; }
-        .logo { font-size: 22px; font-weight: 700; color: var(--primary); }
+        .logo { display: flex; align-items: center; gap: 10px; font-size: 24px; font-weight: 700; color: var(--primary); }
+        .logo-icon { width: 45px; height: 45px; background: var(--gradient); border-radius: 10px; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 20px; }
         .logo span { color: var(--secondary); }
         .nav-menu { display: flex; gap: 30px; align-items: center; }
-        .nav-menu a { font-weight: 500; color: var(--text); transition: color 0.3s; }
+        .nav-menu a { font-weight: 500; color: var(--text); transition: color 0.3s; position: relative; }
+        .nav-menu a::after { content: ''; position: absolute; bottom: -5px; left: 0; width: 0; height: 2px; background: var(--secondary); transition: width 0.3s; }
         .nav-menu a:hover, .nav-menu a.active { color: var(--primary); }
-        .btn-contact { background: var(--primary); color: #fff !important; padding: 10px 25px; border-radius: 25px; }
+        .nav-menu a:hover::after, .nav-menu a.active::after { width: 100%; }
+        .btn-contact { background: var(--gradient); color: #fff !important; padding: 10px 25px; border-radius: 25px; font-weight: 600; }
         
-        .page-header { background: linear-gradient(135deg, var(--dark) 0%, #16213e 100%); color: #fff; padding: 150px 0 80px; text-align: center; }
-        .page-header h1 { font-size: 48px; font-weight: 700; margin-bottom: 15px; }
-        .page-header p { font-size: 18px; opacity: 0.8; }
+        .page-header { 
+            background: linear-gradient(135deg, rgba(26,54,93,0.95) 0%, rgba(44,82,130,0.9) 100%), 
+                        url('https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?w=1920') center/cover; 
+            color: #fff; 
+            padding: 150px 0 80px; 
+            text-align: center;
+        }
+        .page-header h1 { font-size: 42px; font-weight: 700; margin-bottom: 15px; }
+        .page-header p { font-size: 18px; opacity: 0.9; }
         
         .section { padding: 80px 0; }
+        .section-header { text-align: center; margin-bottom: 60px; }
+        .section-header h2 { font-size: 36px; font-weight: 700; margin-bottom: 15px; color: var(--primary); }
+        .section-header h2::after { content: ''; display: block; width: 60px; height: 3px; background: var(--secondary); margin: 15px auto 0; }
+        .section-header p { color: var(--text-light); font-size: 18px; }
         
         .service-detail { background: var(--light); }
-        .service-card { background: #fff; border-radius: 15px; overflow: hidden; box-shadow: 0 5px 20px rgba(0,0,0,0.08); margin-bottom: 30px; }
-        .service-icon-large { background: linear-gradient(135deg, var(--primary), var(--secondary)); padding: 60px; text-align: center; font-size: 72px; color: #fff; }
-        .service-body { padding: 40px; }
-        .service-body h3 { font-size: 28px; margin-bottom: 15px; }
-        .service-body > p { color: var(--text-light); margin-bottom: 25px; font-size: 16px; }
-        .service-features { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; margin-bottom: 25px; }
-        .service-features li { padding: 12px 20px; background: var(--light); border-radius: 8px; }
-        .service-features li i { color: var(--primary); margin-right: 10px; }
-        .tech-stack { display: flex; flex-wrap: wrap; gap: 10px; }
-        .tech-tag { padding: 8px 18px; background: rgba(0,102,204,0.1); color: var(--primary); border-radius: 20px; font-size: 14px; }
+        .service-box { 
+            background: #fff; 
+            border-radius: 20px; 
+            overflow: hidden; 
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08); 
+            margin-bottom: 40px;
+        }
+        .service-box.reverse { flex-direction: row-reverse; }
+        .service-image { 
+            height: 350px; 
+            background: #ddd; 
+        }
+        .service-image img { width: 100%; height: 100%; object-fit: cover; }
+        .service-info { padding: 50px; }
+        .service-info h3 { font-size: 28px; color: var(--primary); margin-bottom: 20px; }
+        .service-info h3::before { content: '✦ '; color: var(--secondary); }
+        .service-info p { color: var(--text-light); margin-bottom: 20px; font-size: 16px; }
+        .service-features { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; }
+        .service-features li { 
+            display: flex; 
+            align-items: center; 
+            gap: 10px; 
+            color: var(--text);
+        }
+        .service-features li i { color: var(--secondary); }
         
-        .cta { background: var(--dark); color: #fff; text-align: center; padding: 80px 0; }
+        .features-grid { background: #fff; }
+        .feature-item { 
+            text-align: center; 
+            padding: 40px 30px; 
+            border-radius: 15px; 
+            transition: all 0.3s;
+        }
+        .feature-item:hover { background: var(--light); transform: translateY(-5px); }
+        .feature-icon { 
+            width: 80px; 
+            height: 80px; 
+            background: var(--gradient); 
+            border-radius: 50%; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            margin: 0 auto 25px; 
+            font-size: 32px; 
+            color: #fff;
+        }
+        .feature-item h4 { color: var(--primary); margin-bottom: 10px; font-size: 20px; }
+        .feature-item p { color: var(--text-light); }
+        
+        .cta {
+            background: var(--gradient);
+            color: #fff;
+            text-align: center;
+            padding: 80px 0;
+        }
         .cta h2 { font-size: 36px; margin-bottom: 20px; }
-        .cta p { font-size: 18px; opacity: 0.8; margin-bottom: 30px; }
-        .btn { padding: 15px 35px; border-radius: 30px; font-weight: 600; transition: all 0.3s; display: inline-block; }
-        .btn-primary { background: var(--primary); color: #fff; }
+        .cta p { font-size: 18px; margin-bottom: 30px; opacity: 0.9; }
+        .btn {
+            padding: 15px 35px; 
+            border-radius: 30px; 
+            font-weight: 600; 
+            transition: all 0.3s; 
+            display: inline-block;
+            background: var(--secondary);
+            color: #fff;
+            border: none;
+        }
+        .btn:hover { background: #b8922a; transform: translateY(-2px); }
         
         footer { background: var(--dark); color: #fff; padding: 60px 0 20px; }
-        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 40px; }
-        .footer-brand h3 { font-size: 28px; margin-bottom: 15px; }
-        .footer-brand p { opacity: 0.7; font-size: 14px; line-height: 1.8; }
-        .footer-links h4 { font-size: 18px; margin-bottom: 20px; }
-        .footer-links ul li { margin-bottom: 12px; }
-        .footer-links a { opacity: 0.7; transition: opacity 0.3s; }
-        .footer-bottom { text-align: center; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.1); opacity: 0.6; font-size: 14px; }
+        .footer-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px; margin-bottom: 40px; }
+        .footer-logo { display: flex; align-items: center; gap: 10px; font-size: 22px; font-weight: 700; color: #fff; margin-bottom: 20px; }
+        .footer-logo .logo-icon { width: 40px; height: 40px; font-size: 18px; }
+        .footer-logo span { color: var(--secondary); }
+        .footer-about p { color: rgba(255,255,255,0.7); font-size: 14px; }
+        .footer h4 { color: var(--secondary); margin-bottom: 20px; font-size: 18px; }
+        .footer ul li { margin-bottom: 10px; }
+        .footer ul li a { color: rgba(255,255,255,0.7); transition: color 0.3s; }
+        .footer ul li a:hover { color: var(--secondary); }
+        .footer-bottom { text-align: center; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.1); color: rgba(255,255,255,0.5); font-size: 14px; }
         
         @media (max-width: 768px) {
-            .nav-menu { display: none; }
-            .page-header { padding: 120px 0 60px; }
-            .page-header h1 { font-size: 32px; }
+            .service-image { height: 250px; }
+            .service-info { padding: 30px; }
             .service-features { grid-template-columns: 1fr; }
-            .footer-grid { grid-template-columns: 1fr; text-align: center; }
+            .footer-grid { grid-template-columns: 1fr 1fr; }
         }
     </style>
 </head>
 <body>
     <nav class="navbar">
         <div class="container">
-            <a href="index.html" class="logo">RR2<span>資訊</span></a>
+            <a href="index.html" class="logo">
+                <div class="logo-icon"><i class="fas fa-hotel"></i></div>
+                RR2<span>資訊科技</span>
+            </a>
             <ul class="nav-menu">
                 <li><a href="index.html">首頁</a></li>
                 <li><a href="services.html" class="active">服務</a></li>
-                <li><a href="about.html">關於</a></li>
-                <li><a href="contact.html">聯繫</a></li>
-                <li><a href="contact.html" class="btn-contact">免費咨詢</a></li>
+                <li><a href="about.html">關於我們</a></li>
+                <li><a href="contact.html">聯繫我們</a></li>
+                <li><a href="contact.html" class="btn-contact">立即咨詢</a></li>
             </ul>
         </div>
     </nav>
@@ -81,120 +169,136 @@
     <section class="page-header">
         <div class="container">
             <h1>服務範圍</h1>
-            <p>全方位的 IT 解決方案，滿足您的各種需求</p>
+            <p>專業酒店 IT 解決方案，一站式服務</p>
         </div>
     </section>
 
     <section class="section service-detail">
         <div class="container">
-            <div class="service-card">
+            <div class="service-box">
                 <div class="row g-0">
-                    <div class="col-lg-4">
-                        <div class="service-icon-large"><i class="fas fa-globe"></i></div>
+                    <div class="col-lg-6">
+                        <div class="service-image">
+                            <img src="https://images.unsplash.com/photo-1582719508461-905c673771fd?w=800" alt="酒店管理系統">
+                        </div>
                     </div>
-                    <div class="col-lg-8">
-                        <div class="service-body">
-                            <h3>網站開發</h3>
-                            <p>我們提供現代化、響應式的網站開發服務，幫助您在數字時代脫穎而出。</p>
+                    <div class="col-lg-6">
+                        <div class="service-info">
+                            <h3>酒店管理系統 (PMS)</h3>
+                            <p>專業的酒店管理系統，幫助酒店實現數字化管理，提升營運效率。我們的 PMS 系統功能齊全、操作簡單、穩定可靠。</p>
                             <ul class="service-features">
-                                <li><i class="fas fa-check"></i> 企業官網建設</li>
-                                <li><i class="fas fa-check"></i> 電子商務平台</li>
-                                <li><i class="fas fa-check"></i> 響應式網頁設計</li>
-                                <li><i class="fas fa-check"></i> SEO 優化服務</li>
-                                <li><i class="fas fa-check"></i> Web App 開發</li>
-                                <li><i class="fas fa-check"></i> 內容管理系統</li>
+                                <li><i class="fas fa-check-circle"></i> 客房預訂管理</li>
+                                <li><i class="fas fa-check-circle"></i> 入住退房手續</li>
+                                <li><i class="fas fa-check-circle"></i> 房態實時更新</li>
+                                <li><i class="fas fa-check-circle"></i> 會員管理系統</li>
+                                <li><i class="fas fa-check-circle"></i> 財務結算功能</li>
+                                <li><i class="fas fa-check-circle"></i> 報表數據分析</li>
                             </ul>
-                            <div class="tech-stack">
-                                <span class="tech-tag">React</span>
-                                <span class="tech-tag">Vue.js</span>
-                                <span class="tech-tag">Next.js</span>
-                                <span class="tech-tag">WordPress</span>
-                            </div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div class="service-card">
-                <div class="row g-0">
-                    <div class="col-lg-4">
-                        <div class="service-icon-large"><i class="fas fa-mobile-alt"></i></div>
+            <div class="service-box">
+                <div class="row g-0 flex-row-reverse">
+                    <div class="col-lg-6">
+                        <div class="service-image">
+                            <img src="https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?w=800" alt="智能客房控制">
+                        </div>
                     </div>
-                    <div class="col-lg-8">
-                        <div class="service-body">
-                            <h3>手機 App 開發</h3>
-                            <p>專業的移動應用開發團隊，為您創建功能強大、體驗流暢的 iOS 和 Android 應用程序。</p>
+                    <div class="col-lg-6">
+                        <div class="service-info">
+                            <h3>智能客房控制</h3>
+                            <p>採用最新物聯網技術，讓客人通過手機或語音控制房間內的設備，打造智能化入住體驗，同時幫助酒店節能減排。</p>
                             <ul class="service-features">
-                                <li><i class="fas fa-check"></i> iOS 原生開發</li>
-                                <li><i class="fas fa-check"></i> Android 原生開發</li>
-                                <li><i class="fas fa-check"></i> React Native 開發</li>
-                                <li><i class="fas fa-check"></i> Flutter 跨平台</li>
-                                <li><i class="fas fa-check"></i> UI/UX 設計</li>
-                                <li><i class="fas fa-check"></i> App Store 上架</li>
+                                <li><i class="fas fa-check-circle"></i> 手機 APP 控制</li>
+                                <li><i class="fas fa-check-circle"></i> 智能門鎖系統</li>
+                                <li><i class="fas fa-check-circle"></i> 語音助手集成</li>
+                                <li><i class="fas fa-check-circle"></i> 節能智能控制</li>
+                                <li><i class="fas fa-check-circle"></i> 場景模式設置</li>
+                                <li><i class="fas fa-check-circle"></i> 遠程設備管理</li>
                             </ul>
-                            <div class="tech-stack">
-                                <span class="tech-tag">Swift</span>
-                                <span class="tech-tag">Kotlin</span>
-                                <span class="tech-tag">React Native</span>
-                                <span class="tech-tag">Flutter</span>
-                            </div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div class="service-card">
+            <div class="service-box">
                 <div class="row g-0">
-                    <div class="col-lg-4">
-                        <div class="service-icon-large"><i class="fas fa-server"></i></div>
+                    <div class="col-lg-6">
+                        <div class="service-image">
+                            <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800" alt="餐飲 POS 系統">
+                        </div>
                     </div>
-                    <div class="col-lg-8">
-                        <div class="service-body">
-                            <h3>系統集成</h3>
-                            <p>企業級系統整合方案，打通數據孤島，實現業務流程自動化，提升運營效率。</p>
+                    <div class="col-lg-6">
+                        <div class="service-info">
+                            <h3>餐飲 POS 系統</h3>
+                            <p>專為酒店餐飲設計的 POS 系統，連接前檯點餐與廚房顯示，提升服務效率，減少人為錯誤，同時支持庫存管理和會員積分。</p>
                             <ul class="service-features">
-                                <li><i class="fas fa-check"></i> ERP 系統集成</li>
-                                <li><i class="fas fa-check"></i> CRM 系統對接</li>
-                                <li><i class="fas fa-check"></i> API 開發與整合</li>
-                                <li><i class="fas fa-check"></i> 數據庫設計</li>
-                                <li><i class="fas fa-check"></i> 數據遷移服務</li>
-                                <li><i class="fas fa-check"></i> 系統維護支援</li>
+                                <li><i class="fas fa-check-circle"></i> 智能點餐系統</li>
+                                <li><i class="fas fa-check-circle"></i> 廚房顯示系統 (KDS)</li>
+                                <li><i class="fas fa-check-circle"></i> 庫存管理功能</li>
+                                <li><i class="fas fa-check-circle"></i> 會員積分系統</li>
+                                <li><i class="fas fa-check-circle"></i> 多門市管理</li>
+                                <li><i class="fas fa-check-circle"></i> 營業報表分析</li>
                             </ul>
-                            <div class="tech-stack">
-                                <span class="tech-tag">Node.js</span>
-                                <span class="tech-tag">Python</span>
-                                <span class="tech-tag">Java</span>
-                                <span class="tech-tag">PostgreSQL</span>
-                            </div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div class="service-card">
-                <div class="row g-0">
-                    <div class="col-lg-4">
-                        <div class="service-icon-large"><i class="fas fa-cloud"></i></div>
-                    </div>
-                    <div class="col-lg-8">
-                        <div class="service-body">
-                            <h3>雲端服務</h3>
-                            <p>專業的雲端架構設計和部署服務，幫助您實現雲端轉型，享受彈性擴展的成本優勢。</p>
-                            <ul class="service-features">
-                                <li><i class="fas fa-check"></i> 雲端架構設計</li>
-                                <li><i class="fas fa-check"></i> AWS 部署服務</li>
-                                <li><i class="fas fa-check"></i> Azure 部署服務</li>
-                                <li><i class="fas fa-check"></i> DevOps 咨詢</li>
-                                <li><i class="fas fa-check"></i> 容器化部署</li>
-                                <li><i class="fas fa-check"></i> 監控運維</li>
-                            </ul>
-                            <div class="tech-stack">
-                                <span class="tech-tag">Docker</span>
-                                <span class="tech-tag">Kubernetes</span>
-                                <span class="tech-tag">Terraform</span>
-                                <span class="tech-tag">Jenkins</span>
-                            </div>
+            <div class="service-box">
+                <div class="row g-0 flex-row-reverse">
+                    <div class="col-lg-6">
+                        <div class="service-image">
+                            <img src="https://images.unsplash.com/photo-1557597774-9d273605dfa9?w=800" alt="網絡與安防">
                         </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="service-info">
+                            <h3>網絡與安防系統</h3>
+                            <p>提供穩定高速的 WiFi 覆蓋、監控系統、門禁管理等全方位網絡安防解決方案，保障酒店網絡安全和數據隱私。</p>
+                            <ul class="service-features">
+                                <li><i class="fas fa-check-circle"></i> 全館 WiFi 覆蓋</li>
+                                <li><i class="fas fa-check-circle"></i> 視頻監控系統</li>
+                                <li><i class="fas fa-check-circle"></i> 門禁管理系統</li>
+                                <li><i class="fas fa-check-circle"></i> 數據備份恢復</li>
+                                <li><i class="fas fa-check-circle"></i> 網絡安全審計</li>
+                                <li><i class="fas fa-check-circle"></i> 7×24 運維支援</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section features-grid">
+        <div class="container">
+            <div class="section-header">
+                <h2>為什麼選擇我們</h2>
+                <p>專業團隊 · 先進技術 · 優質服務</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="feature-item">
+                        <div class="feature-icon"><i class="fas fa-user-tie"></i></div>
+                        <h4>專業團隊</h4>
+                        <p>資深 IT 專家團隊，多年酒店行業經驗</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="feature-item">
+                        <div class="feature-icon"><i class="fas fa-headset"></i></div>
+                        <h4>貼心服務</h4>
+                        <p>7×24 技術支援，快速響應客戶需求</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="feature-item">
+                        <div class="feature-icon"><i class="fas fa-shield-alt"></i></div>
+                        <h4>安全可靠</h4>
+                        <p>符合國際標準，數據安全有保障</p>
                     </div>
                 </div>
             </div>
@@ -203,52 +307,49 @@
 
     <section class="cta">
         <div class="container">
-            <h2>對服務有疑問？</h2>
-            <p>立即咨詢，獲取專業建議和報價</p>
-            <a href="contact.html" class="btn btn-primary">聯繫我們</a>
+            <h2>需要客製化解決方案？</h2>
+            <p>聯繫我們，獲取專業建議和報價</p>
+            <a href="contact.html" class="btn">聯繫我們</a>
         </div>
     </section>
 
     <footer>
         <div class="container">
             <div class="footer-grid">
-                <div class="footer-brand">
-                    <h3>RR2資訊科技有限公司</h3>
-                    <p>澳門領先的 IT 解決方案供應商，致力於為客戶提供創新、高效、專業的技術服務。</p>
+                <div class="footer-about">
+                    <div class="footer-logo">
+                        <div class="logo-icon"><i class="fas fa-hotel"></i></div>
+                        RR2<span>資訊科技</span>
+                    </div>
+                    <p>澳門領先的酒店 IT 解決方案供應商。</p>
                 </div>
-                <div class="footer-links">
-                    <h4>快速連結</h4>
+                <div class="footer">
+                    <h4>服務項目</h4>
                     <ul>
-                        <li><a href="index.html">首頁</a></li>
-                        <li><a href="services.html">服務範圍</a></li>
-                        <li><a href="about.html">關於我們</a></li>
+                        <li><a href="services.html">酒店管理系統</a></li>
+                        <li><a href="services.html">智能客房控制</a></li>
+                        <li><a href="services.html">餐飲 POS 系統</a></li>
+                    </ul>
+                </div>
+                <div class="footer">
+                    <h4>關於我們</h4>
+                    <ul>
+                        <li><a href="about.html">公司簡介</a></li>
                         <li><a href="contact.html">聯繫我們</a></li>
                     </ul>
                 </div>
-                <div class="footer-links">
-                    <h4>服務範圍</h4>
+                <div class="footer">
+                    <h4>聯繫方式</h4>
                     <ul>
-                        <li><a href="services.html">網站開發</a></li>
-                        <li><a href="services.html">App 開發</a></li>
-                        <li><a href="services.html">系統集成</a></li>
-                        <li><a href="services.html">雲端服務</a></li>
-                    </ul>
-                </div>
-                <div class="footer-links">
-                    <h4>聯繫我們</h4>
-                    <ul>
-                        <li><i class="fas fa-map-marker-alt"></i> 澳門特別行政區</li>
                         <li><i class="fas fa-phone"></i> +853 2828 2828</li>
-                        <li><i class="fas fa-envelope"></i> info@RR2info.com</li>
+                        <li><i class="fas fa-envelope"></i> info@rr2tech.com</li>
                     </ul>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2026 RR2資訊科技有限公司. 版權所有。</p>
+                <p>&copy; 2026 RR2資訊科技有限公司. All Rights Reserved.</p>
             </div>
         </div>
     </footer>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

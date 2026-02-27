@@ -7,188 +7,500 @@
     <meta name="description" content="RR2資訊科技 - 澳門領先的酒店 IT 解決方案供應商，提供酒店管理系統、智能客房、POS 系統、網絡架構等全方位服務。">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
     <style>
-        :root { --primary: #0066cc; --secondary: #00a3cc; --dark: #1a1a2e; --light: #f8f9fa; --text: #333; --text-light: #666; }
+        :root { 
+            --primary: #1a365d;        /* 深藍 - 專業可信賴 */
+            --secondary: #c9a227;       /* 金色 - 奢華高端 */
+            --accent: #2c5282;          /* 中藍 */
+            --dark: #1a1a2e; 
+            --light: #f8f9fa;
+            --text: #2d3748;
+            --text-light: #718096;
+            --gradient: linear-gradient(135deg, #1a365d 0%, #2c5282 50%, #c9a227 100%);
+        }
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Noto Sans TC', sans-serif; color: var(--text); line-height: 1.6; }
         a { text-decoration: none; color: inherit; }
         ul { list-style: none; }
         
-        .navbar { background: #fff; box-shadow: 0 2px 20px rgba(0,0,0,0.08); padding: 15px 0; position: fixed; width: 100%; top: 0; z-index: 1000; }
+        /* Navbar */
+        .navbar { 
+            background: rgba(255,255,255,0.98); 
+            box-shadow: 0 2px 20px rgba(0,0,0,0.08); 
+            padding: 12px 0; 
+            position: fixed; 
+            width: 100%; 
+            top: 0; 
+            z-index: 1000;
+        }
         .navbar .container { display: flex; justify-content: space-between; align-items: center; }
-        .logo { font-size: 22px; font-weight: 700; color: var(--primary); }
+        .logo { 
+            display: flex; 
+            align-items: center; 
+            gap: 10px;
+            font-size: 24px; 
+            font-weight: 700; 
+            color: var(--primary);
+        }
+        .logo-icon {
+            width: 45px;
+            height: 45px;
+            background: var(--gradient);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 20px;
+        }
         .logo span { color: var(--secondary); }
         .nav-menu { display: flex; gap: 30px; align-items: center; }
-        .nav-menu a { font-weight: 500; color: var(--text); transition: color 0.3s; }
+        .nav-menu a { font-weight: 500; color: var(--text); transition: color 0.3s; position: relative; }
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--secondary);
+            transition: width 0.3s;
+        }
         .nav-menu a:hover, .nav-menu a.active { color: var(--primary); }
-        .btn-contact { background: var(--primary); color: #fff !important; padding: 10px 25px; border-radius: 25px; }
+        .nav-menu a:hover::after, .nav-menu a.active::after { width: 100%; }
+        .btn-contact { 
+            background: var(--gradient); 
+            color: #fff !important; 
+            padding: 10px 25px; 
+            border-radius: 25px;
+            font-weight: 600;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .btn-contact:hover { 
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(201, 162, 39, 0.4);
+        }
         
-        .hero { background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%), url('https://images.unsplash.com/photo-1566073771259-6a8506099945?w=1920') center/cover; color: #fff; padding: 180px 0 120px; text-align: center; }
-        .hero h1 { font-size: clamp(36px, 5vw, 60px); font-weight: 700; margin-bottom: 20px; }
-        .hero h1 span { color: var(--secondary); }
-        .hero p { font-size: 20px; color: rgba(255,255,255,0.9); margin-bottom: 40px; max-width: 700px; margin-left: auto; margin-right: auto; }
-        .hero-buttons { display: flex; gap: 15px; justify-content: center; }
-        .btn { padding: 15px 35px; border-radius: 30px; font-weight: 600; transition: all 0.3s; display: inline-block; }
-        .btn-primary { background: var(--primary); color: #fff; }
-        .btn-primary:hover { background: var(--secondary); transform: translateY(-2px); }
-        .btn-outline { border: 2px solid #fff; color: #fff; }
-        .btn-outline:hover { background: #fff; color: var(--dark); }
+        /* Hero Section */
+        .hero { 
+            background: linear-gradient(135deg, rgba(26,54,93,0.95) 0%, rgba(44,82,130,0.9) 100%), 
+                        url('https://images.unsplash.com/photo-1566073771259-6a8506099945?w=1920') center/cover; 
+            color: #fff; 
+            padding: 200px 0 120px; 
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(201,162,39,0.15) 0%, transparent 70%);
+            animation: float 8s ease-in-out infinite;
+        }
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -30%;
+            left: -10%;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(201,162,39,0.1) 0%, transparent 70%);
+            animation: float 10s ease-in-out infinite reverse;
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-30px) rotate(5deg); }
+        }
+        .hero h1 { 
+            font-size: clamp(36px, 5vw, 60px); 
+            font-weight: 700; 
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+        }
+        .hero h1 span { 
+            color: var(--secondary);
+            background: linear-gradient(120deg, #c9a227, #f4d03f, #c9a227);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: shine 3s linear infinite;
+        }
+        @keyframes shine {
+            to { background-position: 200% center; }
+        }
+        .hero p { 
+            font-size: 20px; 
+            color: rgba(255,255,255,0.9); 
+            margin-bottom: 40px; 
+            max-width: 700px; 
+            margin-left: auto; 
+            margin-right: auto;
+            position: relative;
+            z-index: 1;
+        }
+        .hero-buttons { 
+            display: flex; 
+            gap: 15px; 
+            justify-content: center; 
+            position: relative;
+            z-index: 1;
+        }
+        .btn { 
+            padding: 15px 35px; 
+            border-radius: 30px; 
+            font-weight: 600; 
+            transition: all 0.3s; 
+            display: inline-block;
+            cursor: pointer;
+        }
+        .btn-primary { 
+            background: var(--secondary); 
+            color: #fff;
+            border: none;
+        }
+        .btn-primary:hover { 
+            background: #b8922a; 
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(201, 162, 39, 0.4);
+        }
+        .btn-outline { 
+            border: 2px solid #fff; 
+            color: #fff; 
+            background: transparent;
+        }
+        .btn-outline:hover { 
+            background: #fff; 
+            color: var(--primary);
+        }
         
+        /* Sections */
         .section { padding: 80px 0; }
         .section-header { text-align: center; margin-bottom: 60px; }
-        .section-header h2 { font-size: 36px; font-weight: 700; margin-bottom: 15px; }
+        .section-header h2 { 
+            font-size: 36px; 
+            font-weight: 700; 
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+        .section-header h2::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background: var(--secondary);
+            margin: 15px auto 0;
+        }
         .section-header p { color: var(--text-light); font-size: 18px; }
         
+        /* Features */
         .features { background: var(--light); }
-        .feature-card { background: #fff; padding: 40px 30px; border-radius: 15px; text-align: center; transition: all 0.3s; box-shadow: 0 5px 20px rgba(0,0,0,0.05); }
-        .feature-card:hover { transform: translateY(-10px); box-shadow: 0 15px 40px rgba(0,0,0,0.1); }
-        .feature-icon { width: 80px; height: 80px; background: linear-gradient(135deg, var(--primary), var(--secondary)); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 25px; font-size: 32px; color: #fff; }
-        .feature-card h3 { font-size: 22px; margin-bottom: 15px; }
+        .feature-card { 
+            background: #fff; 
+            padding: 40px 30px; 
+            border-radius: 15px; 
+            text-align: center; 
+            transition: all 0.3s; 
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            border-top: 3px solid transparent;
+        }
+        .feature-card:hover { 
+            transform: translateY(-10px); 
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+            border-top-color: var(--secondary);
+        }
+        .feature-icon { 
+            width: 80px; 
+            height: 80px; 
+            background: var(--gradient); 
+            border-radius: 50%; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            margin: 0 auto 25px; 
+            font-size: 32px; 
+            color: #fff;
+        }
+        .feature-card h3 { font-size: 22px; margin-bottom: 15px; color: var(--primary); }
         .feature-card p { color: var(--text-light); }
         
-        /* Hotel Solutions - 酒店解決方案 */
+        /* Hotel Solutions */
         .hotel-solutions { background: #fff; }
-        .solution-card { position: relative; border-radius: 15px; overflow: hidden; margin-bottom: 30px; box-shadow: 0 5px 20px rgba(0,0,0,0.1); }
+        .solution-card { 
+            position: relative; 
+            border-radius: 15px; 
+            overflow: hidden; 
+            margin-bottom: 30px; 
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1); 
+            transition: transform 0.3s;
+        }
+        .solution-card:hover { transform: scale(1.02); }
         .solution-image { height: 300px; background: #ddd; position: relative; }
         .solution-image img { width: 100%; height: 100%; object-fit: cover; }
-        .solution-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.8), transparent); display: flex; flex-direction: column; justify-content: flex-end; padding: 30px; color: #fff; }
+        .solution-overlay { 
+            position: absolute; 
+            inset: 0; 
+            background: linear-gradient(to top, rgba(26,54,93,0.95), transparent); 
+            display: flex; 
+            flex-direction: column; 
+            justify-content: flex-end; 
+            padding: 30px; 
+            color: #fff; 
+        }
         .solution-overlay h4 { font-size: 24px; margin-bottom: 10px; }
+        .solution-overlay h4::before {
+            content: '✦ ';
+            color: var(--secondary);
+        }
         .solution-overlay p { font-size: 14px; opacity: 0.9; }
         
+        /* Services */
         .services { background: var(--light); }
-        .service-card { background: #fff; border-radius: 15px; overflow: hidden; box-shadow: 0 5px 20px rgba(0,0,0,0.08); transition: all 0.3s; }
-        .service-card:hover { transform: translateY(-5px); box-shadow: 0 15px 40px rgba(0,0,0,0.12); }
-        .service-icon { background: linear-gradient(135deg, var(--primary), var(--secondary)); padding: 40px; text-align: center; font-size: 48px; color: #fff; }
+        .service-card { 
+            background: #fff; 
+            border-radius: 15px; 
+            overflow: hidden; 
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08); 
+            transition: all 0.3s; 
+            height: 100%;
+        }
+        .service-card:hover { 
+            transform: translateY(-5px); 
+            box-shadow: 0 15px 40px rgba(0,0,0,0.12); 
+        }
+        .service-icon { 
+            background: var(--gradient); 
+            padding: 40px; 
+            text-align: center; 
+            font-size: 48px; 
+            color: #fff; 
+            position: relative;
+        }
+        .service-icon::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--secondary);
+        }
         .service-content { padding: 30px; }
-        .service-content h3 { font-size: 22px; margin-bottom: 15px; }
+        .service-content h3 { font-size: 22px; margin-bottom: 15px; color: var(--primary); }
         .service-content p { color: var(--text-light); margin-bottom: 20px; }
         .service-content ul li { padding: 8px 0; color: var(--text-light); }
-        .service-content ul li i { color: var(--primary); margin-right: 10px; }
+        .service-content ul li i { color: var(--secondary); margin-right: 10px; }
         
-        .stats { background: linear-gradient(135deg, var(--primary), var(--secondary)); color: #fff; padding: 60px 0; }
-        .stat-item { text-align: center; }
-        .stat-number { font-size: 48px; font-weight: 700; }
+        /* Stats */
+        .stats { 
+            background: var(--gradient); 
+            color: #fff; 
+            padding: 60px 0; 
+            position: relative;
+            overflow: hidden;
+        }
+        .stats::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="0.5"/></svg>');
+            background-size: 150px;
+        }
+        .stat-item { text-align: center; position: relative; z-index: 1; }
+        .stat-number { 
+            font-size: 48px; 
+            font-weight: 700;
+            color: var(--secondary);
+        }
         .stat-label { font-size: 16px; opacity: 0.9; }
         
-        /* Image Gallery */
-        .gallery { background: var(--light); }
-        .gallery-item { position: relative; border-radius: 15px; overflow: hidden; margin-bottom: 30px; height: 250px; }
-        .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s; }
-        .gallery-item:hover img { transform: scale(1.1); }
-        .gallery-overlay { position: absolute; inset: 0; background: rgba(0,102,204,0.7); display: flex; align-items: center; justify-content: center; opacity: 0; transition: all 0.3s; }
-        .gallery-item:hover .gallery-overlay { opacity: 1; }
-        .gallery-overlay i { font-size: 40px; color: #fff; }
+        /* Testimonials */
+        .testimonials { background: var(--light); }
+        .testimonial-card {
+            background: #fff;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            position: relative;
+        }
+        .testimonial-card::before {
+            content: '"';
+            font-size: 80px;
+            color: var(--secondary);
+            opacity: 0.3;
+            position: absolute;
+            top: 10px;
+            left: 20px;
+            font-family: serif;
+        }
+        .testimonial-text {
+            font-style: italic;
+            color: var(--text-light);
+            margin-bottom: 20px;
+            padding-top: 20px;
+        }
+        .testimonial-author {
+            font-weight: 600;
+            color: var(--primary);
+        }
+        .testimonial-role {
+            font-size: 14px;
+            color: var(--text-light);
+        }
         
-        .testimonials { background: #fff; }
-        .testimonial-card { background: var(--light); padding: 30px; border-radius: 15px; box-shadow: 0 5px 20px rgba(0,0,0,0.05); }
-        .testimonial-text { font-style: italic; color: var(--text-light); margin-bottom: 20px; }
-        .testimonial-author h4 { font-size: 16px; margin-bottom: 5px; }
-        .testimonial-author span { font-size: 14px; color: var(--text-light); }
-        
-        .cta { background: var(--dark); color: #fff; text-align: center; padding: 80px 0; }
+        /* CTA */
+        .cta {
+            background: var(--gradient);
+            color: #fff;
+            text-align: center;
+            padding: 80px 0;
+            position: relative;
+        }
         .cta h2 { font-size: 36px; margin-bottom: 20px; }
-        .cta p { font-size: 18px; opacity: 0.8; margin-bottom: 30px; }
+        .cta p { font-size: 18px; margin-bottom: 30px; opacity: 0.9; }
+        .cta .btn {
+            background: var(--secondary);
+            color: #fff;
+            padding: 15px 40px;
+            font-size: 18px;
+        }
+        .cta .btn:hover {
+            background: #b8922a;
+            transform: translateY(-2px);
+        }
         
+        /* Footer */
         footer { background: var(--dark); color: #fff; padding: 60px 0 20px; }
-        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 40px; }
-        .footer-brand h3 { font-size: 28px; margin-bottom: 15px; }
-        .footer-brand p { opacity: 0.7; font-size: 14px; line-height: 1.8; }
-        .footer-links h4 { font-size: 18px; margin-bottom: 20px; }
-        .footer-links ul li { margin-bottom: 12px; }
-        .footer-links a { opacity: 0.7; transition: opacity 0.3s; }
-        .footer-bottom { text-align: center; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.1); opacity: 0.6; font-size: 14px; }
+        .footer-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px; margin-bottom: 40px; }
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 22px;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 20px;
+        }
+        .footer-logo .logo-icon {
+            width: 40px;
+            height: 40px;
+            font-size: 18px;
+        }
+        .footer-logo span { color: var(--secondary); }
+        .footer-about p { color: rgba(255,255,255,0.7); font-size: 14px; }
+        .footer h4 { color: var(--secondary); margin-bottom: 20px; font-size: 18px; }
+        .footer ul li { margin-bottom: 10px; }
+        .footer ul li a { color: rgba(255,255,255,0.7); transition: color 0.3s; }
+        .footer ul li a:hover { color: var(--secondary); }
+        .footer-bottom { 
+            text-align: center; 
+            padding-top: 20px; 
+            border-top: 1px solid rgba(255,255,255,0.1); 
+            color: rgba(255,255,255,0.5);
+            font-size: 14px;
+        }
         
+        /* Responsive */
         @media (max-width: 768px) {
+            .navbar .container { flex-wrap: wrap; }
             .nav-menu { display: none; }
             .hero { padding: 150px 0 80px; }
-            .hero h1 { font-size: 32px; }
-            .hero p { font-size: 16px; }
+            .hero h1 { font-size: 28px; }
             .hero-buttons { flex-direction: column; }
-            .footer-grid { grid-template-columns: 1fr; text-align: center; }
+            .footer-grid { grid-template-columns: 1fr 1fr; }
+        }
+        @media (max-width: 480px) {
+            .footer-grid { grid-template-columns: 1fr; }
             .stat-number { font-size: 36px; }
         }
     </style>
 </head>
 <body>
+    <!-- Navbar -->
     <nav class="navbar">
         <div class="container">
-            <a href="index.html" class="logo">RR2<span>資訊</span></a>
+            <a href="index.html" class="logo">
+                <div class="logo-icon"><i class="fas fa-hotel"></i></div>
+                RR2<span>資訊科技</span>
+            </a>
             <ul class="nav-menu">
                 <li><a href="index.html" class="active">首頁</a></li>
                 <li><a href="services.html">服務</a></li>
-                <li><a href="about.html">關於</a></li>
-                <li><a href="contact.html">聯繫</a></li>
-                <li><a href="contact.html" class="btn-contact">免費咨詢</a></li>
+                <li><a href="about.html">關於我們</a></li>
+                <li><a href="contact.html">聯繫我們</a></li>
+                <li><a href="contact.html" class="btn-contact">立即咨詢</a></li>
             </ul>
         </div>
     </nav>
 
+    <!-- Hero -->
     <section class="hero">
         <div class="container">
-            <h1>酒店 IT 解決方案 <span>專家</span></h1>
-            <p>專業為酒店業提供全方位 IT 解決方案 - 酒店管理系統、智能客房、POS 系統、網絡架構 - 助您提升營運效率</p>
+            <h1>專業酒店 IT 解決方案<br><span>助您提升營運效率</span></h1>
+            <p>深耕酒店 IT 行業多年，為澳門及珠三角酒店提供全方位科技解決方案，包括 PMS 系統、智能客房、餐飲 POS 及網絡安防</p>
             <div class="hero-buttons">
-                <a href="contact.html" class="btn btn-primary">立即咨詢</a>
+                <a href="contact.html" class="btn btn-primary">免費咨詢</a>
                 <a href="services.html" class="btn btn-outline">了解更多</a>
             </div>
         </div>
     </section>
 
+    <!-- Features -->
     <section class="section features">
         <div class="container">
             <div class="section-header">
                 <h2>為什麼選擇我們</h2>
-                <p>專業團隊 · 酒店IT經驗 · 卓越品質</p>
+                <p>專業團隊 · 豐富經驗 · 優質服務</p>
             </div>
             <div class="row g-4">
-                <div class="col-md-3">
+                <div class="col-md-4">
                     <div class="feature-card">
-                        <div class="feature-icon"><i class="fas fa-hotel"></i></div>
+                        <div class="feature-icon"><i class="fas fa-industry"></i></div>
                         <h3>酒店專業</h3>
-                        <p>深耕酒店IT行業多年，深刻理解酒店營運需求</p>
+                        <p>深耕酒店 IT 行業多年，深刻理解酒店營運需求，提供針對性解決方案</p>
                     </div>
                 </div>
-                <div class="col-md-3">
+                <div class="col-md-4">
                     <div class="feature-card">
                         <div class="feature-icon"><i class="fas fa-clock"></i></div>
                         <h3>快速響應</h3>
-                        <p>7×24 技術支援，確保系統穩定運行</p>
+                        <p>7×24 技術支援，確保系統穩定運行，快速回應客戶需求</p>
                     </div>
                 </div>
-                <div class="col-md-3">
+                <div class="col-md-4">
                     <div class="feature-card">
                         <div class="feature-icon"><i class="fas fa-shield-alt"></i></div>
                         <h3>安全可靠</h3>
-                        <p>符合國際標準的數據安全保護</p>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="feature-card">
-                        <div class="feature-icon"><i class="fas fa-hand-holding-usd"></i></div>
-                        <h3>成本優化</h3>
-                        <p>靈活方案，助力酒店降低 IT 運營成本</p>
+                        <p>符合國際標準的數據安全保護，讓您安心使用無後顧之憂</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 酒店解決方案 -->
+    <!-- Solutions -->
     <section class="section hotel-solutions">
         <div class="container">
             <div class="section-header">
-                <h2>酒店 IT 解決方案</h2>
-                <p>一站式服務，滿足酒店各方面需求</p>
+                <h2>核心解決方案</h2>
+                <p>全方位 IT 服務，滿足酒店各種需求</p>
             </div>
             <div class="row g-4">
                 <div class="col-md-6">
                     <div class="solution-card">
                         <div class="solution-image">
-                            <img src="https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?w=800" alt="酒店管理系統">
+                            <img src="https://images.unsplash.com/photo-1582719508461-905c673771fd?w=800" alt="酒店管理系統">
                         </div>
                         <div class="solution-overlay">
-                            <h4><i class="fas fa-building"></i> 酒店管理系統 (PMS)</h4>
+                            <h4>酒店管理系統 (PMS)</h4>
                             <p>客房預訂、入住退房、房態管理、會員系統於一體</p>
                         </div>
                     </div>
@@ -196,10 +508,10 @@
                 <div class="col-md-6">
                     <div class="solution-card">
                         <div class="solution-image">
-                            <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=800" alt="智能客房">
+                            <img src="https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?w=800" alt="智能客房控制">
                         </div>
                         <div class="solution-overlay">
-                            <h4><i class="fas fa-mobile-alt"></i> 智能客房控制</h4>
+                            <h4>智能客房控制</h4>
                             <p>手機控制燈光、空調、窗簾，打造智能入住體驗</p>
                         </div>
                     </div>
@@ -207,10 +519,10 @@
                 <div class="col-md-6">
                     <div class="solution-card">
                         <div class="solution-image">
-                            <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800" alt="餐飲系統">
+                            <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800" alt="餐飲 POS 系統">
                         </div>
                         <div class="solution-overlay">
-                            <h4><i class="fas fa-utensils"></i> 餐飲 POS 系統</h4>
+                            <h4>餐飲 POS 系統</h4>
                             <p>餐廳點餐、廚房顯示、庫存管理、會員積分</p>
                         </div>
                     </div>
@@ -218,11 +530,11 @@
                 <div class="col-md-6">
                     <div class="solution-card">
                         <div class="solution-image">
-                            <img src="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=800" alt="網絡架構">
+                            <img src="https://images.unsplash.com/photo-1557597774-9d273605dfa9?w=800" alt="網絡與安防">
                         </div>
                         <div class="solution-overlay">
-                            <h4><i class="fas fa-wifi"></i> 網絡與安防</h4>
-                            <p>穩定高速 WiFi、監控系統、門禁管理</p>
+                            <h4>網絡與安防</h4>
+                            <p>穩定高速 WiFi、監控系統、門禁管理、數據備份</p>
                         </div>
                     </div>
                 </div>
@@ -230,11 +542,12 @@
         </div>
     </section>
 
+    <!-- Services Detail -->
     <section class="section services">
         <div class="container">
             <div class="section-header">
-                <h2>我們的服務</h2>
-                <p>全方位 IT 解決方案，一站式服務</p>
+                <h2>詳細服務</h2>
+                <p>一站式 IT 服務，助您數字化轉型</p>
             </div>
             <div class="row g-4">
                 <div class="col-md-6 col-lg-3">
@@ -242,7 +555,6 @@
                         <div class="service-icon"><i class="fas fa-building"></i></div>
                         <div class="service-content">
                             <h3>PMS 系統</h3>
-                            <p>專業酒店管理系統</p>
                             <ul>
                                 <li><i class="fas fa-check"></i> 客房預訂</li>
                                 <li><i class="fas fa-check"></i> 入住退房</li>
@@ -257,7 +569,6 @@
                         <div class="service-icon"><i class="fas fa-mobile-alt"></i></div>
                         <div class="service-content">
                             <h3>智能客房</h3>
-                            <p>物聯網客房控制</p>
                             <ul>
                                 <li><i class="fas fa-check"></i> 手機控制</li>
                                 <li><i class="fas fa-check"></i> 智能門鎖</li>
@@ -272,7 +583,6 @@
                         <div class="service-icon"><i class="fas fa-utensils"></i></div>
                         <div class="service-content">
                             <h3>餐飲 POS</h3>
-                            <p>餐飲管理解決方案</p>
                             <ul>
                                 <li><i class="fas fa-check"></i> 點餐系統</li>
                                 <li><i class="fas fa-check"></i> 廚房顯示</li>
@@ -287,7 +597,6 @@
                         <div class="service-icon"><i class="fas fa-wifi"></i></div>
                         <div class="service-content">
                             <h3>網絡安防</h3>
-                            <p>穩定安全的網絡</p>
                             <ul>
                                 <li><i class="fas fa-check"></i> WiFi 覆蓋</li>
                                 <li><i class="fas fa-check"></i> 監控系統</li>
@@ -301,28 +610,29 @@
         </div>
     </section>
 
+    <!-- Stats -->
     <section class="stats">
         <div class="container">
             <div class="row">
-                <div class="col-3">
+                <div class="col-6 col-md-3">
                     <div class="stat-item">
                         <div class="stat-number">50+</div>
                         <div class="stat-label">酒店客戶</div>
                     </div>
                 </div>
-                <div class="col-3">
+                <div class="col-6 col-md-3">
                     <div class="stat-item">
                         <div class="stat-number">200+</div>
                         <div class="stat-label">項目交付</div>
                     </div>
                 </div>
-                <div class="col-3">
+                <div class="col-6 col-md-3">
                     <div class="stat-item">
                         <div class="stat-number">98%</div>
                         <div class="stat-label">客戶滿意</div>
                     </div>
                 </div>
-                <div class="col-3">
+                <div class="col-6 col-md-3">
                     <div class="stat-item">
                         <div class="stat-number">5+</div>
                         <div class="stat-label">年行業經驗</div>
@@ -332,152 +642,102 @@
         </div>
     </section>
 
-    <!-- 項目案例 -->
-    <section class="section gallery">
-        <div class="container">
-            <div class="section-header">
-                <h2>成功案例</h2>
-                <p>已為眾多酒店提供 IT 解決方案</p>
-            </div>
-            <div class="row g-4">
-                <div class="col-md-4">
-                    <div class="gallery-item">
-                        <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=600" alt="五星級酒店">
-                        <div class="gallery-overlay">
-                            <i class="fas fa-check-circle"></i>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="gallery-item">
-                        <img src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=600" alt="度假村">
-                        <div class="gallery-overlay">
-                            <i class="fas fa-check-circle"></i>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="gallery-item">
-                        <img src="https://images.unsplash.com/photo-1582719508461-905c673771fd?w=600" alt="商務酒店">
-                        <div class="gallery-overlay">
-                            <i class="fas fa-check-circle"></i>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="gallery-item">
-                        <img src="https://images.unsplash.com/photo-1618773928121-c32242e63f39?w=600" alt="精品酒店">
-                        <div class="gallery-overlay">
-                            <i class="fas fa-check-circle"></i>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="gallery-item">
-                        <img src="https://images.unsplash.com/photo-1578683010236-d716f9a3f461?w=600" alt="公寓式酒店">
-                        <div class="gallery-overlay">
-                            <i class="fas fa-check-circle"></i>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="gallery-item">
-                        <img src="https://images.unsplash.com/photo-1590490360182-c33d57733427?w=600" alt="會議中心">
-                        <div class="gallery-overlay">
-                            <i class="fas fa-check-circle"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
+    <!-- Testimonials -->
     <section class="section testimonials">
         <div class="container">
             <div class="section-header">
                 <h2>客戶評價</h2>
-                <p>來自酒店客戶的真實反饋</p>
+                <p>來自客戶的真實反饋</p>
             </div>
             <div class="row g-4">
                 <div class="col-md-4">
                     <div class="testimonial-card">
                         <p class="testimonial-text">"RR2資訊為我們安裝的酒店管理系統非常實用，大幅提升了工作效率，客人入住更快了！"</p>
-                        <div class="testimonial-author">
-                            <h4>陳先生</h4>
-                            <span>澳門某五星級酒店 營運總監</span>
-                        </div>
+                        <p class="testimonial-author">李小姐</p>
+                        <p class="testimonial-role">路氹城某度假村 市場總監</p>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="testimonial-card">
                         <p class="testimonial-text">"智能客房系統深受客人讚賞，現在客人可以用手機控制房間，非常方便！"</p>
-                        <div class="testimonial-author">
-                            <h4>李小姐</h4>
-                            <span>路氹城某度假村 市場總監</span>
-                        </div>
+                        <p class="testimonial-author">陳先生</p>
+                        <p class="testimonial-role">本島某商務酒店 總經理</p>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="testimonial-card">
                         <p class="testimonial-text">"餐飲 POS 系統幫我們減少了很多人手錯誤，廚房效率也提高了很多！"</p>
-                        <div class="testimonial-author">
-                            <h4>黃經理</h4>
-                            <span>本島某商務酒店 餐飲部經理</span>
-                        </div>
+                        <p class="testimonial-author">黃經理</p>
+                        <p class="testimonial-role">本島某商務酒店 餐飲部經理</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- CTA -->
     <section class="cta">
         <div class="container">
             <h2>準備好升級酒店的 IT 系統？</h2>
             <p>立即咨詢，獲取免費評估和報價方案</p>
-            <a href="contact.html" class="btn btn-primary">聯繫我們</a>
+            <a href="contact.html" class="btn">聯繫我們</a>
         </div>
     </section>
 
+    <!-- Footer -->
     <footer>
         <div class="container">
             <div class="footer-grid">
-                <div class="footer-brand">
-                    <h3>RR2資訊科技有限公司</h3>
-                    <p>澳門領先的酒店 IT 解決方案供應商，致力於為酒店客戶提供創新、高效、專業的技術服務。</p>
+                <div class="footer-about">
+                    <div class="footer-logo">
+                        <div class="logo-icon"><i class="fas fa-hotel"></i></div>
+                        RR2<span>資訊科技</span>
+                    </div>
+                    <p>澳門領先的酒店 IT 解決方案供應商，致力於為酒店業提供最優質的科技服務。</p>
                 </div>
-                <div class="footer-links">
-                    <h4>快速連結</h4>
+                <div class="footer">
+                    <h4>服務項目</h4>
                     <ul>
-                        <li><a href="index.html">首頁</a></li>
-                        <li><a href="services.html">服務範圍</a></li>
-                        <li><a href="about.html">關於我們</a></li>
+                        <li><a href="services.html">酒店管理系統</a></li>
+                        <li><a href="services.html">智能客房控制</a></li>
+                        <li><a href="services.html">餐飲 POS 系統</a></li>
+                        <li><a href="services.html">網絡與安防</a></li>
+                    </ul>
+                </div>
+                <div class="footer">
+                    <h4>關於我們</h4>
+                    <ul>
+                        <li><a href="about.html">公司簡介</a></li>
+                        <li><a href="about.html">團隊成員</a></li>
                         <li><a href="contact.html">聯繫我們</a></li>
                     </ul>
                 </div>
-                <div class="footer-links">
-                    <h4>服務範圍</h4>
+                <div class="footer">
+                    <h4>聯繫方式</h4>
                     <ul>
-                        <li><a href="services.html">酒店管理系統</a></li>
-                        <li><a href="services.html">智能客房</a></li>
-                        <li><a href="services.html">餐飲 POS</a></li>
-                        <li><a href="services.html">網絡安防</a></li>
-                    </ul>
-                </div>
-                <div class="footer-links">
-                    <h4>聯繫我們</h4>
-                    <ul>
-                        <li><i class="fas fa-map-marker-alt"></i> 澳門特別行政區</li>
                         <li><i class="fas fa-phone"></i> +853 2828 2828</li>
-                        <li><i class="fas fa-envelope"></i> info@RR2info.com</li>
+                        <li><i class="fas fa-envelope"></i> info@rr2tech.com</li>
+                        <li><i class="fas fa-map-marker"></i> 澳門特別行政區</li>
                     </ul>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2026 RR2資訊科技有限公司. 版權所有。</p>
+                <p>&copy; 2026 RR2資訊科技有限公司. All Rights Reserved.</p>
             </div>
         </div>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+    </script>
 </body>
 </html>
