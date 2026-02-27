@@ -1,10 +1,10 @@
-/* ========================================
+﻿/* ========================================
    Advanced CSS Animations for RR2 Hotel Website
-   高級 CSS 動畫效果
+   擃? CSS ???
    ======================================== */
 
 /* ========================================
-   1. Loading Animation - 頁面加載動畫
+   1. Loading Animation - ????
    ======================================== */
 .page-loader {
     position: fixed;
@@ -29,10 +29,10 @@
     text-align: center;
 }
 
-.loader-logo {
+.loader-logo { background: none;
     width: 80px;
     height: 80px;
-    background: linear-gradient(135deg, #1a365d, #c9a227);
+    background: linear-gradient(135deg, #0066cc, #e53935);
     border-radius: 20px;
     display: flex;
     align-items: center;
@@ -47,7 +47,7 @@
 }
 
 .loader-text {
-    color: #c9a227;
+    color: #e53935;
     font-size: 18px;
     letter-spacing: 3px;
 }
@@ -58,7 +58,7 @@
 }
 
 /* ========================================
-   2. Button Animations - 按鈕動畫
+   2. Button Animations - ???
    ======================================== */
 .btn-glow {
     position: relative;
@@ -97,8 +97,7 @@
 }
 
 /* ========================================
-   3. Navbar Animations - 導航欄動畫
-   ======================================== */
+   3. Navbar Animations - 撠甈???   ======================================== */
 .navbar {
     transition: all 0.3s ease;
 }
@@ -125,7 +124,7 @@
     left: 50%;
     width: 0;
     height: 2px;
-    background: #c9a227;
+    background: #e53935;
     transition: all 0.3s ease;
     transform: translateX(-50%);
 }
@@ -136,7 +135,7 @@
 }
 
 /* ========================================
-   4. Card Hover Effects - 卡片懸停效果
+   4. Card Hover Effects - ?∠??詨???
    ======================================== */
 .card-lift {
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
@@ -155,7 +154,7 @@
     content: '';
     position: absolute;
     inset: -2px;
-    background: linear-gradient(135deg, #c9a227, #1a365d, #c9a227);
+    background: linear-gradient(135deg, #e53935, #0066cc, #e53935);
     border-radius: inherit;
     opacity: 0;
     transition: opacity 0.3s;
@@ -168,7 +167,7 @@
 }
 
 /* ========================================
-   5. Image Hover Effects - 圖片懸停效果
+   5. Image Hover Effects - ???詨???
    ======================================== */
 .img-zoom {
     overflow: hidden;
@@ -192,10 +191,10 @@
 }
 
 /* ========================================
-   6. Text Animations - 文字動畫
+   6. Text Animations - ???
    ======================================== */
 .text-gradient {
-    background: linear-gradient(120deg, #1a365d, #c9a227, #1a365d);
+    background: linear-gradient(120deg, #0066cc, #e53935, #1a365d);
     background-size: 200% auto;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -234,11 +233,11 @@
 
 @keyframes blink-caret {
     from, to { border-color: transparent; }
-    50% { border-color: #c9a227; }
+    50% { border-color: #e53935; }
 }
 
 /* ========================================
-   7. Section Reveal Animations - 區塊 reveal 動畫
+   7. Section Reveal Animations - ?憛?reveal ?
    ======================================== */
 .reveal {
     opacity: 0;
@@ -285,7 +284,7 @@
 }
 
 /* ========================================
-   8. Icon Animations - 圖標動畫
+   8. Icon Animations - ???
    ======================================== */
 .icon-pulse {
     animation: iconPulse 2s ease-in-out infinite;
@@ -305,7 +304,7 @@
 }
 
 /* ========================================
-   9. Background Effects - 背景效果
+   9. Background Effects - ???
    ======================================== */
 .bg-moving {
     position: relative;
@@ -337,7 +336,7 @@
 }
 
 /* ========================================
-   10. Stats Counter Animation - 數字滾動動畫
+   10. Stats Counter Animation - ?詨?皛曉??
    ======================================== */
 .stat-counter {
     display: inline-block;
@@ -358,7 +357,7 @@
 }
 
 /* ========================================
-   11. Parallax Effect - 視差效果
+   11. Parallax Effect - 閬榆??
    ======================================== */
 .parallax {
     background-attachment: fixed;
@@ -368,7 +367,7 @@
 }
 
 /* ========================================
-   12. Cursor Effects - 鼠標效果
+   12. Cursor Effects - 曌???
    ======================================== */
 .cursor-dot,
 .cursor-outline {
@@ -384,13 +383,13 @@
 .cursor-dot {
     width: 8px;
     height: 8px;
-    background-color: #c9a227;
+    background-color: #e53935;
 }
 
 .cursor-outline {
     width: 40px;
     height: 40px;
-    border: 2px solid #c9a227;
+    border: 2px solid #e53935;
     transition: transform 0.15s ease, width 0.3s, height 0.3s;
 }
 
@@ -401,7 +400,7 @@ body:hover .cursor-outline.hover {
 }
 
 /* ========================================
-   13. Modal/Popup Animations - 彈窗動畫
+   13. Modal/Popup Animations - 敶??
    ======================================== */
 .modal-fade .modal-content {
     animation: modalFadeIn 0.3s ease;
@@ -432,7 +431,7 @@ body:hover .cursor-outline.hover {
 }
 
 /* ========================================
-   14. Menu Animation - 菜單動畫
+   14. Menu Animation - ??
    ======================================== */
 .mobile-menu-btn span {
     display: block;
@@ -456,7 +455,7 @@ body:hover .cursor-outline.hover {
 }
 
 /* ========================================
-   15. Testimonial Slider - 評價輪播
+   15. Testimonial Slider - 閰頛芣
    ======================================== */
 .testimonial-slider {
     position: relative;
@@ -494,6 +493,7 @@ body:hover .cursor-outline.hover {
 }
 
 .dot.active {
-    background: #c9a227;
+    background: #e53935;
     transform: scale(1.2);
 }
+
