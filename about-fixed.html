@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="zh-HK">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>???| ?萇?蝘?</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        .page-header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 8rem 0 4rem;
+            text-align: center;
+            margin-top: 60px;
+        }
+        
+        .page-header h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .about-section {
+            padding: 4rem 0;
+        }
+        
+        .about-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            align-items: center;
+            margin-top: 2rem;
+        }
+        
+        .about-text h2 {
+            color: var(--dark-color);
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+        
+        .about-text p {
+            color: #64748b;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+        
+        .about-image {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            border-radius: 10px;
+            min-height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 5rem;
+        }
+        
+        .stats-section {
+            background: var(--light-color);
+            padding: 4rem 0;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .stat-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: var(--shadow);
+        }
+        
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+        
+        .stat-label {
+            color: #64748b;
+            font-size: 1rem;
+        }
+        
+        .values-section {
+            padding: 4rem 0;
+        }
+        
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .value-card {
+            text-align: center;
+            padding: 2rem;
+        }
+        
+        .value-card .icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+        }
+        
+        .value-card h3 {
+            color: var(--dark-color);
+            margin-bottom: 0.5rem;
+        }
+        
+        .value-card p {
+            color: #64748b;
+        }
+        
+        .team-section {
+            background: var(--light-color);
+            padding: 4rem 0;
+        }
+        
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .team-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        
+        .team-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .team-avatar {
+            height: 200px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 5rem;
+        }
+        
+        .team-info {
+            padding: 1.5rem;
+        }
+        
+        .team-info h3 {
+            color: var(--dark-color);
+            margin-bottom: 0.5rem;
+        }
+        
+        .team-info p {
+            color: var(--primary-color);
+            font-weight: 500;
+            margin-bottom: 1rem;
+        }
+        
+        .team-social {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+        }
+        
+        .team-social a {
+            color: #64748b;
+            font-size: 1.5rem;
+            transition: color 0.3s ease;
+        }
+        
+        .team-social a:hover {
+            color: var(--primary-color);
+        }
+    </style>
+</head>
+<body>
+    <!-- 撠甈?-->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-wrapper">
+                
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="index.html">擐?</a></li>
+                    <li><a href="services.html">??蝭?</a></li>
+                    <li><a href="about.html" class="active">???/a></li>
+                    <li><a href="contact.html">?舐鼠??/a></li>
+                </ul>
+                <div class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ?璅? -->
+    <header class="page-header">
+        <div class="container">
+            <h1>???/h1>
+            <p>鈭圾?萇?蝘???鈭???</p>
+        </div>
+    </header>
+
+    <!-- ?砍隞晶 -->
+    <section class="about-section">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>??雿踹</h2>
+                    <p>?萇?蝘?????2026 撟湛?蝮賡雿瞉喲??孵銵??????箔?璆剜?靘?啜??? IT 閫?捱?寞?嚗?恥?嗅?詨???隞???奎?剖???/p>
+                    <p>?????梁?撽?撖?撌亦?撣怒身閮葦?“??????憭僑銵平蝬???蝬脩???唳?璈?App嚗?蝟餌絞???唳?銵垣閰ｇ???賣?靘?璆剜???/p>
+                    <p><strong>?詨??孵潘?</strong>?菜??璆准?靽～韐?/p>
+                </div>
+                <div class="about-image">
+                    ?
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 蝯梯??豢? -->
+    <section class="stats-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">???蜀</h2>
+                <p class="section-subtitle">?冽摮牧閰?/p>
+            </div>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">50+</div>
+                    <div class="stat-label">摰??</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">30+</div>
+                    <div class="stat-label">皛踵?摰Ｘ</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">5+</div>
+                    <div class="stat-label">撟渡?撽?/div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">100%</div>
+                    <div class="stat-label">摰Ｘ皛踵?摨?/div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ?詨??孵?-->
+    <section class="values-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">?詨??孵?/h2>
+                <p class="section-subtitle">?????脩??艙</p>
+            </div>
+            <div class="values-grid">
+                <div class="value-card">
+                    <div class="icon">?</div>
+                    <h3>?菜</h3>
+                    <p>??唳?銵?銝蝒</p>
+                </div>
+                <div class="value-card">
+                    <div class="icon">?</div>
+                    <h3>撠平</h3>
+                    <p>蝎曄?瘙移嚗蕭瘙?頞?/p>
+                </div>
+                <div class="value-card">
+                    <div class="icon">??</div>
+                    <h3>隤縑</h3>
+                    <p>隤祕摰縑嚗澆?靽∟陷</p>
+                </div>
+                <div class="value-card">
+                    <div class="icon">??</div>
+                    <h3>?梯?</h3>
+                    <p>?恥?嗅????/p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ??? -->
+    <section class="team-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">撠平??</h2>
+                <p class="section-subtitle">????撠振</p>
+            </div>
+            <div class="team-grid">
+                <div class="team-card">
+                    <div class="team-avatar">????/div>
+                    <div class="team-info">
+                        <h3>?喳之??/h3>
+                        <p>?菔齒鈭?& CEO</p>
+                        <p style="color: #64748b; font-size: 0.9rem; margin-bottom: 1rem;">10 撟? IT 銵平蝬?嚗??憭振頝典?隡平</p>
+                        <div class="team-social">
+                            <a href="#">?</a>
+                            <a href="#">?</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="team-card">
+                    <div class="team-avatar">????/div>
+                    <div class="team-info">
+                        <h3>暺?憪?/h3>
+                        <p>?銵蜇??/p>
+                        <p style="color: #64748b; font-size: 0.9rem; margin-bottom: 1rem;">?冽ㄖ?撠振嚗移??蝔格?銵ㄖ</p>
+                        <div class="team-social">
+                            <a href="#">?</a>
+                            <a href="#">??</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="team-card">
+                    <div class="team-avatar">????/div>
+                    <div class="team-info">
+                        <h3>????/h3>
+                        <p>閮剛?蝮賜</p>
+                        <p style="color: #64748b; font-size: 0.9rem; margin-bottom: 1rem;">UI/UX 閮剛?撠振嚗釣??園?撽?/p>
+                        <div class="team-social">
+                            <a href="#">?</a>
+                            <a href="#">?</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="team-card">
+                    <div class="team-avatar">????/div>
+                    <div class="team-info">
+                        <h3>撘萇???/h3>
+                        <p>摰Ｘ蝮賜</p>
+                        <p style="color: #64748b; font-size: 0.9rem; margin-bottom: 1rem;">撠釣摰Ｘ??嚗Ⅱ靽??格???/p>
+                        <div class="team-social">
+                            <a href="#">?</a>
+                            <a href="#">?</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ??憭乩撈 -->
+    <section class="about-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">??憭乩撈</h2>
+                <p class="section-subtitle">?澆?靽∟陷??銵丰隡?/p>
+            </div>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 2rem; align-items: center; justify-items: center; margin-top: 2rem; opacity: 0.6;">
+                <div style="font-size: 3rem;">??</div>
+                <div style="font-size: 3rem;">??</div>
+                <div style="font-size: 3rem;">?</div>
+                <div style="font-size: 3rem;">??</div>
+                <div style="font-size: 3rem;">??</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 銵??潛捲 -->
+    <section class="cta">
+        <div class="container">
+            <h2>?唾???雿?</h2>
+            <p>蝡?舐鼠?????函??</p>
+            <a href="contact.html" class="btn btn-light">蝡?舐鼠</a>
+        </div>
+    </section>
+
+    <!-- ? -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <h3>???萇?蝘?</h3>
+                    <p>撠平 IT 閫?捱?寞?靘????游??潛摰Ｘ???菜?????銵???/p>
+                </div>
+                <div class="footer-section">
+                    <h3>敹恍??</h3>
+                    <ul>
+                        <li><a href="index.html">擐?</a></li>
+                        <li><a href="services.html">??蝭?</a></li>
+                        <li><a href="about.html">???/a></li>
+                        <li><a href="contact.html">?舐鼠??/a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>????</h3>
+                    <p>?曹??喲曹?嚗?:00 - 18:00</p>
+                    <p>?勗嚗?:00 - 13:00</p>
+                    <p>?望??曉?????/p>
+                </div>
+                <div class="footer-section">
+                    <h3>?舐鼠?孵?</h3>
+                    <p>?? 瞉喲??孵銵?</p>
+                    <p>?? +853 2828 2828</p>
+                    <p>?? info@rr2tech.com</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 ?萇?蝘????砍??甈???/p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

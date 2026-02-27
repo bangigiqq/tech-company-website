@@ -1,540 +1,200 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="zh-HK">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>?Ｗ?銝剖? | RR2鞈?蝘????砍</title>
-    <meta name="description" content="RR2鞈?蝘??Ｗ?銝剖? - ?芸?乩?璈摨??亦頂蝯晞雁霅瑟??獢?>
+    <title>產品展示 | RR2 科技有限公司</title>
+    <meta name="description" content="RR2科技有限公司產品 - 自助check-in機、政府系統整合、定價方案">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="animations.css">
     <link rel="stylesheet" href="animations-advanced.css">
+    <link rel="stylesheet" href="styles.css">
     <style>
-        :root { 
-            --primary: #0066cc; 
-            --secondary: #e53935; 
-            --accent: #1a88e0; 
-            --dark: #1a1a2e; 
-            --light: #f8f9fa;
-            --text: #2d3748;
-            --text-light: #718096;
-            --gradient: linear-gradient(135deg, #0066cc 0%, #1a88e0 50%, #e53935 100%);
-        }
+        :root { --primary: #0066cc; --secondary: #e53935; --accent: #1a88e0; --dark: #1a1a2e; --light: #f8f9fa; --text: #2d3748; }
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Noto Sans TC', sans-serif; color: var(--text); line-height: 1.6; }
-        a { text-decoration: none; color: inherit; }
         
-        .navbar { 
-            background: rgba(255,255,255,0.98); 
-            box-shadow: 0 2px 20px rgba(0,0,0,0.08); 
-            padding: 12px 0; 
-            position: fixed; 
-            width: 100%; 
-            top: 0; 
-            z-index: 1000;
-        }
-        .navbar .container { display: flex; justify-content: space-between; align-items: center; }
-        .logo { display: flex; align-items: center; gap: 10px; font-size: 24px; font-weight: 700; color: var(--primary); }
-        .logo-icon { width: 45px; height: 45px; background: var(--gradient); border-radius: 10px; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 20px; }
-        .logo span { color: var(--secondary); }
-        .nav-menu { display: flex; gap: 30px; align-items: center; }
-        .nav-menu a { font-weight: 500; color: var(--text); transition: color 0.3s; position: relative; }
-        .nav-menu a::after { content: ''; position: absolute; bottom: -5px; left: 0; width: 0; height: 2px; background: var(--secondary); transition: width 0.3s; }
+        .navbar { background: rgba(255,255,255,0.95); backdrop-filter: blur(10px); box-shadow: 0 2px 20px rgba(0,0,0,0.1); padding: 15px 0; position: fixed; width: 100%; z-index: 1000; }
+        .nav-wrapper { display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        .nav-menu { display: flex; gap: 30px; list-style: none; }
+        .nav-menu a { font-weight: 500; color: var(--text); text-decoration: none; transition: color 0.3s; }
         .nav-menu a:hover, .nav-menu a.active { color: var(--primary); }
-        .nav-menu a:hover::after, .nav-menu a.active::after { width: 100%; }
-        .btn-contact { background: var(--gradient); color: #fff !important; padding: 10px 25px; border-radius: 25px; font-weight: 600; }
         
-        .page-header { 
-            background: linear-gradient(135deg, rgba(26,54,93,0.95) 0%, rgba(44,82,130,0.9) 100%), 
-                        url('https://images.unsplash.com/photo-1557821552-17105176677c?w=1920') center/cover; 
-            color: #fff; 
-            padding: 150px 0 80px; 
-            text-align: center;
-        }
-        .page-header h1 { font-size: 42px; font-weight: 700; margin-bottom: 15px; }
-        .page-header p { font-size: 18px; opacity: 0.9; }
+        .page-header { background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%); color: white; padding: 150px 0 80px; text-align: center; }
+        <h1> { font-size: 48px; font-weight: 700; margin-bottom: 20px; }
+        .page-header p { font-size: 20px; opacity: 0.9; }
         
-        .section { padding: 80px 0; }
-        .section-header { text-align: center; margin-bottom: 60px; }
-        .section-header h2 { font-size: 36px; font-weight: 700; margin-bottom: 15px; color: var(--primary); }
-        .section-header h2::after { content: ''; display: block; width: 60px; height: 3px; background: var(--secondary); margin: 15px auto 0; }
-        .section-header p { color: var(--text-light); font-size: 18px; }
-        
-        .products { background: var(--light); }
-        .product-card { 
-            background: #fff; 
-            border-radius: 20px; 
-            overflow: hidden; 
-            box-shadow: 0 10px 40px rgba(0,0,0,0.08); 
-            margin-bottom: 30px;
-            transition: all 0.3s;
-        }
-        .product-card:hover { transform: translateY(-10px); box-shadow: 0 20px 60px rgba(0,0,0,0.15); }
-        .product-image { 
-            height: 250px; 
-            background: var(--gradient); 
-            display: flex; 
-            align-items: center; 
-            justify-content: center;
-            position: relative;
-            overflow: hidden;
-        }
-        .product-image img { width: 100%; height: 100%; object-fit: cover; }
-        .product-image .icon {
-            font-size: 80px;
-            color: #fff;
-            z-index: 1;
-        }
-        .product-badge {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            background: var(--secondary);
-            color: #fff;
-            padding: 5px 15px;
-            border-radius: 20px;
-            font-size: 12px;
-            font-weight: 600;
-        }
-        .product-badge.hot { background: #e53e3e; }
-        .product-badge.new { background: #38a169; }
-        .product-badge.gov { background: #0066cc; }
+        .products-section { padding: 80px 0; background: var(--light); }
+        .products-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px; max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        .product-card { background: white; border-radius: 20px; overflow: hidden; box-shadow: 0 10px 40px rgba(0,0,0,0.1); transition: transform 0.3s; }
+        .product-card:hover { transform: translateY(-10px); }
+        .product-image { height: 250px; background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); display: flex; align-items: center; justify-content: center; font-size: 72px; }
         .product-content { padding: 30px; }
-        .product-content h3 { color: var(--primary); margin-bottom: 15px; font-size: 24px; }
+        .product-content h3 { font-size: 24px; margin-bottom: 15px; color: var(--dark); }
         .product-content p { color: var(--text-light); margin-bottom: 20px; }
-        .product-features { 
-            display: grid; 
-            grid-template-columns: repeat(2, 1fr); 
-            gap: 10px; 
-            margin-bottom: 20px; 
-        }
-        .product-features li { 
-            display: flex; 
-            align-items: center; 
-            gap: 8px; 
-            color: var(--text);
-            font-size: 14px;
-        }
-        .product-features li i { color: var(--secondary); }
-        .product-price { 
-            font-size: 28px; 
-            color: var(--primary); 
-            font-weight: 700; 
-            margin-bottom: 20px; 
-        }
-        .product-price span { font-size: 14px; color: var(--text-light); font-weight: 400; }
-        .btn-quote { 
-            background: var(--gradient); 
-            color: #fff; 
-            border: none; 
-            padding: 12px 30px; 
-            border-radius: 25px; 
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s;
-            display: inline-block;
-        }
-        .btn-quote:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(201,162,39,0.4); }
+        .product-features { list-style: none; margin-bottom: 25px; }
+        .product-features li { padding: 8px 0; border-bottom: 1px solid #eee; }
+        .product-features li:before { content: "✓ "; color: var(--primary); }
+        .price { font-size: 28px; font-weight: 700; color: var(--primary); margin-bottom: 20px; }
+        .price span { font-size: 16px; font-weight: 400; color: var(--text-light); }
+        .btn { display: inline-block; padding: 12px 30px; border-radius: 50px; font-weight: 600; text-decoration: none; transition: all 0.3s; }
+        .btn-outline { border: 2px solid var(--primary); color: var(--primary); }
+        .btn-outline:hover { background: var(--primary); color: white; }
         
-        .pricing { background: #fff; }
-        .pricing-card { 
-            background: #fff; 
-            border-radius: 20px; 
-            padding: 40px; 
-            text-align: center;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
-            transition: all 0.3s;
-            height: 100%;
-        }
-        .pricing-card:hover { transform: translateY(-10px); box-shadow: 0 20px 60px rgba(0,0,0,0.15); }
-        .pricing-card.featured { 
-            border: 3px solid var(--secondary); 
-            position: relative;
-        }
-        .pricing-card.featured::before {
-            content: '??迭餈?;
-            position: absolute;
-            top: -12px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: var(--secondary);
-            color: #fff;
-            padding: 5px 20px;
-            border-radius: 20px;
-            font-size: 12px;
-            font-weight: 600;
-        }
-        .pricing-icon { 
-            width: 80px; 
-            height: 80px; 
-            background: var(--gradient); 
-            border-radius: 50%; 
-            display: flex; 
-            align-items: center; 
-            justify-content: center; 
-            margin: 0 auto 20px;
-            font-size: 32px;
-            color: #fff;
-        }
-        .pricing-card h3 { color: var(--primary); margin-bottom: 10px; font-size: 24px; }
-        .pricing-price { 
-            font-size: 36px; 
-            color: var(--secondary); 
-            font-weight: 700; 
-            margin-bottom: 5px; 
-        }
-        .pricing-price span { font-size: 14px; color: var(--text-light); }
-        .pricing-desc { color: var(--text-light); margin-bottom: 20px; }
-        .pricing-features { text-align: left; margin-bottom: 30px; }
-        .pricing-features li { 
-            padding: 10px 0; 
-            border-bottom: 1px solid #eee; 
-            color: var(--text);
-        }
-        .pricing-features li:last-child { border-bottom: none; }
-        .pricing-features li i { color: var(--secondary); margin-right: 10px; }
+        .pricing-section { padding: 80px 0; background: white; }
+        .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        .pricing-card { background: white; padding: 40px; border-radius: 20px; text-align: center; box-shadow: 0 10px 40px rgba(0,0,0,0.1); border: 2px solid transparent; transition: all 0.3s; }
+        .pricing-card.featured { border-color: var(--primary); transform: scale(1.05); }
+        .pricing-card h3 { font-size: 24px; margin-bottom: 20px; }
+        .pricing-price { font-size: 36px; font-weight: 700; color: var(--dark); margin-bottom: 10px; }
+        .pricing-price span { font-size: 16px; font-weight: 400; color: var(--text-light); }
+        .pricing-features { list-style: none; margin: 30px 0; text-align: left; }
+        .pricing-features li { padding: 10px 0; border-bottom: 1px solid #eee; }
+        .pricing-features li:before { content: "✓ "; color: var(--primary); margin-right: 10px; }
         
-        .gov-section { background: var(--light); }
-        .gov-card {
-            background: #fff;
-            border-radius: 15px;
-            padding: 30px;
-            text-align: center;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
-            transition: all 0.3s;
-        }
-        .gov-card:hover { transform: translateY(-5px); }
-        .gov-icon {
-            width: 70px;
-            height: 70px;
-            background: #0066cc;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 20px;
-            font-size: 28px;
-            color: #fff;
-        }
-        .gov-card h4 { color: var(--primary); margin-bottom: 10px; }
-        .gov-card p { color: var(--text-light); font-size: 14px; }
-        
-        footer { background: var(--dark); color: #fff; padding: 60px 0 20px; }
-        .footer-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px; margin-bottom: 40px; }
-        .footer-logo { display: flex; align-items: center; gap: 10px; font-size: 22px; font-weight: 700; color: #fff; margin-bottom: 20px; }
-        .footer-logo .logo-icon { width: 40px; height: 40px; font-size: 18px; }
-        .footer-logo span { color: var(--secondary); }
-        .footer-about p { color: rgba(255,255,255,0.7); font-size: 14px; }
-        .footer h4 { color: var(--secondary); margin-bottom: 20px; font-size: 18px; }
-        .footer ul li { margin-bottom: 10px; }
-        .footer ul li a { color: rgba(255,255,255,0.7); transition: color 0.3s; }
-        .footer ul li a:hover { color: var(--secondary); }
-        .footer-bottom { text-align: center; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.1); color: rgba(255,255,255,0.5); font-size: 14px; }
-        
-        @media (max-width: 768px) {
-            .product-features { grid-template-columns: 1fr; }
-            .footer-grid { grid-template-columns: 1fr 1fr; }
-        }
+        .footer { background: #1a1a2e; color: white; padding: 60px 0 30px; }
+        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        .footer h3 { margin-bottom: 20px; }
+        .footer p, .footer li { opacity: 0.7; margin-bottom: 10px; }
+        .footer-bottom { text-align: center; margin-top: 40px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.1); }
     </style>
 </head>
 <body>
-    <!-- Page Loader -->
-    <div class="page-loader" id="pageLoader">
-        <div class="loader-content">
-            <div class="loader-logo"><img src="assets/RR2LOGOH.png" alt="RR2" style="width:60px;"></div>
-            <div class="loader-text">頛銝?..</div>
-        </div>
-    </div>
-
     <nav class="navbar">
-        <div class="container">
-            <a href="index.html" class="logo">
-                <img src="assets/RR2LOGOH.png" alt="RR2" style="height:40px; margin-right:5px;">
-                RR2<span>鞈?蝘?</span>
-            </a>
+        <div class="nav-wrapper">
             <ul class="nav-menu">
-                <li><a href="index.html">擐?</a></li>
-                <li><a href="services.html">??</a></li>
-                <li><a href="products.html" class="active">?Ｗ?</a></li>
-                <li><a href="about.html">???/a></li>
-                <li><a href="contact.html">?舐鼠??/a></li>
-                <li><a href="contact.html" class="btn-contact">蝡?刻岷</a></li>
+                <li><a href="index.html">首頁</a></li>
+                <li><a href="services.html">服務範圍</a></li>
+                <li><a href="about.html">關於我們</a></li>
+                <li><a href="contact.html">聯繫我們</a></li>
             </ul>
         </div>
     </nav>
 
     <section class="page-header">
-        <div class="container">
-            <h1>?Ｗ?銝剖?</h1>
-            <p>?菜蝘? 繚 ???釭 繚 鞎澆???</p>
-        </div>
+        <h1>產品展示</h1>
+        <p>創新產品，助力企業數字化轉型</p>
     </section>
 
-    <!-- Self-Check-in Kiosk -->
-    <section class="section products">
-        <div class="container">
-            <div class="section-header">
-                <h2>?箄蝖砌辣</h2>
-                <p>?脰身????摰Ｘ擃?</p>
-            </div>
-            
-            <div class="row g-4">
-                <!-- ?芸?乩?璈?-->
-                <div class="col-lg-6">
-                    <div class="product-card">
-                        <div class="product-image">
-                            <span class="product-badge hot">?梯都</span>
-                            <i class="fas fa-user-check icon"></i>
-                        </div>
-                        <div class="product-content">
-                            <h3>?芸?乩?璈?Kiosk</h3>
-                            <p>24撠??芸?乩?/??踵????舀頨思遢霅風?扼葛瞉喲?霅??伐?憭批?皜?????嚗??恥鈭粹?撽?/p>
-                            <ul class="product-features">
-                                <li><i class="fas fa-check"></i> 頨思遢霅?霅瑞/??霅???/li>
-                                <li><i class="fas fa-check"></i> 鈭箄?霅?銵?/li>
-                                <li><i class="fas fa-check"></i> ?踹鋆賭?銝擃?</li>
-                                <li><i class="fas fa-check"></i> ?舀憭車?臭??孵?</li>
-                                <li><i class="fas fa-check"></i> 24撠??⊿??瑟???/li>
-                                <li><i class="fas fa-check"></i> 隤/?????舀</li>
-                            </ul>
-                            <div class="product-price">MOP 28,800 <span>/ 韏?/span></div>
-                            <a href="contact.html" class="btn-quote">蝡閰Ｗ</a>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- ?箄???-->
-                <div class="col-lg-6">
-                    <div class="product-card">
-                        <div class="product-image">
-                            <span class="product-badge new">?啣?</span>
-                            <i class="fas fa-key icon"></i>
-                        </div>
-                        <div class="product-content">
-                            <h3>?箄??頂蝯?/h3>
-                            <p>?∠??啁?舐雯?銵??舀??????蝣潮??????蝑?蝔格撘?摰蝞∠??湔敹?/p>
-                            <ul class="product-features">
-                                <li><i class="fas fa-check"></i> ?? APP ??</li>
-                                <li><i class="fas fa-check"></i> ??霅</li>
-                                <li><i class="fas fa-check"></i> ?∠?/撖Ⅳ??</li>
-                                <li><i class="fas fa-check"></i> ????蝞∠?</li>
-                                <li><i class="fas fa-check"></i> ??閮??亥岷</li>
-                                <li><i class="fas fa-check"></i> 雿????/li>
-                            </ul>
-                            <div class="product-price">MOP 1,200 <span>/ ??/span></div>
-                            <a href="contact.html" class="btn-quote">蝡閰Ｗ</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Government Integration -->
-    <section class="section gov-section">
-        <div class="container">
-            <div class="section-header">
-                <h2>?踹?撠蝟餌絞</h2>
-                <p>蝚血?瞉喲??踹?瘜?閬?嚗???亦蝮急??/p>
-            </div>
-            
-            <div class="row g-4">
-                <div class="col-md-4">
-                    <div class="gov-card">
-                        <div class="gov-icon"><i class="fas fa-file-contract"></i></div>
-                        <h4>?恥?亙?蝟餌絞</h4>
-                        <p>撠瞉喲??亙?鈭?撅嚗???單?摰Ｚ???皜?鈭箏極頛詨?航炊</p>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="gov-card">
-                        <div class="gov-icon"><i class="fas fa-receipt"></i></div>
-                        <h4>?餃??潛巨撠</h4>
-                        <p>撠鞎⊥撅?餃??潛巨蝟餌絞嚗???瑞泵??閬??餃??潛巨</p>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="gov-card">
-                        <div class="gov-icon"><i class="fas fa-users"></i></div>
-                        <h4>?極撅蝟餌絞</h4>
-                        <p>撠?極撅憭?唾?蝟餌絞嚗陛???曹?摰輻閮?蝔?/p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Maintenance Plans -->
-    <section class="section pricing">
-        <div class="container">
-            <div class="section-header">
-                <h2>蝬剛風???寞?</h2>
-                <p>撠平??嚗?冽?靘?嫣??銵??/p>
-            </div>
-            
-            <div class="row g-4 justify-content-center">
-                <div class="col-md-4">
-                    <div class="pricing-card">
-                        <div class="pricing-icon"><i class="fas fa-tools"></i></div>
-                        <h3>?箇?蝬剛風</h3>
-                        <div class="pricing-price">MOP 800 <span>/ ??/span></div>
-                        <p class="pricing-desc">?拙?銝剖???摨?/p>
-                        <ul class="pricing-features">
-                            <li><i class="fas fa-check"></i> ?餉店?銵??(9-6)</li>
-                            <li><i class="fas fa-check"></i> ?????</li>
-                            <li><i class="fas fa-check"></i> 瘥?蝟餌絞瑼Ｘ</li>
-                            <li><i class="fas fa-check"></i> 頠辣?湔??</li>
-                            <li><i class="fas fa-times" style="color:#ccc"></i> ?曉?舀</li>
-                            <li><i class="fas fa-times" style="color:#ccc"></i> 7?24 ?梁?</li>
-                        </ul>
-                        <a href="contact.html" class="btn-quote">蝡閰Ｗ</a>
-                    </div>
-                </div>
-                
-                <div class="col-md-4">
-                    <div class="pricing-card featured">
-                        <div class="pricing-icon"><i class="fas fa-headset"></i></div>
-                        <h3>撠平蝬剛風</h3>
-                        <div class="pricing-price">MOP 1,500 <span>/ ??/span></div>
-                        <p class="pricing-desc">?拙?銝剖之??摨???/p>
-                        <ul class="pricing-features">
-                            <li><i class="fas fa-check"></i> 7?24 ?餉店?舀</li>
-                            <li><i class="fas fa-check"></i> ?????</li>
-                            <li><i class="fas fa-check"></i> 瘥梁頂蝯望炎??/li>
-                            <li><i class="fas fa-check"></i> 頠辣?湔??</li>
-                            <li><i class="fas fa-check"></i> 瘥??曉撌⊥炎</li>
-                            <li><i class="fas fa-check"></i> ?芸?銝???</li>
-                        </ul>
-                        <a href="contact.html" class="btn-quote">蝡閰Ｗ</a>
-                    </div>
-                </div>
-                
-                <div class="col-md-4">
-                    <div class="pricing-card">
-                        <div class="pricing-icon"><i class="fas fa-shield-alt"></i></div>
-                        <h3>?冽雿?蝞?/h3>
-                        <div class="pricing-price">MOP 3,000 <span>/ ??/span></div>
-                        <p class="pricing-desc">?拙?憭批???/??</p>
-                        <ul class="pricing-features">
-                            <li><i class="fas fa-check"></i> 7?24 撠犖?梁?</li>
-                            <li><i class="fas fa-check"></i> 撠惇?銵恥?嗥???/li>
-                            <li><i class="fas fa-check"></i> 瘥蝟餌絞??</li>
-                            <li><i class="fas fa-check"></i> 摰?銝?蝬剛風</li>
-                            <li><i class="fas fa-check"></i> ?豢??遢靽風</li>
-                            <li><i class="fas fa-check"></i> 蝺?撠?銝?</li>
-                        </ul>
-                        <a href="contact.html" class="btn-quote">蝡閰Ｗ</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- One-time Services -->
-    <section class="section" style="background: var(--light);">
-        <div class="container">
-            <div class="section-header">
-                <h2>銝甈⊥扳???/h2>
-                <p>???格鞎鳴??暑?豢?</p>
-            </div>
-            
-            <div class="row g-4">
-                <div class="col-md-6 col-lg-3">
-                    <div class="pricing-card">
-                        <div class="pricing-icon"><i class="fas fa-wrench"></i></div>
-                        <h3>蝟餌絞摰?</h3>
-                        <div class="pricing-price" style="font-size: 24px;">MOP 3,000 <span>韏?/span></div>
-                        <p class="pricing-desc">撠平??銝?摰?隤輯岫</p>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-3">
-                    <div class="pricing-card">
-                        <div class="pricing-icon"><i class="fas fa-graduation-cap"></i></div>
-                        <h3>?∪極?寡?</h3>
-                        <div class="pricing-price" style="font-size: 24px;">MOP 1,500 <span>韏?/span></div>
-                        <p class="pricing-desc">蝟餌絞???寡?隤脩?</p>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-3">
-                    <div class="pricing-card">
-                        <div class="pricing-icon"><i class="fas fa-database"></i></div>
-                        <h3>?豢??瑞宏</h3>
-                        <div class="pricing-price" style="font-size: 24px;">MOP 2,000 <span>韏?/span></div>
-                        <p class="pricing-desc">?頂蝯望?蝮恍蝘?/p>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-3">
-                    <div class="pricing-card">
-                        <div class="pricing-icon"><i class="fas fa-cogs"></i></div>
-                        <h3>蝟餌絞摰</h3>
-                        <div class="pricing-price" style="font-size: 24px;">MOP 5,000 <span>韏?/span></div>
-                        <p class="pricing-desc">?寞??瘙??園???/p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <footer>
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-about">
-                    <div class="footer-logo">
-                        <img src="assets/RR2LOGOH.png" alt="RR2" style="height:40px; margin-right:5px;">
-                        RR2<span>鞈?蝘?</span>
-                    </div>
-                    <p>瞉喲?????摨?IT 閫?捱?寞?靘???/p>
-                </div>
-                <div class="footer">
-                    <h4>???</h4>
-                    <ul>
-                        <li><a href="services.html">??蝞∠?蝟餌絞</a></li>
-                        <li><a href="services.html">?箄摰Ｘ?批</a></li>
-                        <li><a href="services.html">擗ㄡ POS 蝟餌絞</a></li>
-                        <li><a href="products.html">?Ｗ?銝剖?</a></li>
+    <section class="products-section">
+        <div class="products-grid">
+            <div class="product-card">
+                <div class="product-image">🖥️</div>
+                <div class="product-content">
+                    <h3>自助 Check-in 機</h3>
+                    <p>適用於酒店、寫字樓、住宅大堂的自助服務終端，提供快速便捷的登記體驗。</p>
+                    <ul class="product-features">
+                        <li>快速人臉識別</li>
+                        <li>身份證讀取</li>
+                        <li>自助登記系統</li>
+                        <li>即時打印收據</li>
                     </ul>
-                </div>
-                <div class="footer">
-                    <h4>???/h4>
-                    <ul>
-                        <li><a href="about.html">?砍蝪∩?</a></li>
-                        <li><a href="contact.html">?舐鼠??/a></li>
-                    </ul>
-                </div>
-                <div class="footer">
-                    <h4>?舐鼠?孵?</h4>
-                    <ul>
-                        <li><i class="fas fa-phone"></i> +853 2828 2828</li>
-                        <li><i class="fas fa-envelope"></i> info@rr2tech.com</li>
-                    </ul>
+                    <a href="contact.html" class="btn btn-outline">查詢詳情</a>
                 </div>
             </div>
-            <div class="footer-bottom">
-                <p>&copy; 2026 RR2鞈?蝘????砍. All Rights Reserved.</p>
+            
+            <div class="product-card">
+                <div class="product-image">🏛️</div>
+                <div class="product-content">
+                    <h3>政府系統整合</h3>
+                    <p>連接澳門政府各部門系統，實現數據互通，簡化行政流程。</p>
+                    <ul class="product-features">
+                        <li>政府API對接</li>
+                        <li>數據自動上報</li>
+                        <li>電子證照處理</li>
+                        <li>合規審批流程</li>
+                    </ul>
+                    <a href="contact.html" class="btn btn-outline">查詢詳情</a>
+                </div>
             </div>
+            
+            <div class="product-card">
+                <div class="product-image">📱</div>
+                <div class="product-content">
+                    <h3>移動應用開發</h3>
+                    <p>為企業定制開發 iOS/Android 應用，實現業務移動化。</p>
+                    <ul class="product-features">
+                        <li>原生開發</li>
+                        <li>跨平台解決方案</li>
+                        <li>後台管理系統</li>
+                        <li>數據分析儀表板</li>
+                    </ul>
+                    <a href="contact.html" class="btn btn-outline">查詢詳情</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="pricing-section">
+        <div class="pricing-grid">
+            <div class="pricing-card">
+                <h3>基礎版</h3>
+                <div class="pricing-price">$9,999<span>/起</span></div>
+                <ul class="pricing-features">
+                    <li>基本系統功能</li>
+                    <li>標準技術支援</li>
+                    <li>月度報告</li>
+                    <li>數據存儲 10GB</li>
+                </ul>
+                <a href="contact.html" class="btn btn-outline">立即咨詢</a>
+            </div>
+            
+            <div class="pricing-card featured">
+                <h3>專業版</h3>
+                <div class="pricing-price">$19,999<span>/起</span></div>
+                <ul class="pricing-features">
+                    <li>完整系統功能</li>
+                    <li>優先技術支援</li>
+                    <li>每週報告</li>
+                    <li>數據存儲 50GB</li>
+                    <li>API 對接</li>
+                </ul>
+                <a href="contact.html" class="btn btn-outline">立即咨詢</a>
+            </div>
+            
+            <div class="pricing-card">
+                <h3>企業版</h3>
+                <div class="pricing-price">$49,999<span>/起</span></div>
+                <ul class="pricing-features">
+                    <li>定製開發</li>
+                    <li>7x24 技術支援</li>
+                    <li>實時報告</li>
+                    <li>無限存儲</li>
+                    <li>多系統整合</li>
+                    <li>專屬客戶經理</li>
+                </ul>
+                <a href="contact.html" class="btn btn-outline">立即咨詢</a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-grid">
+            <div>
+                <h3>RR2 科技有限公司</h3>
+                <p>澳門領先 IT 系統整合供應商</p>
+            </div>
+            <div>
+                <h3>快速連結</h3>
+                <ul>
+                    <li><a href="index.html" style="color:white;">首頁</a></li>
+                    <li><a href="services.html" style="color:white;">服務範圍</a></li>
+                    <li><a href="about.html" style="color:white;">關於我們</a></li>
+                    <li><a href="contact.html" style="color:white;">聯繫我們</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3>聯繫我們</h3>
+                <p>📍 澳門特別行政區</p>
+                <p>📞 +853 2828 2828</p>
+                <p>✉️ info@rr2tech.com</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 RR2 科技有限公司。版權所有。</p>
         </div>
     </footer>
-
-    <script>
-        // Page Loader
-        window.addEventListener('load', function() {
-            setTimeout(function() {
-                document.getElementById('pageLoader').classList.add('hidden');
-            }, 1500);
-        });
-
-        // Navbar scroll
-        window.addEventListener('scroll', function() {
-            const navbar = document.querySelector('.navbar');
-            if (window.scrollY > 50) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
-            }
-        });
-    </script>
 </body>
 </html>
-
-

@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="zh-HK">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>?舐鼠??| ?萇?蝘?</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        .page-header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 8rem 0 4rem;
+            text-align: center;
+            margin-top: 60px;
+        }
+        
+        .page-header h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .contact-section {
+            padding: 4rem 0;
+        }
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            margin-top: 2rem;
+        }
+        
+        .contact-info-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            text-align: center;
+        }
+        
+        .contact-info-card .icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .contact-info-card h3 {
+            color: var(--dark-color);
+            margin-bottom: 1rem;
+        }
+        
+        .contact-info-card p {
+            color: #64748b;
+            line-height: 1.8;
+        }
+        
+        .contact-form-container {
+            background: white;
+            padding: 3rem;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            margin-top: 3rem;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--dark-color);
+            font-weight: 500;
+        }
+        
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid var(--border-color);
+            border-radius: 5px;
+            font-size: 1rem;
+            font-family: inherit;
+            transition: border-color 0.3s ease;
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--primary-color);
+        }
+        
+        .form-group textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        .form-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+        
+        .map-section {
+            background: var(--light-color);
+            padding: 4rem 0;
+        }
+        
+        .map-container {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+        
+        .map-placeholder {
+            height: 400px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- 撠甈?-->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-wrapper">
+                
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="index.html">擐?</a></li>
+                    <li><a href="services.html">??蝭?</a></li>
+                    <li><a href="about.html">???/a></li>
+                    <li><a href="contact.html" class="active">?舐鼠??/a></li>
+                </ul>
+                <div class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ?璅? -->
+    <header class="page-header">
+        <div class="container">
+            <h1>?舐鼠??/h1>
+            <p>???冽???甇∟??亥岷</p>
+        </div>
+    </header>
+
+    <!-- ?舐鼠?孵? -->
+    <section class="contact-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">?舐鼠?孵?</h2>
+                <p class="section-subtitle">?豢???拙??函??舐鼠?孵?</p>
+            </div>
+            
+            <div class="contact-grid">
+                <div class="contact-info-card">
+                    <div class="icon">??</div>
+                    <h3>?餉店</h3>
+                    <p>+853 2828 2828</p>
+                    <p style="font-size: 0.9rem; margin-top: 0.5rem;">?曹??喲曹? 9:00-18:00</p>
+                </div>
+                
+                <div class="contact-info-card">
+                    <div class="icon">??</div>
+                    <h3>?駁</h3>
+                    <p>info@rr2tech.com</p>
+                    <p style="font-size: 0.9rem; margin-top: 0.5rem;">24 撠??交?亥岷</p>
+                </div>
+                
+                <div class="contact-info-card">
+                    <div class="icon">?</div>
+                    <h3>?單???</h3>
+                    <p>WhatsApp / WeChat</p>
+                    <p style="font-size: 0.9rem; margin-top: 0.5rem;">敹恍??/p>
+                </div>
+                
+                <div class="contact-info-card">
+                    <div class="icon">??</div>
+                    <h3>?啣?</h3>
+                    <p>瞉喲??孵銵?</p>
+                    <p style="font-size: 0.9rem; margin-top: 0.5rem;">???</p>
+                </div>
+            </div>
+
+            <!-- ?舐鼠銵典 -->
+            <div class="contact-form-container">
+                <div class="section-header">
+                    <h2 class="section-title">?潮???/h2>
+                    <p class="section-subtitle">憛怠神隞乩?銵冽嚗????∪翰????/p>
+                </div>
+                
+                <form id="contactForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="name">憪? *</label>
+                            <input type="text" id="name" name="name" required placeholder="?函?憪?">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="company">?砍</label>
+                            <input type="text" id="company" name="company" placeholder="?砍?迂">
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="email">?駁 *</label>
+                            <input type="email" id="email" name="email" required placeholder="your@email.com">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone">?餉店</label>
+                            <input type="tel" id="phone" name="phone" placeholder="?舐窗?餉店">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="service">??頞????</label>
+                        <select id="service" name="service">
+                            <option value="">隢????/option>
+                            <option value="website">蝬脩??</option>
+                            <option value="app">?? App ?</option>
+                            <option value="system">蝟餌絞??</option>
+                            <option value="consulting">?銵垣閰?/option>
+                            <option value="other">?嗡?</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">閮?批捆 *</label>
+                        <textarea id="message" name="message" required placeholder="隢?餈唳???桅?瘙?.."></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary" style="width: 100%;">?潮???/button>
+                    </div>
+                    
+                    <p style="font-size: 0.9rem; color: #64748b; text-align: center;">
+                        * ?箏?憛急?雿?????1-2 ?極雿予?批?閬?                    </p>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- ?啣????-->
+    <section class="map-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">?砍雿蔭</h2>
+                <p class="section-subtitle">甇∟????啗赤</p>
+            </div>
+            <div class="map-container">
+                <div class="map-placeholder">
+                    <div>
+                        <p style="font-size: 3rem; margin-bottom: 1rem;">?儭?/p>
+                        <p>?啣????/p>
+                        <p style="font-size: 1rem; margin-top: 0.5rem; opacity: 0.8;">?臬???Google Maps</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 撣貉??? -->
+    <section class="contact-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">撣貉???</h2>
+                <p class="section-subtitle">敹恍圾蝑????/p>
+            </div>
+            
+            <div style="max-width: 800px; margin: 0 auto;">
+                <div style="background: white; padding: 2rem; border-radius: 10px; margin-bottom: 1rem; box-shadow: var(--shadow);">
+                    <h3 style="color: var(--dark-color); margin-bottom: 0.5rem;">? 憒??嗉祥嚗?/h3>
+                    <p style="color: #64748b;">????桃?銴?摨艾??賡?瘙???????批??勗?迭餈蝜急????鞎餉垣閰Ｗ??勗??/p>
+                </div>
+                
+                <div style="background: white; padding: 2rem; border-radius: 10px; margin-bottom: 1rem; box-shadow: var(--shadow);">
+                    <h3 style="color: var(--dark-color); margin-bottom: 0.5rem;">?梧? ??閬??瑟???</h3>
+                    <p style="color: #64748b;">蝪∪蝬脩?蝝?2-4 ?梧?銴?蝟餌絞?航?閬?2-6 ???????寞??琿??瘙?靘底蝝啁???銵具?/p>
+                </div>
+                
+                <div style="background: white; padding: 2rem; border-radius: 10px; margin-bottom: 1rem; box-shadow: var(--shadow);">
+                    <h3 style="color: var(--dark-color); margin-bottom: 0.5rem;">? ?敺??嚗?/h3>
+                    <p style="color: #64748b;">??嚗????桅??祥蝬剛風??銋??舫?????瑟?蝬剛風????/p>
+                </div>
+                
+                <div style="background: white; padding: 2rem; border-radius: 10px; box-shadow: var(--shadow);">
+                    <h3 style="color: var(--dark-color); margin-bottom: 0.5rem;">?? ?芸瞉喲?????</h3>
+                    <p style="color: #64748b;">?蜇?其??潭噫?嚗?銋???皜胯?瘚瑕?憭抒?摰Ｘ???蝔?雿?/p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 銵??潛捲 -->
+    <section class="cta">
+        <div class="container">
+            <h2>皞????函??嚗?/h2>
+            <p>蝡?舐鼠???脣??祥隢株岷???/p>
+            <a href="tel:+85328282828" class="btn btn-light">?? ?湧 +853 2828 2828</a>
+        </div>
+    </section>
+
+    <!-- ? -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <h3>???萇?蝘?</h3>
+                    <p>撠平 IT 閫?捱?寞?靘????游??潛摰Ｘ???菜?????銵???/p>
+                </div>
+                <div class="footer-section">
+                    <h3>敹恍??</h3>
+                    <ul>
+                        <li><a href="index.html">擐?</a></li>
+                        <li><a href="services.html">??蝭?</a></li>
+                        <li><a href="about.html">???/a></li>
+                        <li><a href="contact.html">?舐鼠??/a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>????</h3>
+                    <p>?曹??喲曹?嚗?:00 - 18:00</p>
+                    <p>?勗嚗?:00 - 13:00</p>
+                    <p>?望??曉?????/p>
+                </div>
+                <div class="footer-section">
+                    <h3>?舐鼠?孵?</h3>
+                    <p>?? 瞉喲??孵銵?</p>
+                    <p>?? +853 2828 2828</p>
+                    <p>?? info@rr2tech.com</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 ?萇?蝘????砍??甈???/p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
